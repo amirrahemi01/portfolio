@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "work": "hello",
+    "skills": "cancel",
+    "about": "continue",
+    "contact": "continue"
+  },
+  "header": {
+    "hello": "hello",
+    "cancel": "cancel",
+    "continue": "continue"
+  },
+  "home": {
+    "a": "dddd",
+    "da": "adfdfs",
+    "dad": "Contidafdnuez"
+  }
+}
