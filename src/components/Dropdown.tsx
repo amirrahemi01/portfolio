@@ -24,7 +24,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
         {text}
       </button>
       {isOpen && (
-        <div className="fixed">
+        <div className="fixed bg-slate-800 w-fit px-6 py-2 rounded-xl left-3">
           {options.map((option, index) => (
             <div key={index} className="dropdown-item" onClick={() => selectOption(option.value)}>
               {/* {selectedOption} */}

@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { FaMoon } from 'react-icons/fa6';
 
+import "@theme-toggles/react/css/Expand.css";
+import { Expand } from "@theme-toggles/react";
+
 function ToggleDark() {
   useEffect(() => {
     const selectedTheme = localStorage.getItem('selectedThemeType');
@@ -10,12 +13,12 @@ function ToggleDark() {
   }, []);
 
   function setDarkMode() {
-    document.documentElement.className = 'dark';
+    document.body.setAttribute('data-mode', 'dark');
     localStorage.setItem('selectedThemeType', 'dark');
   }
 
   function setLightMode() {
-    document.documentElement.className = 'light';
+    document.body.setAttribute('data-mode', 'light');
     localStorage.setItem('selectedThemeType', 'light');
   }
 
@@ -25,24 +28,23 @@ function ToggleDark() {
     setDarkMode();
   }
 
-  function toggleTheme(e: React.ChangeEvent<HTMLInputElement>) {
-    if (e.target.checked) setDarkMode();
-    else setLightMode();
+  function toggleTheme(e: React.MouseEvent<HTMLButtonElement>) {
+    const currentTheme = localStorage.getItem('selectedThemeType');
+    if (currentTheme === 'dark') {
+      setLightMode();
+    } else {
+      setDarkMode();
+    }
   }
 
   return (
-    <>
-      <input
-        onChange={toggleTheme}
+      <button
+        onClick={toggleTheme}
         defaultChecked={selectedTheme === 'dark'}
-        className="theme-switch"
-        type="checkbox"
-        id="switch"
-      />
-      <label className="theme-switch" htmlFor="switch">
-      <button><FaMoon /></button>
-      </label>
-    </>
+        className="text-black dark:text-white"
+      >
+        <Expand duration={750} reversed placeholder={<div>Loading...</div>} />
+      </button>
   );
 }
 

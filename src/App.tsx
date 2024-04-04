@@ -32,6 +32,7 @@ function App() {
         <button className="bg-green-100 p-7" onClick={() => handleChangeLanguage(localStorage.getItem("language") === "fa" ? 'en' : 'fa')}>
           {localStorage.getItem("language") === "fa" ? 'en' : 'fa'}
         </button>
+        {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
       </div>
     </div>
   );
