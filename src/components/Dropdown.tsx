@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
   };
 
   return (
-    <div className="dropdown">
+    <div className="px-4">
       <button className="dropdown-toggle" onClick={toggleDropdown}>
         {text}
       </button>

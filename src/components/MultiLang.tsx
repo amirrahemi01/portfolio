@@ -16,6 +16,13 @@ function MultiLang({ }: Props) {
         i18n.changeLanguage(lang);
         localStorage.setItem("language", lang);
         document.documentElement.className = lang;
+        document.documentElement.setAttribute('lang', lang);
+
+        if(localStorage.getItem("language") === "en") {
+            document.documentElement.setAttribute('dir', "ltr");
+        } else {
+            document.documentElement.setAttribute('dir', "rtl");
+        }
     };
 
     // Dropdown values
