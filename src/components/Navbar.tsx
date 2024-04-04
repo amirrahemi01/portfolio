@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { FaGithub, FaLinkedin, FaMoon, FaXTwitter } from "react-icons/fa6";
 import { IoLogoAngular } from "react-icons/io";
 import { IoLanguage } from "react-icons/io5";
+import MultiLang from './MultiLang';
+import ToggleDark from './ToggleDark';
 
 type Props = {}
 
@@ -35,8 +37,9 @@ function Navbar({ }: Props) {
         </div>
       </nav>
       <div className="toggle">
-        <button><FaMoon /></button>
-        <button><IoLanguage /></button>
+        <ToggleDark  />
+        
+        <MultiLang />
       </div>
     </header>
   )
