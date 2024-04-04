@@ -17,13 +17,15 @@ function MultiLang({ }: Props) {
         localStorage.setItem("language", lang);
         document.documentElement.className = lang;
         document.documentElement.setAttribute('lang', lang);
-
-        if(localStorage.getItem("language") === "en") {
-            document.documentElement.setAttribute('dir', "ltr");
-        } else {
-            document.documentElement.setAttribute('dir', "rtl");
-        }
     };
+
+    if(localStorage.getItem("language") === "en") {
+        document.documentElement.setAttribute('dir', "ltr");
+        document.title = "AMIR RAHEMI";
+    } else {
+        document.documentElement.setAttribute('dir', "rtl");
+        document.title = "امیر راحمی";
+    }
 
     // Dropdown values
     const options = [
