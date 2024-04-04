@@ -19,12 +19,48 @@ function App() {
 
   const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
   const FadeUp = batch(Fade(), Move(), Sticky());
+
+  // On Scroll Hide Content
+  const [isVisible, setIsVisible] = useState(true);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => {
+      window.removeEventListener("scroll", listenToScroll);
+    }
+  }, []);
+
+  function listenToScroll() {
+    let heightToHideFrom = 200;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    setHeight(winScroll);
+
+    if (winScroll > heightToHideFrom) {
+      isVisible && setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  };
+
   return (
     <div className="bg-white dark:bg-black h-screen text-white">
       <Navbar />
+
       <div className="vanta-cloud-animation"></div>
-      <div className="flex flex-col justify-center">
-        <a href="#" className="mousescroll bg-red-100"></a>
+
+      <div className="flex flex-col justify-center w-3/4 my-0 mx-auto">
+        <section className="starter">
+
+       <div id={isVisible ? "hide" : "nohide"}>
+            Content hidden when scrolled beyond  200px
+       </div>
+
+        </section>
+        <h2>Hello</h2>
+        <p>Welcome to my slice of the internet</p>
+        
+        <a className="_scrollIndicator_x8c4c_232" data-status="entered" data-hidden="false" href="/#project-1"><span className="_hidden_1mhmf_2" data-hidden="true">Scroll to projects</span></a>
         <h3>{t("header.cancel")}</h3>
         <button onClick={() => handleChangeLanguage("en")}>EN</button>
         <button onClick={() => handleChangeLanguage("fa")}>FA</button>
