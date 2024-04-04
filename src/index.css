@@ -6,28 +6,44 @@
 
 
 body {
-    font-family: "Paytone One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  ul {
-    writing-mode: vertical-lr;
-  }
-  
-  li {
-    -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: tb-rl;
-    writing-mode: vertical-rl;
-  }
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #000000;
+}
+
+ul {
+  writing-mode: vertical-lr;
+}
+
+li {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
 
 
-  .toggle {
-    position: fixed;
-    z-index: 32px;
-    top: 60px;
-    right: 60px;
-    transform: translateZ(0);
-    font-size: 30px;
+.toggle {
+  position: fixed;
+  z-index: 32px;
+  top: 60px;
+  right: 60px;
+  transform: translateZ(0);
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.toggle svg {
+  font-size: 33px;
+}
+
+.dropdown-item {
+  display: flex;
+}
+
+.aaa {
+  display: flex;
 }
 
 .mousescroll {
@@ -37,7 +53,7 @@ body {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   transition-property: opacity;
-  transition-timing-function: cubic-bezier(.8,.1,.27,1);
+  transition-timing-function: cubic-bezier(.8, .1, .27, 1);
   transition-duration: 400ms;
   padding: 20px;
 }
@@ -46,8 +62,8 @@ body {
   content: "";
   height: 7px;
   width: 2px;
-  background: 
-color-mix(in lab, oklch(100% 0 0) 40%, transparent);
+  background:
+    color-mix(in lab, oklch(100% 0 0) 40%, transparent);
   border-radius: 4px;
   position: absolute;
   top: 6px;
