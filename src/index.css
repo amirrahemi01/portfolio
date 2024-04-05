@@ -4,115 +4,67 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
-
-body {
-  font-family: "Paytone One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background-color: #000000;
+* {
+  box-sizing: border-box;
+  transition: 0.5s;
 }
 
-ul {
-  writing-mode: vertical-lr;
+#hide {
+  opacity: 1;
+  transition: 0.5s all;
 }
 
-li {
-  -webkit-writing-mode: vertical-rl;
-  -ms-writing-mode: tb-rl;
-  writing-mode: vertical-rl;
-}
-
-
-.toggle {
-  position: fixed;
-  z-index: 32px;
-  top: 60px;
-  right: 60px;
-  transform: translateZ(0);
-  font-size: 15px;
-  display: flex;
-  align-items: flex-start;
+#nohide {
+  opacity: 0;
+  transition: 0.5s all;
 }
 
 .toggle svg {
   font-size: 33px;
 }
 
-/* .dropdown-item {
-  display: flex;
-} */
-
-/* .aaa {
-  display: flex;
-} */
-
-/* toggle */
-.theme-switch[type=checkbox] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-.theme-switch {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 52px;
-  height: 31px;
-  background: #585858;
-  display: block;
-  border-radius: 100px;
-  position: relative;
-  font-size: 1rem;
-  font-size: 10px;
-}
-
-.theme-switch:after {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border-radius: 90px;
-  transition: var(--transition);
-}
-
-.theme-switch:checked+.theme-switch {
-  background: #087FFF;
-}
-
-.theme-switch:checked+.theme-switch:after {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.theme-switch:focus+.theme-switch::after {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-.mousescroll {
+.mouse-scroll {
+  border: 2px solid #666666;
+  border-radius: 20px;
+  width: 26px;
+  height: 38px;
   position: fixed;
-  bottom: 0;
-  opacity: 0;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
+  bottom: 64px;
   transition-property: opacity;
-  transition-timing-function: cubic-bezier(.8, .1, .27, 1);
-  transition-duration: 400ms;
-  padding: 20px;
+  transition-duration: 600ms;
+  transition-timing-function: ease;
+  opacity: 1;
 }
 
-.mousescroll::before {
+.mouse-scroll:before {
   content: "";
   height: 7px;
   width: 2px;
-  background:
-    color-mix(in lab, oklch(100% 0 0) 40%, transparent);
+  background: #666666;
   border-radius: 4px;
   position: absolute;
   top: 6px;
   left: 50%;
   transform: translate(-1px);
+}
+
+.mouse-scroll:before {
+  animation: mouse-scroll 2s ease infinite;
+}
+
+@keyframes mouse-scroll {
+  0% {
+      transform: translate3d(-1px,0,0);
+      opacity: 0
+  }
+
+  20% {
+      transform: translate3d(-1px,0,0);
+      opacity: 1
+  }
+
+  to {
+      transform: translate3d(-1px,8px,0);
+      opacity: 0
+  }
 }

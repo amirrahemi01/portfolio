@@ -56,7 +56,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        montserrat: ["Montserrat"],
+        paytone: ["Paytone One"],
       },
     },
   },

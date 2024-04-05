@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -32,7 +33,7 @@ function App() {
   }, []);
 
   function listenToScroll() {
-    let heightToHideFrom = 200;
+    let heightToHideFrom = 15;
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     setHeight(winScroll);
 
@@ -44,31 +45,43 @@ function App() {
   };
 
   return (
-    <div className="bg-white dark:bg-black h-screen text-white">
+    <div className="bg-white dark:bg-black h-screen text-white font-paytone font-normal transition-all">
       <Navbar />
 
       <div className="vanta-cloud-animation"></div>
 
       <div className="flex flex-col justify-center w-3/4 my-0 mx-auto">
-        <section className="starter">
+        <section className="h-screen flex items-center justify-center flex-col">
+          <h2 style={{ fontSize: "85px" }}>{t("header.hello")}</h2>
+          <p style={{ fontSize: "45px" }}>{t("header.Welcome to my slice of the internet")}</p>
 
-       <div id={isVisible ? "hide" : "nohide"}>
-            Content hidden when scrolled beyond  200px
-       </div>
+          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="/#project-1"></a>
+
+          <h3>{t("header.cancel")}</h3>
+          <button onClick={() => handleChangeLanguage("en")}>EN</button>
+          <button onClick={() => handleChangeLanguage("fa")}>FA</button>
+          <img src={sideview} width={"200px"} />
+          <button className="bg-green-100 p-7" onClick={() => handleChangeLanguage(localStorage.getItem("language") === "fa" ? 'en' : 'fa')}>
+            {localStorage.getItem("language") === "fa" ? 'en' : 'fa'}
+          </button>
+          {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
 
         </section>
-        <h2>Hello</h2>
-        <p>Welcome to my slice of the internet</p>
-        
-        <a className="_scrollIndicator_x8c4c_232" data-status="entered" data-hidden="false" href="/#project-1"><span className="_hidden_1mhmf_2" data-hidden="true">Scroll to projects</span></a>
-        <h3>{t("header.cancel")}</h3>
-        <button onClick={() => handleChangeLanguage("en")}>EN</button>
-        <button onClick={() => handleChangeLanguage("fa")}>FA</button>
-        <img src={sideview} width={"200px"} />
-        <button className="bg-green-100 p-7" onClick={() => handleChangeLanguage(localStorage.getItem("language") === "fa" ? 'en' : 'fa')}>
-          {localStorage.getItem("language") === "fa" ? 'en' : 'fa'}
-        </button>
-        {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
+
+        <section className="h-screen flex items-center justify-center flex-col">
+          <button 
+            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+            className="fixed right-7 bottom-7 z-50 bg-gray-600 rounded-lg p-4 text-2xl"
+            id={isVisible ? "nohide" : "hide"}
+          >
+            <MdKeyboardDoubleArrowUp />
+          </button>
+          <pre>
+
+
+          </pre>
+        </section>
+
       </div>
     </div>
   );
