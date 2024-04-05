@@ -45,7 +45,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white dark:bg-black h-screen text-white font-paytone font-normal transition-all">
+    <div className="bg-white dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-normal transition-all">
       <Navbar />
 
       <div className="vanta-cloud-animation"></div>
@@ -55,20 +55,21 @@ function App() {
           <h2 style={{ fontSize: "85px" }}>{t("header.hello")}</h2>
           <p style={{ fontSize: "45px" }}>{t("header.Welcome to my slice of the internet")}</p>
 
-          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="/#project-1"></a>
+          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="#a"></a>
+        </section>
 
-          <h3>{t("header.cancel")}</h3>
+        <section className="h-screen flex items-center justify-center flex-col" id="a">
+
+        <h3>{t("header.cancel")}</h3>
           <button onClick={() => handleChangeLanguage("en")}>EN</button>
           <button onClick={() => handleChangeLanguage("fa")}>FA</button>
           <img src={sideview} width={"200px"} />
           <button className="bg-green-100 p-7" onClick={() => handleChangeLanguage(localStorage.getItem("language") === "fa" ? 'en' : 'fa')}>
             {localStorage.getItem("language") === "fa" ? 'en' : 'fa'}
           </button>
+          <p className="text-red-200 rtl:text-green-100">{t("header.hello")}</p>
           {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
 
-        </section>
-
-        <section className="h-screen flex items-center justify-center flex-col">
           <button 
             onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
             className="fixed right-7 bottom-7 z-50 bg-gray-600 rounded-lg p-4 text-2xl"

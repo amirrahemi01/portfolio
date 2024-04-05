@@ -4,10 +4,63 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
-* {
+/* * {
   box-sizing: border-box;
   transition: 0.5s;
+} */
+
+::selection {
+  background-color: #246692; /* Selected text background color */
+  color: #fff; /* Selected text color */
 }
+
+* {
+  box-sizing: border-box;
+  transition: 0.35s;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+[dir=ltr] html {
+  font-family: "Paytone One", sans-serif;
+}
+
+
+[dir=rtl] html {
+  font-family: "Lalezar" !important;
+}
+
+.en {
+  font-family: "Paytone One", sans-serif;
+}
+
+
+.fa {
+  font-family: "Lalezar" !important;
+} */
+
 
 #hide {
   opacity: 1;

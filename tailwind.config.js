@@ -38,6 +38,12 @@ module.exports = {
         250: '#ED6464',
         600: '#350E0C',
       },
+      'blue': {
+        100: '#9bddff',
+        200: '#E93131',
+        250: '#ED6464',
+        600: '#350E0C',
+      },
     },
     fontSize: {
       sm: '0.8rem',
@@ -57,6 +63,7 @@ module.exports = {
     extend: {
       fontFamily: {
         paytone: ["Paytone One"],
+        lalezar: ["Lalezar"],
       },
     },
   },
