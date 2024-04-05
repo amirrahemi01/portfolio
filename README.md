@@ -26,5 +26,6 @@ CHECKLIST
       - Typewriter Effect
        - NPM   font-family: "Ubuntu Mono", monospace;
         - 3D IMAGES & use https://www.blobmaker.app/
+         -after crash source :)
 
 
