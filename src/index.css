@@ -212,7 +212,7 @@ html {
   /* Active */
   .nav.active {
     all: unset;
-    background-color: rgb(69, 25, 88);
+    background-color: #246692;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,20 +224,21 @@ html {
     right: 0;
     flex-direction: column;
     flex-wrap: wrap;
-    z-index: 1;
+    z-index: 99999999999999;
   }
 
   .nav.active nav {
     all: unset;
     display: block;
     font-size: 3.5rem;
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
 
   .nav.active ul {
     all: unset;
     display: flex;
     flex-direction: column;
+    text-decoration: underline #3c6a88;
   }
 
   .nav.active img.logo {
