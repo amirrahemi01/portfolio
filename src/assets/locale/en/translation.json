@@ -1,9 +1,9 @@
 {
   "navbar": {
-    "work": "hello",
-    "skills": "cancel",
-    "about": "continue",
-    "contact": "continue"
+    "work": "work",
+    "skills": "skills",
+    "about": "about",
+    "contact": "contact"
   },
   "header": {
     "hello": "hello",
