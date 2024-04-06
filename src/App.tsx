@@ -83,6 +83,26 @@ function App() {
           </pre>
         </section>
 
+        <main className="App-header">
+        {/* <nav className="navbar" >
+          <a href='#home' className="logo" >Dev. </a>
+          <ul className={`navMenu ${isActive ? "active" : ''}`}>
+            <li onClick={removeActive}>
+              <a href='#home' className="navLink" >Home</a>
+            </li>
+            <li onClick={removeActive}>
+              <a href='#home' className="navLink" >Catalog</a>
+            </li>
+            <li onClick={removeActive}>
+              <a href='#home' className="navLink" >All products</a>
+            </li>
+            <li onClick={removeActive}>
+              <a href='#home' className="navLink" >Contact</a>
+            </li>
+          </ul>
+        </nav> */}
+      </main>
+
       </div>
     </div>
   );

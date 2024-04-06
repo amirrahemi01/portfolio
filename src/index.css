@@ -121,3 +121,139 @@ html {
       opacity: 0
   }
 }
+
+/* navbar */
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  min-height: 70px;
+}
+
+/* ul  */
+.navMenu {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.navLink {
+  color: #246692;
+}
+
+/* media queries */
+
+
+@media screen and (max-width: 780px){
+  
+  /* hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  .bar {
+        background-color: #fff;
+        width: 20px;
+        height: 3px;
+        display: block;
+        margin: 5px;
+        -webkit-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+
+  /* adding active class to the bars  */
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+  /* navMenu */
+
+  .navMenu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    top: 70px;
+    left: -100%;
+    text-align: start;
+    width: 100%;
+    transition: 0.7s ease-in-out;
+    padding: 10px;
+  }
+
+  .navMenu.active{
+    left: 0;
+  }
+
+  .navMenu li {
+    margin: 16px 0;
+  }
+
+  /* Not Active */
+  .nav.disable {
+    all: unset;
+  }
+
+  .nav.disable nav {
+    opacity: 0;
+    display: none;
+  }
+
+  /* Active */
+  .nav.active {
+    all: unset;
+    background-color: rgb(69, 25, 88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 1;
+  }
+
+  .nav.active nav {
+    all: unset;
+    display: block;
+    font-size: 3.5rem;
+    text-transform: capitalize;
+  }
+
+  .nav.active ul {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav.active img.logo {
+    position: absolute;
+    top: 3.5rem;
+    left: 2rem;
+    width: 50px;
+  }
+
+  .nav.active .social {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  .nav.active li {
+    all: unset;
+  }
+}
