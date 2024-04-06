@@ -5,6 +5,7 @@ import sideview from "./assets/image/sideview.webp"
 import { useTranslation } from 'react-i18next';
 // import i18next from 'i18next';
 import Navbar from './components/Navbar';
+import Typewriter from 'typewriter-effect';
 
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
@@ -58,9 +59,9 @@ function App() {
           <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="#a"></a>
         </section>
 
-        <section className="h-screen flex items-center justify-center flex-col" id="a">
+        <section className="h-screen flex items-center justify-center flex-col text-slate-400">
 
-        <h3>{t("header.cancel")}</h3>
+          <h3>{t("header.cancel")}</h3>
           <button onClick={() => handleChangeLanguage("en")}>EN</button>
           <button onClick={() => handleChangeLanguage("fa")}>FA</button>
           <img src={sideview} width={"200px"} />
@@ -70,39 +71,28 @@ function App() {
           <p className="text-red-200 rtl:text-green-100">{t("header.hello")}</p>
           {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
 
-          <button 
-            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="fixed right-7 bottom-7 z-50 bg-gray-600 rounded-lg p-4 text-2xl"
             id={isVisible ? "nohide" : "hide"}
           >
             <MdKeyboardDoubleArrowUp />
           </button>
+
+          <Typewriter
+  options={{
+    strings: ['Hello', 'World'],
+    autoStart: true,
+    loop: true,
+    delay: 100,
+  }}
+          />
+
           <pre>
 
 
           </pre>
         </section>
-
-        <main className="App-header">
-        {/* <nav className="navbar" >
-          <a href='#home' className="logo" >Dev. </a>
-          <ul className={`navMenu ${isActive ? "active" : ''}`}>
-            <li onClick={removeActive}>
-              <a href='#home' className="navLink" >Home</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className="navLink" >Catalog</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className="navLink" >All products</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className="navLink" >Contact</a>
-            </li>
-          </ul>
-        </nav> */}
-      </main>
-
       </div>
     </div>
   );
