@@ -10,6 +10,7 @@ import Typewriter from 'typewriter-effect';
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
+import Footer from './components/Footer';
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -46,7 +47,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-normal transition-all">
+    <div className="bg-white dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-normal transition-all capitalize">
       <Navbar />
 
       <div className="vanta-cloud-animation"></div>
@@ -73,7 +74,7 @@ function App() {
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed right-7 bottom-7 z-50 bg-gray-600 rounded-lg p-4 text-2xl"
+            className="fixed right-10 bottom-14 z-50 bg-gray-600 rounded-lg p-4 text-2xl"
             id={isVisible ? "nohide" : "hide"}
           >
             <MdKeyboardDoubleArrowUp />
@@ -94,6 +95,7 @@ function App() {
           </pre>
         </section>
       </div>
+      <Footer />
     </div>
   );
 }
