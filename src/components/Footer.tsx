@@ -10,7 +10,7 @@ function Footer({ }: Props) {
             <p className="flex">
                 made with
                 <span className="mx-1">
-                    <img src="https://emojicdn.elk.sh/%E2%9D%A4%EF%B8%8F" alt="" width="20" />
+                    <img src="https://emojicdn.elk.sh/%F0%9F%A9%B5" alt="" width="20" />
                 </span>
                 in rasht :)
             </p>
