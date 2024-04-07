@@ -12,7 +12,7 @@ import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Mo
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import Footer from './components/Footer';
 
-import IMG from "./assets/image/cover.png"
+import IMG from "./assets/image/cover.jpg"
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -56,11 +56,13 @@ function App() {
 
       <div className="flex flex-col justify-center w-3/4 my-0 mx-auto">
         <section className="h-screen flex items-center justify-center flex-col">
+          <div className="absolute bottom-20 z-50">
           <h2 style={{ fontSize: "85px" }}>{t("header.hello")}</h2>
           <p style={{ fontSize: "45px" }}>{t("header.Welcome to my slice of the internet")}</p>
+          </div>
 
           <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="#a"></a>
-          <img className="absolute bottom-0" src={IMG} alt="" />
+          <img className="absolute bottom-0" src={IMG} alt="" width="30%" />
         </section>
 
         <section className="h-screen flex items-center justify-center flex-col text-slate-400">
