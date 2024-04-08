@@ -1,36 +1,74 @@
 import React from 'react'
 
+import IMG1 from "../assets/image/cover2.png";
+import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
+import { IoGameController } from 'react-icons/io5';
+import { TiVideo } from "react-icons/ti";
+
+
 type Props = {}
 
 function About({ }: Props) {
   return (
     <div>
-      <div className="a">
-        <h2>I AM A REACT.JS DEVELOPER</h2>
-        <p>
-          Lorem ipsum dolor sit amet
-          consectetur adipisicing elit.
-          Amet, aut quibusdam delectus
-          beatae earum alias eos aspernatur
-          pariatur nemo iste possimus blanditiis
-          officia quidem reprehenderit qui quis
-          commodi nam voluptates!
-        </p>
-        <img src="amir" alt="" />
-        <button>Download CV</button>
+      <div className="flex">
+        <div className="ml-auto p-5">
+        <img src={IMG1} alt="" className="a w-screen" />
+        </div>
+        <br />
+
+        <div className="flex flex-col justify-center">
+          <h1 className="text-5xl text-blue-100">Amir Rahemi</h1>
+          <h2 className="text-2xl">REACT.JS DEVELOPER</h2>
+          <p className="text-slate-300">
+            Lorem ipsum dolor sit amet
+            consectetur adipisicing elit.
+            Amet, aut quibusdam delectus
+            beatae earum alias eos aspernatur
+            pariatur nemo iste possimus blanditiis
+            officia quidem reprehenderit qui quis
+            commodi nam voluptates!
+          </p>
+
+          <br />
+          <p className="text-slate-300">
+            Lorem ipsum dolor sit amet
+            consectetur adipisicing elit.
+            Amet, Aut Quibusdam Delectus.
+          </p>
+
+          <br />
+          <button className="flex bg-blue-100 text-black w-fit py-2 px-4 rounded-md">Download CV</button>
+        </div>
       </div>
       
-      <div className="d">
+
+      <div className="flex flex-col">
         <h1>my interests</h1>
-        <div className="e">
-          <div className="f">
-            <b>x</b>
+        <div className="flex flex-row">
+          <div className="flex items-center w-fit mx-5">
+            <FaHeadphones className="mx-2 text-blue-100 text-4xl" />
+            <p>Music</p>
           </div>
-          <div className="f">
-            <b>y</b>
+          <div className="flex items-center w-fit mx-5">
+            <FaDumbbell  className="mx-2 text-blue-100 text-4xl"/>
+            <p>sport</p>
           </div>
-          <div className="f">
-            <b>z</b>
+          <div className="flex items-center w-fit mx-5">
+            <IoGameController className="mx-2 text-blue-100 text-4xl" />
+            <p>game</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <TiVideo  className="mx-2 text-blue-100 text-4xl"/>
+            <p>movie</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <FaCamera  className="mx-2 text-blue-100 text-4xl"/>
+            <p>photo</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <FaRoad className="mx-2 text-blue-100 text-4xl" />
+            <p>travel</p>
           </div>
         </div>
       </div>
