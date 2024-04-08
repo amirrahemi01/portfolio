@@ -13,6 +13,8 @@ import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import Footer from './components/Footer';
 
 import IMG from "./assets/image/cover.jpg"
+import About from './components/About';
+import Skills from './components/Skills';
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -56,30 +58,40 @@ function App() {
 
       <div className="flex flex-col justify-center w-3/4 my-0 mx-auto">
         <section className="h-screen flex items-center justify-center flex-col">
-          <div className="absolute bottom-20 z-50">
+          <div className="absolute bottom-20 z-40">
           <h2 style={{ fontSize: "85px" }}>{t("header.hello")}</h2>
           <p style={{ fontSize: "45px" }}>{t("header.Welcome to my slice of the internet")}</p>
           </div>
 
-          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll" href="#a"></a>
+          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll z-50" href="#a"></a>
+          
           <img className="absolute bottom-0" src={IMG} alt="" width="30%" />
         </section>
 
-        <section className="h-screen flex items-center justify-center flex-col text-slate-400">
+        <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
 
-          <h3>{t("header.cancel")}</h3>
+          <About />
+          <Skills />
+
+        </section>
+
+        <section className="a">
+        <h3>{t("header.cancel")}</h3>
           <button onClick={() => handleChangeLanguage("en")}>EN</button>
           <button onClick={() => handleChangeLanguage("fa")}>FA</button>
+
           <img src={sideview} width={"200px"} />
+
           <button className="bg-green-100 p-7" onClick={() => handleChangeLanguage(localStorage.getItem("language") === "fa" ? 'en' : 'fa')}>
             {localStorage.getItem("language") === "fa" ? 'en' : 'fa'}
           </button>
+
           <p className="text-red-200 rtl:text-green-100">{t("header.hello")}</p>
           {localStorage.getItem("selectedThemeType") === "dark" ? "dark" : "light"}
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed right-10 bottom-14 z-50 bg-gray-600 rounded-lg p-4 text-2xl"
+            className="fixed right-10 bottom-14 z-50 bg-blue-100 text-black rounded-lg p-4 text-2xl"
             id={isVisible ? "nohide" : "hide"}
           >
             <MdKeyboardDoubleArrowUp />
@@ -93,11 +105,6 @@ function App() {
     delay: 100,
   }}
           />
-
-          <pre>
-
-
-          </pre>
         </section>
       </div>
       <Footer />
