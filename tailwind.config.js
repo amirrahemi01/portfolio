@@ -62,8 +62,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        paytone: ["Paytone One"],
-        lalezar: ["Lalezar"],
+        paytone: ["Paytone One", "Lalezar"],
+        lalezar: ["Lalezar", "Paytone One"],
       },
     },
   },
