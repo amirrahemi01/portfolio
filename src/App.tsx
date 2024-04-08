@@ -15,6 +15,9 @@ import Footer from './components/Footer';
 import IMG from "./assets/image/cover.jpg"
 import About from './components/About';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
+import SocialMedia from './components/SocialMedia';
+
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -71,12 +74,23 @@ function App() {
         <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
 
           <About />
-          <Skills />
+
+        </section>
+
+        <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
+
+          <Projects />
+
+        </section>
+
+        <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
+
+          <SocialMedia />
 
         </section>
 
         <section className="a">
-        <h3>{t("header.cancel")}</h3>
+        {/* <h3>{t("header.cancel")}</h3>
           <button onClick={() => handleChangeLanguage("en")}>EN</button>
           <button onClick={() => handleChangeLanguage("fa")}>FA</button>
 
@@ -104,7 +118,7 @@ function App() {
     loop: true,
     delay: 100,
   }}
-          />
+          /> */}
         </section>
       </div>
       <Footer />

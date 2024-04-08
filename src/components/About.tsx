@@ -47,7 +47,7 @@ function About({ }: Props) {
       <div className="flex flex-col">
         <h1>my interests</h1>
         <br />
-        
+
         <div className="flex flex-row justify-between">
           <div className="flex items-center w-fit mx-5">
             <FaHeadphones className="mx-2 text-blue-100 text-4xl" />
