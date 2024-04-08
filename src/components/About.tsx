@@ -4,6 +4,7 @@ import IMG1 from "../assets/image/cover2.png";
 import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
 import { IoGameController } from 'react-icons/io5';
 import { TiVideo } from "react-icons/ti";
+import Skills from './Skills';
 
 
 type Props = {}
@@ -45,7 +46,9 @@ function About({ }: Props) {
 
       <div className="flex flex-col">
         <h1>my interests</h1>
-        <div className="flex flex-row">
+        <br />
+        
+        <div className="flex flex-row justify-between">
           <div className="flex items-center w-fit mx-5">
             <FaHeadphones className="mx-2 text-blue-100 text-4xl" />
             <p>Music</p>
@@ -71,6 +74,9 @@ function About({ }: Props) {
             <p>travel</p>
           </div>
         </div>
+        <br />
+          
+          <Skills />
       </div>
     </div>
   )

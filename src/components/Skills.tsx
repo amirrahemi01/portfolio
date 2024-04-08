@@ -1,13 +1,16 @@
 import React from 'react'
 
+
+import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Original, JavascriptOriginal, NextjsOriginal, NodejsOriginalWordmark, ReactOriginal, ReduxOriginal, TailwindcssPlainWordmark, TypescriptOriginal } from 'devicons-react';
+
 type Props = {}
 
 function Skills({ }: Props) {
   return (
     <div>
       <div className="flex flex-col">
-        <h1>my interests</h1>
-        <p>
+        <h1>my skills</h1>
+        <p className="text-slate-300">
           Lorem ipsum dolor sit amet
           consectetur adipisicing elit.
           Amet, aut quibusdam delectus
@@ -16,31 +19,20 @@ function Skills({ }: Props) {
           officia quidem reprehenderit qui quis
           commodi nam voluptates!
         </p>
-        <div className="flex flex-row">
-          <div className="flex items-center w-fit mx-5">
-            {/* <FaHeadphones className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>HTML</p>
-          </div>
-          <div className="flex items-center w-fit mx-5">
-            {/* <FaDumbbell className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>CSS</p>
-          </div>
-          <div className="flex items-center w-fit mx-5">
-            {/* <IoGameController className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>TAILWIND.CSS</p>
-          </div>
-          <div className="flex items-center w-fit mx-5">
-            {/* <TiVideo className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>TYPESCRIPT</p>
-          </div>
-          <div className="flex items-center w-fit mx-5">
-            {/* <FaCamera className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>REACT.JS</p>
-          </div>
-          <div className="flex items-center w-fit mx-5">
-            {/* <FaRoad className="mx-2 text-blue-100 text-4xl" /> */}
-            <p>NEXT.JS</p>
-          </div>
+        <br />
+
+        <div className="flex flex-row justify-between text-7xl skills">
+          <Html5Original />
+          <Css3Original />
+          <JavascriptOriginal />
+          <TypescriptOriginal />
+          <ReactOriginal />
+          <NextjsOriginal />
+          <NodejsOriginalWordmark />
+          <TailwindcssPlainWordmark />
+          <GitOriginalWordmark />
+          <ReduxOriginal />
+          <DockerOriginalWordmark />
         </div>
       </div>
     </div>
