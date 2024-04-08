@@ -5,8 +5,8 @@ type Props = {}
 function Skills({ }: Props) {
   return (
     <div>
-      <div className="b">
-        <h3>my skills</h3>
+      <div className="flex flex-col">
+        <h1>my interests</h1>
         <p>
           Lorem ipsum dolor sit amet
           consectetur adipisicing elit.
@@ -16,13 +16,31 @@ function Skills({ }: Props) {
           officia quidem reprehenderit qui quis
           commodi nam voluptates!
         </p>
-        <div className="c">
-          <b>HTML</b>
-          <b>CSS</b>
-          <b>TAILWIND.CSS</b>
-          <b>TYPESCRIPT</b>
-          <b>REACT.JS</b>
-          <b>NEXT.JS</b>
+        <div className="flex flex-row">
+          <div className="flex items-center w-fit mx-5">
+            {/* <FaHeadphones className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>HTML</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            {/* <FaDumbbell className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>CSS</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            {/* <IoGameController className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>TAILWIND.CSS</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            {/* <TiVideo className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>TYPESCRIPT</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            {/* <FaCamera className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>REACT.JS</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            {/* <FaRoad className="mx-2 text-blue-100 text-4xl" /> */}
+            <p>NEXT.JS</p>
+          </div>
         </div>
       </div>
     </div>
