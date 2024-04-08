@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000;
 }
 
 /* 
@@ -82,7 +83,7 @@ html {
   width: 26px;
   height: 38px;
   position: fixed;
-  bottom: 64px;
+  bottom: 30px;
   transition-property: opacity;
   transition-duration: 600ms;
   transition-timing-function: ease;
@@ -257,4 +258,9 @@ html {
   .nav.active li {
     all: unset;
   }
+}
+
+
+img.a {
+  box-shadow: 0 0 0 2px #9bddff, -8px 8px 0 0 #9bddff;
 }
