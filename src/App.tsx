@@ -16,7 +16,6 @@ import IMG from "./assets/image/cover.jpg"
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import SocialMedia from './components/SocialMedia';
 import ContactUs from './components/ContactUs';
 
 
@@ -86,7 +85,7 @@ function App() {
 
         <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
 
-          <SocialMedia />
+          
           <ContactUs />
 
         </section>
