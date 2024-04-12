@@ -4,7 +4,7 @@ type Props = {}
 
 function Footer({ }: Props) {
     return (
-        <footer className="flex flex-col bg-slate-960 text-slate-100 p-3 font-sans">
+        <footer className="flex flex-col lg:block bg-slate-960 text-slate-100 p-3 font-sans">
 
             <p className="float-right">&copy; 2024 Amir Rahemi, All rights reserved.</p>
             <p className="flex">

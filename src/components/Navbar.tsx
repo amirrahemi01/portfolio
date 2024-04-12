@@ -35,16 +35,16 @@ function Navbar({ }: Props) {
 
           <ul className="rotate-180 flex flex-row-reverse relative uppercase [writing-mode:vertical-lr]" >
             <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
-              <a onClick={removeActive} href="/work">{t("navbar.work")}</a>
+              <a onClick={removeActive} href="#about">{t("navbar.about")}</a>
             </li>
             <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
-              <a onClick={removeActive} href="/skills">{t("navbar.skills")}</a>
+              <a onClick={removeActive} href="#skills">{t("navbar.skills")}</a>
             </li>
             <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
-              <a onClick={removeActive} href="/about">{t("navbar.about")}</a>
+              <a onClick={removeActive} href="#projects">{t("navbar.work")}</a>
             </li>
             <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
-              <a onClick={removeActive} href="/contact">{t("navbar.contact")}</a>
+              <a onClick={removeActive} href="#contact">{t("navbar.contact")}</a>
             </li>
           </ul>
 

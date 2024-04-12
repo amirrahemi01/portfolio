@@ -11,8 +11,8 @@ type Props = {}
 
 function About({ }: Props) {
   return (
-    <div className="w-full">
-      <div className="flex flex-col lg:flex-row px-4">
+    <div className="w-full" id="about">
+      <div className="flex flex-col md:flex-row px-4">
         <div className="w-full ml-auto p-5">
         <img src={IMG1} alt="" className="a w-full" />
         </div>
@@ -43,9 +43,9 @@ function About({ }: Props) {
       
 
       <div className="flex flex-col mt-4">
-        <h1 className="px-4">my interests</h1> 
+        <h1 className="px-4 text-2xl">my interests</h1> 
 
-        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-scroll">
+        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-scroll md:overflow-y-auto md:justify-center">
           <div className="flex items-center w-fit mx-5">
             <FaHeadphones className="mx-2 text-blue-100 text-4xl" />
             <p>Music</p>

@@ -7,9 +7,9 @@ type Props = {}
 
 function Skills({ }: Props) {
   return (
-    <div>
+    <div id="skills">
       <div className="flex flex-col mt-4">
-        <h1 className="px-4">my skills</h1>
+        <h1 className="px-4 text-2xl">my skills</h1>
         <p className="text-slate-300 px-4">
           Lorem ipsum dolor sit amet
           consectetur adipisicing elit.
@@ -20,8 +20,8 @@ function Skills({ }: Props) {
           commodi nam voluptates!
         </p>
 
-        <div className="w-full overflow-y-scroll">
-          <div className="flex flex-row justify-between text-7xl skills mt-4 py-3 w-fit">
+        <div className="w-full overflow-y-scroll md:overflow-y-auto md:flex md:justify-center">
+          <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">
             <Html5Original />
             <Css3Original />
             <JavascriptOriginal />
