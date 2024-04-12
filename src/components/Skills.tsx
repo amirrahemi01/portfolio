@@ -13,15 +13,7 @@ function Skills({ }: Props) {
     <div id="skills">
       <div className="flex flex-col mt-4">
         <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
-        <p className="text-slate-300 px-4">
-          Lorem ipsum dolor sit amet
-          consectetur adipisicing elit.
-          Amet, aut quibusdam delectus
-          beatae earum alias eos aspernatur
-          pariatur nemo iste possimus blanditiis
-          officia quidem reprehenderit qui quis
-          commodi nam voluptates!
-        </p>
+        <p className="text-slate-300 px-4 text-justify">{t("content.skills")}</p>
 
         <div className="w-full overflow-y-scroll md:overflow-y-auto md:flex md:justify-center">
           <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">

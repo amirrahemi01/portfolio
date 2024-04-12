@@ -47,7 +47,7 @@ const ContactUs: React.FC<ContactProps> = () => {
 
 
       <div className="float-right flex flex-col justify-center items-center w-1/2 p-5 h-full rounded-xl gap-2">
-        <h2 className="text-3xl opacity-0 lg:opacity-100">More</h2>
+        {/* <h2 className="text-3xl opacity-0 lg:opacity-100">More</h2> */}
         <br />
         <div className="flex flex-row justify-center text-5xl">
           <a href="mailto:amirrahemi01@gmail.com"><MdOutlineAlternateEmail /></a>
