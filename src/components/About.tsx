@@ -11,17 +11,17 @@ type Props = {}
 
 function About({ }: Props) {
   return (
-    <div>
-      <div className="flex">
-        <div className="ml-auto p-5">
-        <img src={IMG1} alt="" className="a w-screen" />
+    <div className="w-full">
+      <div className="flex flex-col lg:flex-row px-4">
+        <div className="w-full ml-auto p-5">
+        <img src={IMG1} alt="" className="a w-full" />
         </div>
         <br />
 
         <div className="flex flex-col justify-center">
-          <h1 className="text-5xl text-blue-100">Amir Rahemi</h1>
-          <h2 className="text-2xl">REACT.JS DEVELOPER</h2>
-          <p className="text-slate-300">
+          <h1 className="text-base lg:text-5xl text-blue-100">Amir Rahemi</h1>
+          <h2 className="text-base lg:text-2xl">REACT.JS DEVELOPER</h2>
+          <p className="text-slate-300 text-sm lg:text-base">
             Lorem ipsum dolor sit amet
             consectetur adipisicing elit.
             Amet, aut quibusdam delectus
@@ -31,24 +31,21 @@ function About({ }: Props) {
             commodi nam voluptates!
           </p>
 
-          <br />
-          <p className="text-slate-300">
+          {/* <p className="text-slate-300">
             Lorem ipsum dolor sit amet
             consectetur adipisicing elit.
             Amet, Aut Quibusdam Delectus.
-          </p>
-
-          <br />
-          <button className="flex bg-blue-100 text-black w-fit py-2 px-4 rounded-md">Download CV</button>
+          </p> */}
+ 
+          <button className="flex bg-blue-100 text-black w-fit mt-4 py-2 px-4 rounded-md">Download CV</button>
         </div>
       </div>
       
 
-      <div className="flex flex-col">
-        <h1>my interests</h1>
-        <br />
+      <div className="flex flex-col mt-4">
+        <h1 className="px-4">my interests</h1> 
 
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-scroll">
           <div className="flex items-center w-fit mx-5">
             <FaHeadphones className="mx-2 text-blue-100 text-4xl" />
             <p>Music</p>
@@ -74,7 +71,6 @@ function About({ }: Props) {
             <p>travel</p>
           </div>
         </div>
-        <br />
           
           <Skills />
       </div>

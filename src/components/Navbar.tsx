@@ -54,7 +54,7 @@ function Navbar({ }: Props) {
             <a onClick={removeActive} href="https://linkedin.com/in/amirrahemi" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-white text-3xl hover:text-blue-100"><FaLinkedin /></a>
           </div>
         </nav>
-        <div className="fixed z-40 top-16 right-16 transform translate-z-[0] text-base flex items-start toggle">
+        <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-16 transform translate-z-[0] text-base flex items-start toggle">
           <ToggleDark />
           <MultiLang />
         <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>

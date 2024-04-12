@@ -59,25 +59,25 @@ function App() {
 
       <div className="vanta-cloud-animation"></div>
 
-      <div className="flex flex-col justify-center w-3/4 my-0 mx-auto">
+      <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
         <section className="h-screen flex items-center justify-center flex-col">
-          <div className="absolute bottom-20 z-40">
-          <h2 style={{ fontSize: "85px" }}>{t("header.hello")}</h2>
-          <p style={{ fontSize: "45px" }}>{t("header.Welcome to my slice of the internet")}</p>
+          <div className="absolute bottom-20 z-40 p-3">
+          <h2 className="text-2xl lg:text-8xl">{t("header.hello")}</h2>
+          <p className="text-sm lg:text-5xl">{t("header.Welcome to my slice of the internet")}</p>
           </div>
 
           <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll z-50" href="#a"></a>
           
-          <img className="absolute bottom-0" src={IMG} alt="" width="30%" />
+          <img className="absolute bottom-auto w-full lg:w-2/6 lg:bottom-0" src={IMG} alt="" />
         </section>
 
-        <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
+        <section className="h-auto flex items-center justify-center flex-col text-white" id="a">
 
           <About />
 
         </section>
 
-        <section className="h-screen flex items-center justify-center flex-col text-white" id="a">
+        <section className="h-auto flex items-center justify-center flex-col text-white" id="a">
 
           <Projects />
 

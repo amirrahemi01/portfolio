@@ -28,7 +28,7 @@ const ContactUs: React.FC<ContactProps> = () => {
   };
 
   return (
-    <div className="inline-flex items-center gap-4 w-full">
+    <div className="flex flex-col lg:inline-flex items-center gap-4 px-4 w-full">
 
       <form ref={form} onSubmit={sendEmail} className="flex flex-col text-blue-100 float-left">
         <h2 className="text-4xl">Just Say Hello!</h2>
@@ -44,7 +44,7 @@ const ContactUs: React.FC<ContactProps> = () => {
 
 
       <div className="float-right flex flex-col justify-center items-center w-1/2 p-5 h-full rounded-xl gap-2">
-        <h2 className="text-3xl">More</h2>
+        <h2 className="text-3xl opacity-0 lg:opacity-100">More</h2>
         <br />
         <div className="flex flex-row justify-center text-5xl">
           <a href="mailto:amirrahemi01@gmail.com"><MdOutlineAlternateEmail /></a>

@@ -8,9 +8,9 @@ type Props = {}
 function Skills({ }: Props) {
   return (
     <div>
-      <div className="flex flex-col">
-        <h1>my skills</h1>
-        <p className="text-slate-300">
+      <div className="flex flex-col mt-4">
+        <h1 className="px-4">my skills</h1>
+        <p className="text-slate-300 px-4">
           Lorem ipsum dolor sit amet
           consectetur adipisicing elit.
           Amet, aut quibusdam delectus
@@ -19,20 +19,21 @@ function Skills({ }: Props) {
           officia quidem reprehenderit qui quis
           commodi nam voluptates!
         </p>
-        <br />
 
-        <div className="flex flex-row justify-between text-7xl skills">
-          <Html5Original />
-          <Css3Original />
-          <JavascriptOriginal />
-          <TypescriptOriginal />
-          <ReactOriginal />
-          <NextjsOriginal />
-          <NodejsOriginalWordmark />
-          <TailwindcssPlainWordmark />
-          <GitOriginalWordmark />
-          <ReduxOriginal />
-          <DockerOriginalWordmark />
+        <div className="w-full overflow-y-scroll">
+          <div className="flex flex-row justify-between text-7xl skills mt-4 py-3 w-fit">
+            <Html5Original />
+            <Css3Original />
+            <JavascriptOriginal />
+            <TypescriptOriginal />
+            <ReactOriginal />
+            <NextjsOriginal />
+            <NodejsOriginalWordmark />
+            <TailwindcssPlainWordmark />
+            <GitOriginalWordmark />
+            <ReduxOriginal />
+            <DockerOriginalWordmark />
+          </div>
         </div>
       </div>
     </div>

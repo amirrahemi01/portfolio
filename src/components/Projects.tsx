@@ -7,9 +7,9 @@ type Props = {}
 
 function Projects({ }: Props) {
   return (
-    <div>
-      <h1 className="text-5xl text-blue-100">Projects</h1>
-      <p className="text-slate-300">
+    <div className="w-full">
+      <h1 className="text-5xl text-blue-100 px-4">Projects</h1>
+      <p className="text-slate-300 px-4">
         Following projects showcases my skills and experience through
         real-world examples of my work. Each project is briefly described
         with links to code repositories and live demos in it. It reflects
@@ -17,13 +17,13 @@ function Projects({ }: Props) {
         and manage projects effectively.
       </p>
 
-      <div className="flex flex-row mt-4">
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-1/3 mx-5">
-          <div className="absolute bg-white text-black rounded-full text-3xl">
+      <div className="flex flex-row mt-4 py-3 overflow-y-scroll">
+        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5">
+          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
             <a href="https://github.com">
               <FaGithub />
             </a>
-          </div>
+          </div> */}
           <div className="topimg">
             <img src="https://threejs-3-d-portfolio.vercel.app/assets/carrent-pIQZGY-L.png" alt="" className="w-full rounded-xl" />
           </div>
@@ -44,12 +44,12 @@ function Projects({ }: Props) {
           </div>
 
         </div>
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-1/3 mx-5">
-          <div className="absolute bg-white text-black rounded-full text-3xl">
+        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5">
+          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
             <a href="https://github.com">
               <FaGithub />
             </a>
-          </div>
+          </div> */}
           <div className="topimg">
             <img src="https://threejs-3-d-portfolio.vercel.app/assets/carrent-pIQZGY-L.png" alt="" className="w-full rounded-xl" />
           </div>
@@ -70,12 +70,12 @@ function Projects({ }: Props) {
           </div>
 
         </div>
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-1/3 mx-5">
-          <div className="absolute bg-white text-black rounded-full text-3xl">
+        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5">
+          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
             <a href="https://github.com">
               <FaGithub />
             </a>
-          </div>
+          </div> */}
           <div className="topimg">
             <img src="https://threejs-3-d-portfolio.vercel.app/assets/carrent-pIQZGY-L.png" alt="" className="w-full rounded-xl" />
           </div>
