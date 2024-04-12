@@ -2,14 +2,17 @@ import React from 'react'
 
 
 import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Original, JavascriptOriginal, NextjsOriginal, NodejsOriginalWordmark, ReactOriginal, ReduxOriginal, TailwindcssPlainWordmark, TypescriptOriginal } from 'devicons-react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {}
 
 function Skills({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+
   return (
     <div id="skills">
       <div className="flex flex-col mt-4">
-        <h1 className="px-4 text-2xl">my skills</h1>
+        <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
         <p className="text-slate-300 px-4">
           Lorem ipsum dolor sit amet
           consectetur adipisicing elit.

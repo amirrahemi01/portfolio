@@ -1,6 +1,6 @@
 {
   "navbar": {
-    "work": "work",
+    "work": "works",
     "skills": "skills",
     "about": "about",
     "contact": "contact"
@@ -11,9 +11,27 @@
     "cancel": "cancel",
     "continue": "continue"
   },
-  "home": {
-    "a": "dddd",
-    "da": "adfdfs",
-    "dad": "Contidafdnuez"
+  "content": {
+    "amirrahemi": "amir rahemi",
+    "my interests": "My Interests",
+    "music": "music",
+    "sport": "sport",
+    "game": "game",
+    "movie": "movie",
+    "photo": "photo",
+    "travel": "travel",
+
+    "my skills": "my skills",
+    "download cv": "download cv",
+    "projects": "projects",
+
+    "contact": "just say hello",
+    "rent car": "rent car",
+    "food delivery": "food delivery",
+    "e-commerce": "E-Commerce",
+
+    "copy": "2024 Amir Rahemi, All rights reserved",
+    "made with": "Made With",
+    "in rasht": "in Rasht"
   }
 }

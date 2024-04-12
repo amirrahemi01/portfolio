@@ -7,13 +7,29 @@
   },
   "header": {
     "hello": "سلام",
-    "Welcome to my slice of the internet": "به قسمتی از اینترنت خوش اومدید",
-    "cancel": "کنکلب=",
-    "continue": "Continuez"
+    "Welcome to my slice of the internet": "به قسمتی از اینترنت خوش اومدید"
   },
-  "home": {
-    "a": "dddd",
-    "da": "adfdfs",
-    "dad": "Contidafdnuez"
+  "content": {
+    "amirrahemi": "امیر راحمی",
+    "my interests": "مورد علاقه های من",
+    "music": "موسیقی",
+    "sport": "ورزش",
+    "game": "بازی",
+    "movie": "فیلم",
+    "photo": "عکاسی",
+    "travel": "سفر",
+
+    "my skills": "مهارت های من",
+    "download cv": "دانلود رزومه",
+    "projects": "پروژه ها",
+
+    "contact": "یه سلامی بگو",
+    "rent car": "اجاره ماشین",
+    "food delivery": "غذا",
+    "e-commerce": "فروشگاه",
+
+    "copy": "2024 تمامی حقوق متعلق به امیر راحمی میباشد",
+    "made with": "ساخته شده با",
+    "in rasht": "در رشت"
   }
 }

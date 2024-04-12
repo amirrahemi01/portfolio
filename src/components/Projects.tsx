@@ -4,15 +4,18 @@ import { FaGithub } from 'react-icons/fa6'
 import IMG_RENT from "../assets/image/projects/rent.jpg";
 import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.png";
 import IMG_FOOD from "../assets/image/projects/food.jpg";
+import { useTranslation } from 'react-i18next';
 
 type Props = {}
 
 //  eslint-disable-next-line
 
 function Projects({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+
   return (
     <div className="w-full" id="projects">
-      <h1 className="text-5xl text-blue-100 px-4">Projects</h1>
+      <h1 className="text-5xl text-blue-100 px-4">{t("content.projects")}</h1>
       <p className="text-slate-300 px-4">
         Following projects showcases my skills and experience through
         real-world examples of my work. Each project is briefly described
@@ -33,7 +36,7 @@ function Projects({ }: Props) {
           </div>
 
           <div className="text-black">
-            <h2 className="text-4xl">E-Commerce</h2>
+            <h2 className="text-4xl">{t("content.e-commerce")}</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Labore distinctio quibusdam laborum, quis quam cupiditate
@@ -59,7 +62,7 @@ function Projects({ }: Props) {
           </div>
 
           <div className="text-black">
-            <h2 className="text-4xl">Rent Car</h2>
+            <h2 className="text-4xl">{t("content.rent car")}</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Labore distinctio quibusdam laborum, quis quam cupiditate
@@ -85,7 +88,7 @@ function Projects({ }: Props) {
           </div>
 
           <div className="text-black">
-            <h2 className="text-4xl">Food Delivery</h2>
+            <h2 className="text-4xl">{t("content.food delivery")}</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Labore distinctio quibusdam laborum, quis quam cupiditate
