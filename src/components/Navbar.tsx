@@ -29,32 +29,32 @@ function Navbar({ }: Props) {
     // <main className={`nav ${isActive ? "active" : "disable"}`}>
       <header className={`flex flex-col items-center justify-start float-left fixed top-12 left-12 bottom-12 z-10 isolate nav ${isActive ? "active" : "disable"}`}>
         <nav className="flex flex-col justify-between items-center flex-auto max-w-12">
-          <a href="/" className="flex items-center justify-center p-0 w-12 h-12 text-white text-3xl">
+          <a href="/" className="flex items-center justify-center p-0 w-12 h-12 text-3xl">
             <img src={ICON} className="rounded logo" alt="Logo" />
           </a>
 
           <ul className="rotate-180 flex flex-row-reverse relative uppercase [writing-mode:vertical-lr]" >
-            <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
+            <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
               <a onClick={removeActive} href="#about">{t("navbar.about")}</a>
             </li>
-            <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
+            <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
               <a onClick={removeActive} href="#skills">{t("navbar.skills")}</a>
             </li>
-            <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
+            <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
               <a onClick={removeActive} href="#projects">{t("navbar.work")}</a>
             </li>
-            <li className="block m-0 p-0 pt-8 hover:text-blue-100 [writing-mode:vertical-rl]">
+            <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
               <a onClick={removeActive} href="#contact">{t("navbar.contact")}</a>
             </li>
           </ul>
 
           <div className="flex flex-col items-center justify-center social">
-            <a onClick={removeActive} href="https://twitter.com/madeby_amir" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-white text-3xl hover:text-blue-100"><FaTwitter /></a>
-            <a onClick={removeActive} href="https://github.com/amirrahemi01" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-white text-3xl hover:text-blue-100"><FaGithub /></a>
-            <a onClick={removeActive} href="https://linkedin.com/in/amirrahemi" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-white text-3xl hover:text-blue-100"><FaLinkedin /></a>
+            <a onClick={removeActive} href="https://twitter.com/madeby_amir" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"><FaTwitter /></a>
+            <a onClick={removeActive} href="https://github.com/amirrahemi01" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"><FaGithub /></a>
+            <a onClick={removeActive} href="https://linkedin.com/in/amirrahemi" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"><FaLinkedin /></a>
           </div>
         </nav>
-        <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-16 transform translate-z-[0] text-base flex items-start toggle">
+        <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-black dark:text-white toggle">
           <ToggleDark />
           <MultiLang />
         <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>

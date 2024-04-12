@@ -15,22 +15,18 @@ function Projects({ }: Props) {
 
   return (
     <div className="w-full" id="projects">
-      <h1 className="text-5xl text-blue-100 px-4">{t("content.projects")}</h1>
-      <p className="text-slate-300 px-4 text-justify">{t("content.my skills")}</p>
+      <h1 className="text-5xl text-blue-200 dark:text-blue-100 px-4">{t("content.projects")}</h1>
+      <p className="text-slate-800 dark:text-slate-300 px-4 text-justify text-2xl">{t("content.my skills")}</p>
 
 
       <div className="flex flex-row mt-4 py-3 overflow-y-scroll md:overflow-y-auto">
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
-          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
-            <a href="https://github.com">
-              <FaGithub />
-            </a>
-          </div> */}
+        <div className="flex flex-col bg-slate-600 dark:bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
+
           <div className="topimg">
             <img src={IMG_ECOMMERCE} alt="" className="w-full rounded-xl" />
           </div>
 
-          <div className="text-black">
+          <div className="text-white dark:text-black">
             <h2 className="text-4xl">{t("content.e-commerce")}</h2>
             <p className="text-justify">{t("content.shopping")}</p>
           </div>
@@ -41,17 +37,13 @@ function Projects({ }: Props) {
           </div>
 
         </div>
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
-          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
-            <a href="https://github.com">
-              <FaGithub />
-            </a>
-          </div> */}
+        <div className="flex flex-col bg-slate-600 dark:bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
+
           <div className="topimg">
             <img src={IMG_RENT} alt="" className="w-full rounded-xl" />
           </div>
 
-          <div className="text-black">
+          <div className="text-white dark:text-black">
             <h2 className="text-4xl">{t("content.rent car")}</h2>
             <p className="text-justify">{t("content.rent")}</p>
           </div>
@@ -62,17 +54,13 @@ function Projects({ }: Props) {
           </div>
 
         </div>
-        <div className="flex flex-col bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
-          {/* <div className="absolute bg-white text-black rounded-full text-3xl">
-            <a href="https://github.com">
-              <FaGithub />
-            </a>
-          </div> */}
+        <div className="flex flex-col bg-slate-600 dark:bg-slate-100 p-5 rounded-2xl w-full h-full lg:w-1/3 mx-5 [min-height:65vh]">
+
           <div className="topimg">
             <img src={IMG_FOOD} alt="" className="w-full rounded-xl" />
           </div>
 
-          <div className="text-black">
+          <div className="text-white dark:text-black">
             <h2 className="text-4xl">{t("content.food delivery")}</h2>            
             <p className="text-justify">{t("content.shopping")}</p>
           </div>

@@ -7,7 +7,7 @@ function Footer({ }: Props) {
     const [t, i18n] = useTranslation("global");
 
     return (
-        <footer className="flex flex-col lg:block bg-slate-960 text-slate-100 p-3 font-sans">
+        <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans">
 
             <p className="float-right rtl:float-left">&copy;{t("content.copy")}.</p>
             

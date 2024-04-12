@@ -60,23 +60,23 @@ function App() {
       <div className="vanta-cloud-animation"></div>
 
       <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
-        <section className="h-screen flex items-center justify-center flex-col dark:bg-black dark:m-4 dark:[height:96vh] dark:rounded-2xl;">
+        <section className="[height:96vh] flex items-center justify-center flex-col w-full bg-black rounded-2xl m-4 dark:bg-black dark:m-0 dark:h-screen dark:rounded-none;">
           <div className="absolute bottom-20 z-40 p-3">
           <h2 className="text-2xl md:text-5xl lg:text-8xl">{t("header.hello")}</h2>
           <p className="text-sm md:text-3xl lg:text-5xl">{t("header.Welcome to my slice of the internet")}</p>
           </div>
 
-          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll z-50" href="#a"></a>
+          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll z-50" href="#about"></a>
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed right-10 bottom-14 z-50 bg-blue-100 text-black rounded-lg p-4 text-2xl"
+            className="fixed right-10 bottom-14 z-50 text-white dark:text-black rounded-full p-4 text-2xl bg-blue-200 dark:bg-blue-100"
             id={isVisible ? "nohide" : "hide"}
           >
             <MdKeyboardDoubleArrowUp />
           </button>
           
-          <img className="absolute bottom-auto w-80 md:w-72 lg:w-2/6 lg:[bottom: 4vhParagraph]" src={IMG} alt="" />
+          <img className="absolute bottom-auto w-80 md:w-72 lg:w-64 lg:[bottom: 4vh]" src={IMG} alt="" />
         </section>
 
         <section className="h-auto flex items-center justify-center flex-col text-white" id="a">

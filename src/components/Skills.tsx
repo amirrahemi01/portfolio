@@ -13,21 +13,21 @@ function Skills({ }: Props) {
     <div id="skills">
       <div className="flex flex-col mt-4">
         <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
-        <p className="text-slate-300 px-4 text-justify">{t("content.skills")}</p>
+        <p className="dark:text-slate-300 text-slate-800 px-4 text-justify">{t("content.skills")}</p>
 
         <div className="w-full overflow-y-scroll md:overflow-y-auto md:flex md:justify-center">
           <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">
-            <Html5Original />
-            <Css3Original />
-            <JavascriptOriginal />
-            <TypescriptOriginal />
-            <ReactOriginal />
-            <NextjsOriginal />
-            <NodejsOriginalWordmark />
-            <TailwindcssPlainWordmark />
-            <GitOriginalWordmark />
-            <ReduxOriginal />
-            <DockerOriginalWordmark />
+            <Html5Original className="text-white dark:text-black" />
+            <Css3Original className="text-white dark:text-black" />
+            <JavascriptOriginal className="text-white dark:text-black" />
+            <TypescriptOriginal className="text-white dark:text-black" />
+            <ReactOriginal className="text-white dark:text-black" />
+            <NextjsOriginal className="text-white dark:text-black" />
+            <NodejsOriginalWordmark className="text-white dark:text-black" />
+            <TailwindcssPlainWordmark className="text-white dark:text-black" />
+            <GitOriginalWordmark className="text-white dark:text-black" />
+            <ReduxOriginal className="text-white dark:text-black" />
+            <DockerOriginalWordmark className="text-white dark:text-black" />
           </div>
         </div>
       </div>

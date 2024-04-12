@@ -33,16 +33,16 @@ const ContactUs: React.FC<ContactProps> = () => {
   return (
     <div className="flex flex-col lg:inline-flex items-center gap-4 px-4 w-full" id="contact">
 
-      <form ref={form} onSubmit={sendEmail} className="flex flex-col text-blue-100 float-left">
+      <form ref={form} onSubmit={sendEmail} className="flex flex-col text-blue-200 dark:text-blue-100 float-left">
         <h2 className="text-4xl">{t("content.contact")}!</h2>
         <div className="inline-flex gap-4">
-          <input className="bg-slate-655 focus:outline-none rounded-xl p-5 my-4 w-1/2" placeholder="Name" type="text" name="user_name" />
+          <input className="bg-slate-200 dark:bg-slate-655 focus:outline-none rounded-xl p-5 my-4 w-1/2 border-2 border-transparent focus:border-blue-200" placeholder="Name" type="text" name="user_name" />
 
-          <input className="bg-slate-655 focus:outline-none rounded-xl p-5 my-4 w-1/2" placeholder="Email" type="email" name="user_email" />
+          <input className="bg-slate-200 dark:bg-slate-655 focus:outline-none rounded-xl p-5 my-4 w-1/2 border-2 border-transparent focus:border-blue-200" placeholder="Email" type="email" name="user_email" />
         </div>
 
-        <textarea className="bg-slate-655 focus:outline-none rounded-xl p-5 my-4 resize-none" placeholder="Message" name="message" />
-        <input className="bg-blue-100 text-black px-4 py-2 w-28 rounded-xl cursor-pointer" type="submit" value="Send" />
+        <textarea className="bg-slate-200 dark:bg-slate-655 focus:outline-none rounded-xl p-5 my-4 resize-none border-2 border-transparent focus:border-blue-200" placeholder="Message" name="message" />
+        <input className="bg-blue-200 dark:bg-blue-100 text-white dark:text-black px-4 py-2 w-28 rounded-xl cursor-pointer" type="submit" value="Send" />
       </form>
 
 
