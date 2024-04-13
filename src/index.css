@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
 
 /* * {
   box-sizing: border-box;
@@ -41,27 +42,6 @@
 html {
   scroll-behavior: smooth;
 }
-
-
-/* 
-[dir=ltr] html {
-  font-family: "Paytone One", sans-serif;
-}
-
-
-[dir=rtl] html {
-  font-family: "Lalezar" !important;
-}
-
-.en {
-  font-family: "Paytone One", sans-serif;
-}
-
-
-.fa {
-  font-family: "Lalezar" !important;
-} */
-
 
 #hide {
   opacity: 1;
