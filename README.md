@@ -1,6 +1,11 @@
-<h1 align="center"> React.JS Portfolio Website </h1>
+<h1 align="center"> Multilingual React.JS Portfolio Website </h1>
 
-<p align="center"> Countdown and stopwatch implementation using reactjs and typescript and creating a design based on glassmorphism </p>
+<p align="center"> Classic Portfolio Website </p>
+
+- Multi Language
+- Toggle For Dark & Light Theme
+- Custom Style For Each Language
+- Classic Design & Responsive Full
 
 <p align="center">
     <img alt="GitHub" src="https://img.shields.io/github/license/amirrahemi01/portfolio">
@@ -10,20 +15,16 @@
     <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/amirrahemi01/portfolio">
 </p>
 
-<p align="center">
-  <a href="#computer-demo">Demo</a> •
-  <a href="#white_check_mark-features">Features</a> •
-  <a href="#zap-technologies-and-libs">Technologies</a> •
-  <a href="#arrow_forward-how-to-run">How to run</a> •
-  <a href="#camera-screenshots">Screenshots</a>
-</p>
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/💻" width="25" align="center" > Demo
-- [Live demo](https://timer-app-peach.vercel.app/)
+- [Live demo](https://amirrahemi-portfolio.vercel.app/)
 
-## Screenshots
+## <img alt="Camputer" src="https://emojicdn.elk.sh/📷" width="25" align="center" > Screenshots
 <div>
-  <img width="825" src="Screenshot.png">
+  <img width="825" src="screenshot-en.png">
+</div>
+<div>
+  <img width="825" src="screenshot-fa.png">
 </div>
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/⚡" width="25" align="center" > How To Run
@@ -36,13 +37,24 @@ $ git clone https://github.com/amirrahemi01/portfolio.git
 
 ```bash
 # Open Directory
-$ cd timer-app
+$ cd portfolio
 ```
 
 ### NPM
 ```bash
 # Install dependencies & Run App
 $ npm i && npm start
+```
+
+## <img alt="Camputer" src="https://emojicdn.elk.sh/❔" width="25" align="center" > How To Use EMAIL.JS Contact Form
+
+In "ContactUs.tsx" component, replace your custom service id, template id & public key :)
+
+
+```bash
+  .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+    publicKey: 'YOUR_PUBLIC_KEY',
+  })
 ```
 
 ## License

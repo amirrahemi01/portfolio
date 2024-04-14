@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
+
 import Dropdown from './Dropdown'
+
 import { useTranslation } from 'react-i18next';
 import { IoLanguage } from 'react-icons/io5';
 
@@ -12,6 +14,7 @@ function MultiLang({ }: Props) {
     // Multi Language Functions
     const [t, i18n] = useTranslation("global");
 
+
     const handleChangeLanguage = (lang: string) => {
         i18n.changeLanguage(lang);
         localStorage.setItem("language", lang);
@@ -19,13 +22,21 @@ function MultiLang({ }: Props) {
         document.documentElement.setAttribute('lang', lang);
     };
 
+    if (!localStorage.getItem("language")) {
+        localStorage.setItem("language", "en");
+    }
+
     if(localStorage.getItem("language") === "en") {
         document.documentElement.setAttribute('dir', "ltr");
         document.title = "AMIR RAHEMI";
-    } else {
+        
+    } else if (localStorage.getItem("language") === "fa") {
         document.documentElement.setAttribute('dir', "rtl");
         document.title = "امیر راحمی";
+
     }
+
+    
 
     // Dropdown values
     const options = [
@@ -34,7 +45,7 @@ function MultiLang({ }: Props) {
     ];
 
     return (
-        <div>
+        <div className="text-gray-100 dark:text-white">
             <Dropdown
                 options={options}
                 text={<button><IoLanguage /></button>}

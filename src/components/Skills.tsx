@@ -1,7 +1,7 @@
-import React from 'react'
-
+import React from 'react';
 
 import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Original, JavascriptOriginal, NextjsOriginal, NodejsOriginalWordmark, ReactOriginal, ReduxOriginal, TailwindcssPlainWordmark, TypescriptOriginal } from 'devicons-react';
+
 import { useTranslation } from 'react-i18next';
 
 type Props = {}
@@ -15,7 +15,7 @@ function Skills({ }: Props) {
         <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
         <p className="dark:text-slate-300 text-slate-800 px-4 text-justify">{t("content.skills")}</p>
 
-        <div className="w-full overflow-y-scroll md:overflow-y-auto md:flex md:justify-center">
+        <div className="w-full overflow-x-scroll overflow-y-hidden md:overflow-x-auto md:flex md:justify-center">
           <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">
             <Html5Original className="text-white dark:text-black" />
             <Css3Original className="text-white dark:text-black" />

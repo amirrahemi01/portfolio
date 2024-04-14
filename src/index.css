@@ -4,20 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 
-
-/* * {
-  box-sizing: border-box;
-  transition: 0.5s;
-} */
-
 ::selection {
-  background-color: #246692; /* Selected text background color */
-  color: #fff; /* Selected text color */
-}
-
-* {
-  box-sizing: border-box;
-  transition: 0.35s;
+  background-color: #100635;
+  /* Selected text background color */
+  color: #fff;
+  /* Selected text color */
 }
 
 ::-webkit-scrollbar {
@@ -37,6 +28,11 @@
   background-color: #1f1f1f;
   border-radius: 5px;
   cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.35s;
 }
 
 html {
@@ -88,22 +84,21 @@ html {
 
 @keyframes mouse-scroll {
   0% {
-      transform: translate3d(-1px,0,0);
-      opacity: 0
+    transform: translate3d(-1px, 0, 0);
+    opacity: 0
   }
 
   20% {
-      transform: translate3d(-1px,0,0);
-      opacity: 1
+    transform: translate3d(-1px, 0, 0);
+    opacity: 1
   }
 
   to {
-      transform: translate3d(-1px,8px,0);
-      opacity: 0
+    transform: translate3d(-1px, 8px, 0);
+    opacity: 0
   }
 }
 
-/* navbar */
 .navbar {
   padding: 10px 20px;
   display: flex;
@@ -113,7 +108,6 @@ html {
   min-height: 70px;
 }
 
-/* ul  */
 .navMenu {
   all: unset;
   display: flex;
@@ -127,38 +121,33 @@ html {
 }
 
 /* media queries */
+@media screen and (max-width: 780px) {
 
-
-@media screen and (max-width: 780px){
-  
-  /* hamburger */
   .hamburger {
     display: block;
   }
 
   .bar {
-        background-color: #fff;
-        width: 20px;
-        height: 3px;
-        display: block;
-        margin: 5px;
-        -webkit-transition: 0.3s ease-in-out;
-        transition: 0.3s ease-in-out;
-    }
+    background-color: #fff;
+    width: 20px;
+    height: 3px;
+    display: block;
+    margin: 5px;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
 
-  /* adding active class to the bars  */
-  .hamburger.active .bar:nth-child(2){
+  .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
-  .hamburger.active .bar:nth-child(1){
+
+  .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  .hamburger.active .bar:nth-child(3){
+
+  .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-
-
-  /* navMenu */
 
   .navMenu {
     position: absolute;
@@ -172,7 +161,7 @@ html {
     padding: 10px;
   }
 
-  .navMenu.active{
+  .navMenu.active {
     left: 0;
   }
 
@@ -180,7 +169,6 @@ html {
     margin: 16px 0;
   }
 
-  /* Not Active */
   .nav.disable {
     all: unset;
   }
@@ -190,10 +178,9 @@ html {
     display: none;
   }
 
-  /* Active */
   .nav.active {
     all: unset;
-    background-color: #246692;
+    backdrop-filter: blur(25px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,7 +198,7 @@ html {
   .nav.active nav {
     all: unset;
     display: block;
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
   }
 
@@ -219,13 +206,13 @@ html {
     all: unset;
     display: flex;
     flex-direction: column;
-    text-decoration: underline #3c6a88;
+    text-decoration: underline #000;
   }
 
   .nav.active img.logo {
     position: absolute;
-    top: 3.5rem;
-    left: 4.5rem;
+    top: 1rem;
+    left: 1rem;
     width: 50px;
   }
 
@@ -239,7 +226,6 @@ html {
     all: unset;
   }
 }
-
 
 img.a {
   box-shadow: 0 0 0 2px #9bddff, -8px 8px 0 0 #9bddff;

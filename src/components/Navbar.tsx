@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
-import { FaGithub, FaLinkedin, FaMoon, FaTwitter, FaXTwitter } from "react-icons/fa6";
-import { IoLogoAngular } from "react-icons/io";
-import { IoLanguage } from "react-icons/io5";
+import { FaGithub, FaLinkedin, FaTwitter, } from "react-icons/fa6";
 import MultiLang from './MultiLang';
 import ToggleDark from './ToggleDark';
 
@@ -54,7 +53,7 @@ function Navbar({ }: Props) {
             <a onClick={removeActive} href="https://linkedin.com/in/amirrahemi" target="_blank" className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"><FaLinkedin /></a>
           </div>
         </nav>
-        <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-black dark:text-white toggle">
+        <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-100 dark:text-white toggle">
           <ToggleDark />
           <MultiLang />
         <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>

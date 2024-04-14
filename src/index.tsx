@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 
-// Multi-Lingual
+import './index.css';
+
+import App from './App';
 
 import translation_en from "./assets/locale/en/translation.json"
 import translation_fa from "./assets/locale/fa/translation.json"

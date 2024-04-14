@@ -1,12 +1,13 @@
 import React from 'react'
 
-import IMG1 from "../assets/image/cover2.png";
 import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
 import { IoGameController } from 'react-icons/io5';
 import { TiVideo } from "react-icons/ti";
-import Skills from './Skills';
 import { useTranslation } from 'react-i18next';
 
+import IMG1 from "../assets/image/cover2.png";
+
+import Skills from './Skills';
 
 type Props = {}
 
@@ -33,7 +34,7 @@ function About({ }: Props) {
       <div className="flex flex-col mt-4">
         <h1 className="px-4 text-2xl text-black dark:text-white">{t("content.my interests")}</h1>
 
-        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-scroll md:overflow-y-auto md:justify-center text-black dark:text-white">
+        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-hidden overflow-x-scroll md:overflow-x-auto md:justify-center text-black dark:text-white">
           <div className="flex items-center w-fit mx-5">
             <FaHeadphones className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
             <p>{t("content.music")}</p>

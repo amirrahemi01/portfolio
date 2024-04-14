@@ -20,14 +20,11 @@ const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
 
   return (
     <div className="px-4">
-      <button className="dropdown-toggle" onClick={toggleDropdown}>
-        {text}
-      </button>
+      <button className="dropdown-toggle" onClick={toggleDropdown}>{text}</button>
       {isOpen && (
         <div className="fixed bg-slate-800 dark:bg-slate-300 text-white dark:text-black w-fit px-6 py-2 rounded-xl left-3">
           {options.map((option, index) => (
             <div key={index} className="dropdown-item" onClick={() => selectOption(option.value)}>
-              {/* {selectedOption} */}
               {option.label}
             </div>
           ))}

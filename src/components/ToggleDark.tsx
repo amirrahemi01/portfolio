@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { FaMoon } from 'react-icons/fa6';
 
 import "@theme-toggles/react/css/Expand.css";
 import { Expand } from "@theme-toggles/react";
@@ -41,9 +40,9 @@ function ToggleDark() {
       <button
         onClick={toggleTheme}
         defaultChecked={selectedTheme === 'dark'}
-        className="text-black dark:text-white"
+        className="text-gray-100 dark:text-white"
       >
-        <Expand className="transition-none" duration={750} reversed placeholder={<div>Loading...</div>} />
+        <Expand className="transition-none " duration={750} reversed placeholder={<div>Loading...</div>} />
       </button>
   );
 }
