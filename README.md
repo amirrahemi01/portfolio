@@ -8,12 +8,12 @@
 - Classic Design & Responsive Full
 
 <p align="center">
-    <img alt="GitHub" src="https://img.shields.io/github/license/amirrahemi01/portfolio">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/amirrahemi01/portfolio">
     <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/amirrahemi01/portfolio">
     <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/amirrahemi01/portfolio">
-    <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/amirrahemi01/portfolio">
+    <img alt="Lines of code" src="https://tokei.rs/b1/github/amirrahemi01/portfolio?category=code">
 </p>
+
 
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/💻" width="25" align="center" > Demo
@@ -48,7 +48,7 @@ $ npm i && npm start
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/❔" width="25" align="center" > How To Use EMAIL.JS Contact Form
 
-In "ContactUs.tsx" component, replace your custom service id, template id & public key :)
+In "ContactUs.tsx"component replace your custom service id, template id & public key :)
 
 
 ```bash
