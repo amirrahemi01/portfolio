@@ -27,7 +27,12 @@ function About({ }: Props) {
           <h2 className="text-base lg:text-2xl text-black dark:text-white">REACT.JS DEVELOPER</h2>
           <p className="text-slate-800 dark:text-slate-300 text-sm lg:text-base text-justify">{t("content.reactjs")}</p>
 
-          <button className="flex bg-blue-200 dark:bg-blue-100 text-white dark:text-black w-fit mt-4 py-2 px-4 rounded-md">{t("content.download cv")}</button>
+          <button
+            className="flex bg-blue-200 dark:bg-blue-100 text-white dark:text-black w-fit mt-4 py-2 px-4 rounded-md"
+            onClick={() => window.open("/AmirRahemiCV.pdf", "_blank")}
+          >
+            {t("content.download cv")}
+          </button>
         </div>
       </div>
 

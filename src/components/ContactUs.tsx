@@ -1,3 +1,4 @@
+// Path: src/components/ContactUs.tsx
 import React, { useRef, FormEvent } from 'react';
 
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
@@ -16,16 +17,29 @@ const ContactUs: React.FC<ContactProps> = () => {
 
     if (!form.current) return;
 
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS environment variables are missing');
+      alert('Email service is not configured. Please check environment variables.');
+      return;
+    }
+
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm(serviceId, templateId, form.current, {
+        publicKey: publicKey,
       })
       .then(
         (response: EmailJSResponseStatus) => {
           console.log('SUCCESS!', response);
+          alert('Message sent successfully!');
+          form.current?.reset(); // Clear the form
         },
         (error: any) => {
           console.error('FAILED...', error);
+          alert('Failed to send message. Please try again.');
         }
       );
   };
