@@ -41,8 +41,22 @@
     
     "contact": "just say hello",
     
-    "copy": "2024 Amir Rahemi, All rights reserved",
+    "copy": "Amir Rahemi, All rights reserved",
     "made with": "Made With",
-    "in rasht": "in Rasht"
+    "in rasht": "in Rasht",
+
+    "contactName": "Name",
+    "contactEmail": "Email",
+    "contactMessage": "",
+    "contactSendMessage": "Send Message",
+    "contactConnect": "Connect With Me",
+    "contactGet": "Get In Touch",
+    "contactDes": "Available for freelance projects and full-time opportunities. Let's build something great together!",
+
+    "placeHolderName": "Your name",
+    "placeHolderYourMessage": "Your message...",
+
+    "list": "List",
+    "grid": "Grid"
   }
 }

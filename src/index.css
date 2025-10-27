@@ -137,6 +137,14 @@ html {
     transition: 0.3s ease-in-out;
   }
 
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      .bar {
+        background-color: #353535;
+        /* lighter gray or any light color for visibility */
+      }
+    }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }

@@ -46,6 +46,18 @@ function App() {
     }
   };
 
+  // Smooth scroll to section without changing URL
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   const currentLang = (i18n.language || 'en') as 'en' | 'fa';
   console.log(currentLang);
   const isRTL = currentLang === 'fa';
@@ -106,7 +118,7 @@ function App() {
   const content = seoContent[currentLang];
 
   return (
-    <div className="bg-white dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-medium transition-all capitalize">
+    <div className="bg-[white] dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-medium transition-all capitalize">
     <Helmet>
       {/* HTML attributes for language and direction */}
       <html lang={currentLang} dir={isRTL ? 'rtl' : 'ltr'} className={currentLang} />
@@ -189,7 +201,12 @@ function App() {
             <p className="text-sm md:text-3xl lg:text-5xl">{t("header.Welcome to my slice of the internet")}</p>
           </div>
 
-          <a id={isVisible ? "hide" : "nohide"} className="mouse-scroll z-50" href="#about"></a>
+          <a 
+            id={isVisible ? "hide" : "nohide"} 
+            className="mouse-scroll z-50" 
+            href="#about"
+            onClick={(e) => scrollToSection(e, 'about')}
+          ></a>
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -214,7 +231,7 @@ function App() {
 
         </section>
 
-        <section className="h-screen flex items-center justify-center flex-col text-white">
+        <section className="h-auto flex items-center justify-center flex-col text-white">
 
           <ContactUs />
 

@@ -39,8 +39,23 @@
     
     "contact": "یه سلامی بگو",
 
-    "copy": "2024 تمامی حقوق متعلق به امیر راحمی میباشد",
+    "copy": "تمامی حقوق متعلق به امیر راحمی میباشد",
     "made with": "ساخته شده با",
-    "in rasht": "در رشت"
+    "in rasht": "در رشت",
+
+    "contactName": "نام",
+    "contactEmail": "ایمیل",
+    "contactMessage": "پیام",
+    "contactSendMessage": "ارسال پیام",
+    "contactConnect": "ارتباط با من",
+    "contactGet": "تماس بگیرید",
+    "contactDes": "برای پروژه‌های فریلنس و فرصت‌های تمام‌وقت در دسترس هستم. بیایید با هم چیزی عالی بسازیم!",
+
+    "placeHolderName": "اسم شما",
+    "placeHolderYourMessage": "پیام شما",
+
+    "list": "لیست",
+    "grid": "Grid"
+
   }
 }

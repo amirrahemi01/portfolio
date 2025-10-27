@@ -1,27 +1,40 @@
 import React from 'react';
-
 import { useTranslation } from 'react-i18next';
 
 type Props = {}
 
 function Footer({ }: Props) {
-    const [t, i18n] = useTranslation("global");
+  const [t, i18n] = useTranslation("global");
+  
+  // Function to get current year
+  const getCurrentYear = (): number => {
+    return new Date().getFullYear();
+  };
 
-    return (
-        <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans">
+  // Function to convert numbers to Persian/Arabic numerals
+  const toArabicNumerals = (num: number): string => {
+    const arabicNumerals = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return num.toString().split('').map(digit => arabicNumerals[parseInt(digit)]).join('');
+  };
 
-            <p className="float-right rtl:float-left">&copy;{t("content.copy")}.</p>
-            
-            <p className="flex">
-            {t("content.made with")}
-                <span className="mx-1">
-                    <img src="https://emojicdn.elk.sh/%F0%9F%A9%B5" alt="" width="20" />
-                </span>
-                {t("content.in rasht")} :)
-            </p>
+  // Get year in appropriate format based on language
+  const getFormattedYear = (): string => {
+    const year = getCurrentYear();
+    return i18n.language === 'fa' || i18n.language === 'ar' ? toArabicNumerals(year) : year.toString();
+  };
 
-        </footer>
-    )
+  return (
+    <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans">
+      <p className="float-right rtl:float-left">&copy; {getFormattedYear()} {t("content.copy")}.</p>
+      <p className="flex">
+        {t("content.made with")}
+        <span className="mx-1">
+          <img src="https://emojicdn.elk.sh/%F0%9F%A9%B5" alt="" width="20" />
+        </span>
+        {t("content.in rasht")} :)
+      </p>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

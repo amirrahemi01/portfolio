@@ -1,22 +1,82 @@
 // Path: src/components/Projects.tsx
-import React from 'react'
+import React, { useState } from 'react'
 
 import IMG_RENT from "../assets/image/projects/rent.jpg";
 import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.png";
 import IMG_FOOD from "../assets/image/projects/food.jpg";
 
 import { useTranslation } from 'react-i18next';
+import { BsFillGridFill } from 'react-icons/bs';
+import { FaList } from 'react-icons/fa';
 
 type Props = {}
 
 
 function Projects({ }: Props) {
   const [t, i18n] = useTranslation("global");
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  const projects = [
+    {
+      id: 1,
+      image: IMG_ECOMMERCE,
+      title: t("content.e-commerce"),
+      description: t("content.shopping"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-purple-500/10",
+      gradientTo: "to-pink-500/10",
+      overlayFrom: "from-purple-500/20",
+      overlayTo: "to-pink-500/20",
+      badgeGradient: "from-purple-500 to-pink-500",
+      hoverShadow: "hover:shadow-purple-500/30",
+      hoverGlow: "from-purple-500 to-pink-500",
+      hoverTextFrom: "group-hover:from-purple-400",
+      hoverTextTo: "group-hover:to-pink-400",
+      hoverColor: "group-hover:text-red-200",
+      delay: "0s"
+    },
+    {
+      id: 2,
+      image: IMG_RENT,
+      title: t("content.rent car"),
+      description: t("content.rent"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-blue-500/10",
+      gradientTo: "to-cyan-500/10",
+      overlayFrom: "from-blue-500/20",
+      overlayTo: "to-cyan-500/20",
+      badgeGradient: "from-blue-500 to-cyan-500",
+      hoverShadow: "hover:shadow-blue-500/30",
+      hoverGlow: "from-blue-500 to-cyan-500",
+      hoverTextFrom: "group-hover:from-blue-400",
+      hoverTextTo: "group-hover:to-cyan-400",
+      hoverColor: "group-hover:text-blue-200",
+      delay: "0.1s"
+    },
+    {
+      id: 3,
+      image: IMG_FOOD,
+      title: t("content.food delivery"),
+      description: t("content.shopping"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-orange-500/10",
+      gradientTo: "to-red-500/10",
+      overlayFrom: "from-orange-500/20",
+      overlayTo: "to-red-500/20",
+      badgeGradient: "from-orange-500 to-red-500",
+      hoverShadow: "hover:shadow-orange-500/30",
+      hoverGlow: "from-orange-500 to-red-500",
+      hoverTextFrom: "group-hover:from-orange-400",
+      hoverTextTo: "group-hover:to-red-400",
+      hoverColor: "group-hover:text-green-100",
+      delay: "0.2s"
+    }
+  ];
 
   return (
-    <div className="w-full py-20" id="projects">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-6xl md:text-7xl font-bold mb-4 text-center pb-8" style={{
+    <div className="w-full py-12 md:py-20 px-4" id="projects">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center pb-4 md:pb-8 px-4" style={{
           background: 'linear-gradient(to right, rgb(96, 165, 250), rgb(192, 132, 252), rgb(244, 114, 182))',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
@@ -24,93 +84,84 @@ function Projects({ }: Props) {
         }}>
           {t("content.projects")}
         </h1>
-        <div className="h-1.5 w-32 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mb-16"></div>
+        <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mb-8 md:mb-12"></div>
 
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-purple-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0s both'}}>
-            
-            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 z-10"></div>
-              <img src={IMG_ECOMMERCE} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-            </div>
-
-            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
-              <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-red-200 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
-                  {t("content.e-commerce")}
-                </h2>
-                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
-              </div>
-
-              <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
-            </div>
-
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">1</div>
+        {/* View Toggle - Only visible on large screens */}
+        <div className="hidden lg:flex justify-end mb-8">
+          <div className="inline-flex rounded-xl bg-white/10 dark:bg-slate-800/30 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-1">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${
+                viewMode === 'grid'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              <BsFillGridFill className="inline mr-2" />
+              {/* {t("content.grid")} */}
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${
+                viewMode === 'list'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              <FaList className="inline mr-2" />
+              {/* {t("content.list")} */}
+            </button>
           </div>
+        </div>
 
-          <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-blue-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0.1s both'}}>
+        <div className={
+          "grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-8 " +
+          (viewMode === 'list' ? 'lg:grid-cols-1' : 'lg:grid-cols-3')
+        }>
+          {projects.map((project) => (
+            <div 
+              key={project.id}
+              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} border border-white/10 shadow-2xl hover:scale-105 ${project.hoverShadow} transition-all duration-500 flex flex-col ${
+                viewMode === 'list' ? 'lg:flex-row' : ''
+              }`} 
+              style={{animation: `fadeInUp 0.6s ease-out ${project.delay} both`}}
+            >
             
-            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 z-10"></div>
-              <img src={IMG_RENT} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-            </div>
-
-            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
-              <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-blue-200 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
-                  {t("content.rent car")}
-                </h2>
-                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.rent")}</p>
+              <div className={`relative overflow-hidden flex-shrink-0 cursor-pointer h-48 md:h-64 ${
+                viewMode === 'list' ? 'lg:w-80' : ''
+              }`}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.overlayFrom} ${project.overlayTo} z-10`}></div>
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
               </div>
 
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
+              <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${
+                viewMode === 'list' ? 'lg:justify-center' : ''
+              }`}>
+                <div className="flex-grow">
+                  <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`}>
+                    {project.title}
+                  </h2>
+                  <p className="text-black dark:text-slate-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6">{project.description}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag, index) => (
+                    <p key={index} className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-xs md:text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                      {tag}
+                    </p>
+                  ))}
+                </div>
+
+                <div className={`absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r ${project.hoverGlow} rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none`}></div>
               </div>
 
-              <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
-            </div>
-
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">2</div>
-          </div>
-
-          <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-orange-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0.2s both'}}>
-            
-            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 z-10"></div>
-              <img src={IMG_FOOD} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-            </div>
-
-            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
-              <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-green-100 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300">
-                  {t("content.food delivery")}
-                </h2>            
-                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
+              <div className={`absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r ${project.badgeGradient} flex items-center justify-center text-white font-bold text-sm md:text-base shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500`}>
+                {project.id}
               </div>
-
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
-              </div>
-
-              <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
             </div>
-
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">3</div>
-          </div>
+          ))}
         </div>
       </div>
 
