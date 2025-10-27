@@ -30,23 +30,23 @@ function Projects({ }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-purple-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0s both'}}>
             
-            <div className="relative h-64 overflow-hidden flex-shrink-0">
+            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 z-10"></div>
               <img src={IMG_ECOMMERCE} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
             </div>
 
-            <div className="relative p-8 flex flex-col flex-grow">
+            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
               <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-red-200 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
                   {t("content.e-commerce")}
                 </h2>
-                <p className="text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
+                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
               </div>
 
               <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
@@ -58,23 +58,23 @@ function Projects({ }: Props) {
 
           <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-blue-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0.1s both'}}>
             
-            <div className="relative h-64 overflow-hidden flex-shrink-0">
+            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 z-10"></div>
               <img src={IMG_RENT} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
             </div>
 
-            <div className="relative p-8 flex flex-col flex-grow">
+            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
               <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
+                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-blue-200 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
                   {t("content.rent car")}
                 </h2>
-                <p className="text-slate-300 text-base leading-relaxed mb-6">{t("content.rent")}</p>
+                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.rent")}</p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
               </div>
 
               <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
@@ -86,23 +86,23 @@ function Projects({ }: Props) {
 
           <div className="group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-white/10 shadow-2xl hover:scale-105 hover:shadow-orange-500/30 transition-all duration-500 flex flex-col" style={{animation: 'fadeInUp 0.6s ease-out 0.2s both'}}>
             
-            <div className="relative h-64 overflow-hidden flex-shrink-0">
+            <div className="relative h-64 overflow-hidden flex-shrink-0 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 z-10"></div>
               <img src={IMG_FOOD} alt="" className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
             </div>
 
-            <div className="relative p-8 flex flex-col flex-grow">
+            <div className="relative p-8 flex flex-col flex-grow cursor-pointer">
               <div className="flex-grow">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300">
+                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 group-hover:text-green-100 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300">
                   {t("content.food delivery")}
                 </h2>            
-                <p className="text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
+                <p className="text-black dark:text-slate-300 text-base leading-relaxed mb-6">{t("content.shopping")}</p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-auto">
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
-                <p className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#react.js</p>
+                <p className="px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">#mongodb</p>
               </div>
 
               <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
