@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -89,6 +89,8 @@ function App() {
       </div>
 
       <Footer />
+
+      <SpeedInsights />
 
     </div>
   );
