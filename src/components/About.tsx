@@ -23,7 +23,7 @@ function About({}: Props) {
         <br />
 
         <div className="flex flex-col justify-center">
-          <h1 className="text-base lg:text-5xl text-blue-200 dark:text-blue-100">
+          <h1 className="text-base lg:text-5xl text-black dark:text-slate-300">
             {t("content.amirrahemi")}
           </h1>
           <h2 className="text-base lg:text-2xl text-black dark:text-white">
@@ -49,27 +49,27 @@ function About({}: Props) {
 
         <div className="flex flex-row justify-between mt-4 p-3 overflow-y-hidden overflow-x-scroll md:overflow-x-auto md:justify-center text-black dark:text-white">
           <div className="flex items-center w-fit mx-5">
-            <FaHeadphones className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <FaHeadphones className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.music")}</p>
           </div>
           <div className="flex items-center w-fit mx-5">
-            <FaDumbbell className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <FaDumbbell className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.sport")}</p>
           </div>
           <div className="flex items-center w-fit mx-5">
-            <IoGameController className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <IoGameController className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.game")}</p>
           </div>
           <div className="flex items-center w-fit mx-5">
-            <TiVideo className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <TiVideo className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.movie")}</p>
           </div>
           <div className="flex items-center w-fit mx-5">
-            <FaCamera className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <FaCamera className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.photo")}</p>
           </div>
           <div className="flex items-center w-fit mx-5">
-            <FaRoad className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <FaRoad className="mx-2 text-black dark:text-slate-300 text-4xl filter" />
             <p>{t("content.travel")}</p>
           </div>
         </div>
