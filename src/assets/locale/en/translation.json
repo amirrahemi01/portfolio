@@ -7,7 +7,7 @@
   },
   "header": {
     "hello": "hello",
-    "Welcome to my slice of the internet": "Welcome to my slice of the internet",
+    "Welcome to my slice of the internet": "Welcome to my slice of web development",
     "cancel": "cancel",
     "continue": "continue"
   },
@@ -29,18 +29,18 @@
     "download cv": "Download CV",
     "projects": "projects",
     "pr": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
-    
+
     "e-commerce": "E-Commerce",
     "shopping": "Our E-commerce project, powered by React.js, Next.js, and MongoDB, reimagines the online shopping experience. Seamlessly blending the frontend magic of React.js with the server-side rendering capabilities of Next.js",
-    
+
     "rent car": "rent car",
     "rent": "Experience the future of car rental services with our project, leveraging React.js and Next.js. With the power of Tailwind CSS, we've crafted a sleek and intuitive interface that seamlessly adapts to your preferences.",
-    
+
     "food delivery": "food delivery",
     "food": "Our Food Delivery project, powered by MongoDB, offers a seamless ordering experience in multiple languages. With MongoDB's flexible data management, we ensure efficient order processing and personalized user experiences.",
-    
+
     "contact": "just say hello",
-    
+
     "copy": "Amir Rahemi, All rights reserved",
     "made with": "Made With",
     "in rasht": "in Rasht",
