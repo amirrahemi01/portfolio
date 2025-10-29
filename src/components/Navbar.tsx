@@ -43,10 +43,6 @@ function Navbar({ }: Props) {
         <a 
           href="/" 
           className="flex items-center justify-center p-0 w-12 h-12 text-3xl"
-          // onClick={(e) => {
-          //   e.preventDefault();
-          //   window.scrollTo({ top: 0, behavior: 'smooth' });
-          // }}
         >
           <img src={ICON} className="rounded logo" alt="Logo" />
         </a>
@@ -117,13 +113,13 @@ function Navbar({ }: Props) {
         </div>
       </nav>
       
-      <div className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-100 dark:text-white toggle">
+      <div dir="ltr" className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-100 dark:text-white toggle">
         <ToggleDark />
         <MultiLang />
         <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+          <span className="bar bg-gray-100 dark:bg-white"></span>
+          <span className="bar bg-gray-100 dark:bg-white"></span>
+          <span className="bar bg-gray-100 dark:bg-white"></span>
         </div>
       </div>
     </header>

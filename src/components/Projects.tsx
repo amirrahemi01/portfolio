@@ -41,16 +41,16 @@ function Projects({ }: Props) {
       title: t("content.rent car"),
       description: t("content.rent"),
       tags: ["#react.js", "#mongodb"],
-      gradientFrom: "from-blue-500/10",
+      gradientFrom: "from-slate-500/10",
       gradientTo: "to-cyan-500/10",
-      overlayFrom: "from-blue-500/20",
+      overlayFrom: "from-slate-500/20",
       overlayTo: "to-cyan-500/20",
-      badgeGradient: "from-blue-500 to-cyan-500",
-      hoverShadow: "hover:shadow-blue-500/30",
-      hoverGlow: "from-blue-500 to-cyan-500",
-      hoverTextFrom: "group-hover:from-blue-400",
+      badgeGradient: "from-slate-500 to-cyan-500",
+      hoverShadow: "hover:shadow-slate-500/30",
+      hoverGlow: "from-slate-500 to-cyan-500",
+      hoverTextFrom: "group-hover:from-slate-400",
       hoverTextTo: "group-hover:to-cyan-400",
-      hoverColor: "group-hover:text-blue-200",
+      hoverColor: "group-hover:text-slate-200",
       delay: "0.1s"
     },
     {
@@ -76,37 +76,38 @@ function Projects({ }: Props) {
   return (
     <div className="w-full py-12 md:py-20 px-4" id="projects">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center pb-4 md:pb-8 px-4" style={{
-          background: 'linear-gradient(to right, rgb(96, 165, 250), rgb(192, 132, 252), rgb(244, 114, 182))',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
-          {t("content.projects")}
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center pb-4 md:pb-8 px-4 
+          bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
+        dark:from-gray-100 dark:via-white dark:to-gray-300
+          [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
+        >
+          {t('content.projects')}
         </h1>
-        <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mb-8 md:mb-12"></div>
+
+
+
+        <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-slate-655 via-purple-500 to-pink-500 rounded-full mb-8 md:mb-12"></div>
 
         {/* View Toggle - Only visible on large screens */}
         <div className="hidden lg:flex justify-end mb-8">
           <div className="inline-flex rounded-xl bg-white/10 dark:bg-slate-800/30 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${
-                viewMode === 'grid'
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${viewMode === 'grid'
+                ? 'bg-gradient-to-r from-slate-655 to-purple-600 text-white shadow-lg'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
             >
               <BsFillGridFill className="inline mr-2" />
               {/* {t("content.grid")} */}
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${
-                viewMode === 'list'
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${viewMode === 'list'
+                ? 'bg-gradient-to-r from-slate-655 to-purple-600 text-white shadow-lg'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
             >
               <FaList className="inline mr-2" />
               {/* {t("content.list")} */}
@@ -119,25 +120,22 @@ function Projects({ }: Props) {
           (viewMode === 'list' ? 'lg:grid-cols-1' : 'lg:grid-cols-3')
         }>
           {projects.map((project) => (
-            <div 
+            <div
               key={project.id}
-              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} border border-white/10 shadow-2xl hover:scale-105 ${project.hoverShadow} transition-all duration-500 flex flex-col ${
-                viewMode === 'list' ? 'lg:flex-row' : ''
-              }`} 
-              style={{animation: `fadeInUp 0.6s ease-out ${project.delay} both`}}
+              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} border border-white/10 shadow-2xl hover:scale-105 ${project.hoverShadow} transition-all duration-500 flex flex-col ${viewMode === 'list' ? 'lg:flex-row' : ''
+                }`}
+              style={{ animation: `fadeInUp 0.6s ease-out ${project.delay} both` }}
             >
-            
-              <div className={`relative overflow-hidden flex-shrink-0 cursor-pointer h-48 md:h-64 ${
-                viewMode === 'list' ? 'lg:w-80' : ''
-              }`}>
+
+              <div className={`relative overflow-hidden flex-shrink-0 cursor-pointer h-48 md:h-64 ${viewMode === 'list' ? 'lg:w-80' : ''
+                }`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.overlayFrom} ${project.overlayTo} z-10`}></div>
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
               </div>
 
-              <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${
-                viewMode === 'list' ? 'lg:justify-center' : ''
-              }`}>
+              <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${viewMode === 'list' ? 'lg:justify-center' : ''
+                }`}>
                 <div className="flex-grow">
                   <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`}>
                     {project.title}

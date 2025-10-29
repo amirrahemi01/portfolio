@@ -13,7 +13,7 @@ function Skills({ }: Props) {
     <div id="skills">
       <div className="flex flex-col mt-4">
         <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
-        <p className="dark:text-slate-300 text-slate-800 px-4 text-justify">{t("content.skills")}</p>
+        <p className="dark:text-slate-300 text-slate-800 text-sm large:text-base px-4 text-justify">{t("content.skills")}</p>
 
         <div className="w-full overflow-x-scroll overflow-y-hidden md:overflow-x-auto md:flex md:justify-center">
           <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">

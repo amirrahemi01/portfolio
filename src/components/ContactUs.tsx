@@ -62,9 +62,9 @@ const ContactUs: React.FC<ContactProps> = () => {
   ];
 
   return (
-    <div className="w-full py-20 px-4 relative" id="contact">
+    <div className="w-full py-20 px-4 relative rounded-2xl bg-[#ededed] dark:bg-[#080808] p-4" id="contact">
       <ToastContainer />
-      
+
       {/* Background Effects */}
       <div className="absolute top-10 left-5 md:top-20 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-10 right-5 md:bottom-20 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -72,26 +72,24 @@ const ContactUs: React.FC<ContactProps> = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 px-4"
-            style={{
-              background: 'linear-gradient(to right, rgb(96, 165, 250), rgb(192, 132, 252), rgb(244, 114, 182))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 px-4 
+            bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
+          dark:from-gray-100 dark:via-white dark:to-gray-300
+            [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
           >
-            {t("content.contact")}
+            {t('content.contact')}
           </h2>
-          <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+
+          <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-slate-655 via-purple-500 to-pink-500 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg px-4">Let's create something amazing together</p>
         </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
+
           {/* Contact Form */}
-          <div 
+          <div
             className="backdrop-blur-xl bg-white/10 dark:bg-slate-800/30 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
             style={{ animation: 'fadeInLeft 0.6s ease-out' }}
           >
@@ -136,7 +134,7 @@ const ContactUs: React.FC<ContactProps> = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="group relative w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105"
+                className="group relative w-full md:w-auto px-8 py-4 bg-gradient-to-r from-slate-655 to-purple-600 rounded-full text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105"
               >
                 <span className="relative z-10">{t("content.contactSendMessage")}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -146,10 +144,10 @@ const ContactUs: React.FC<ContactProps> = () => {
 
           {/* Social Links & Info */}
           <div className="flex flex-col justify-center space-y-8">
-            
+
             {/* Social Icons */}
-            <div 
-              className="backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
+            <div
+              className="backdrop-blur-xl bg-gradient-to-br from-slate-655/10 to-purple-500/10 dark:from-slate-655/20 dark:to-purple-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
               style={{ animation: 'fadeInRight 0.6s ease-out' }}
             >
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 text-center">{t("content.contactConnect")}</h3>
@@ -171,7 +169,7 @@ const ContactUs: React.FC<ContactProps> = () => {
             </div>
 
             {/* Contact Info Cards */}
-            <div 
+            <div
               className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
               style={{ animation: 'fadeInRight 0.6s ease-out 0.2s both' }}
             >

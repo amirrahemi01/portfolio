@@ -128,7 +128,6 @@ html {
   }
 
   .bar {
-    background-color: #fff;
     width: 20px;
     height: 3px;
     display: block;
@@ -136,14 +135,6 @@ html {
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
-
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      .bar {
-        background-color: #353535;
-        /* lighter gray or any light color for visibility */
-      }
-    }
 
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
@@ -188,7 +179,8 @@ html {
 
   .nav.active {
     all: unset;
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(8px);
+    background: #0000007a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,7 +206,7 @@ html {
     all: unset;
     display: flex;
     flex-direction: column;
-    text-decoration: underline #000;
+    text-decoration: none;
   }
 
   .nav.active img.logo {
