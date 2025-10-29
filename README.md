@@ -17,7 +17,7 @@
 
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/💻" width="25" align="center" > Demo
-- [Live demo](https://amirrahemi-portfolio.vercel.app/)
+- [Live demo](https://amirrahemi.com/)
 
 ## <img alt="Camputer" src="https://emojicdn.elk.sh/📷" width="25" align="center" > Screenshots
 <div>
