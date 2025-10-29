@@ -26,15 +26,15 @@ function MultiLang({ }: Props) {
         localStorage.setItem("language", "en");
     }
 
-    if(localStorage.getItem("language") === "en") {
-        document.documentElement.setAttribute('dir', "ltr");
-        document.title = "AMIR RAHEMI";
+    // if(localStorage.getItem("language") === "en") {
+    //     document.documentElement.setAttribute('dir', "ltr");
+    //     document.title = "AMIR RAHEMI";
         
-    } else if (localStorage.getItem("language") === "fa") {
-        document.documentElement.setAttribute('dir', "rtl");
-        document.title = "امیر راحمی";
+    // } else if (localStorage.getItem("language") === "fa") {
+    //     document.documentElement.setAttribute('dir', "rtl");
+    //     document.title = "امیر راحمی";
 
-    }
+    // }
 
     
 

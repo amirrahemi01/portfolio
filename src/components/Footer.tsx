@@ -24,7 +24,7 @@ function Footer({ }: Props) {
   };
 
   return (
-    <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans">
+    <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans mt-4">
       <p className="float-right rtl:float-left">&copy; {getFormattedYear()} {t("content.copy")}.</p>
       <p className="flex">
         {t("content.made with")}
