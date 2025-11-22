@@ -18,7 +18,7 @@ function About({ }: Props) {
     <div className="w-full bg-white dark:bg-black" id="about">
       <div className="flex flex-col md:flex-row px-4">
         <div className="w-full ml-auto p-5">
-          <img src={IMG1} alt="" className="a w-full" />
+          <img src={IMG1} alt="" className="a w-full aspect-square object-cover" />
         </div>
         <br />
 
