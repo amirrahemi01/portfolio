@@ -134,21 +134,24 @@ function App() {
       <Navbar />
 
       <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
-        <section className="[height:96vh] flex items-center justify-center flex-col [width: 90%] lg:w-full bg-black rounded-2xl dark:bg-white m-4 h-screen rounded-none;">
+      <section className="h-[2vh]"></section>
+        <section className="relative h-[96vh] w-full max-w-none flex items-center justify-center flex-col bg-black dark:bg-white rounded-2xl overflow-hidden">
           <div className="absolute bottom-20 z-40 p-3">
             <h2 className="text-2xl md:text-5xl lg:text-8xl text-white dark:text-black">{t("header.hello")}</h2>
-            <p className="text-sm md:text-3xl lg:text-5xl text-white dark:text-black">{t("header.Welcome to my slice of the internet")}</p>
+            <p className="text-sm md:text-3xl lg:text-5xl text-white dark:text-black">
+              {t("header.Welcome to my slice of the internet")}
+            </p>
           </div>
 
-          <a 
-            id={isVisible ? "hide" : "nohide"} 
-            className="mouse-scroll z-50" 
+          <a
+            id={isVisible ? "hide" : "nohide"}
+            className="mouse-scroll z-50"
             href="#about"
-            onClick={(e) => scrollToSection(e, 'about')}
+            onClick={(e) => scrollToSection(e, "about")}
           ></a>
 
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="fixed right-3 lg:right-10 bottom-14 z-50 text-white dark:text-black rounded-full p-4 text-2xl bg-blue-200 dark:bg-blue-100 hover:bg-blue-300 dark:hover:bg-blue-200 transition-colors shadow-lg"
             id={isVisible ? "nohide" : "hide"}
             aria-label="Scroll to top"
@@ -156,12 +159,15 @@ function App() {
             <MdKeyboardDoubleArrowUp />
           </button>
 
-          <img 
-            className="absolute w-96 md:w-72 lg:w-3/5 max-w-xl bottom-5 lg:bottom-5 xl:bottom-8 object-contain object-bottom" 
-            src={IMG} 
-            alt="Amir Rahemi - Full-Stack Developer" 
+          <img
+            className="absolute w-3/4 sm:w-96 md:w-80 lg:w-3/5 max-w-2xl bottom-0 sm:bottom-2 md:bottom-0 lg:bottom-0 object-contain object-bottom transition-all duration-300"
+            src={IMG || "/placeholder.svg"}
+            alt="Amir Rahemi - Full-Stack Developer"
+            loading="lazy"
           />
         </section>
+
+        <section className="h-[2vh]"></section>
 
         <section className="h-auto flex items-center justify-center flex-col text-white">
 
