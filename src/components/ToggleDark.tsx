@@ -1,13 +1,21 @@
-import React, { useEffect } from 'react';
+// Path: src/components/ToggleDark.tsx
+
+import React, { useEffect, useState } from 'react';
 
 import "@theme-toggles/react/css/Expand.css";
 import { Expand } from "@theme-toggles/react";
 
 function ToggleDark() {
+  const [isDark, setIsDark] = useState(false);
+
   useEffect(() => {
     const selectedTheme = localStorage.getItem('selectedThemeType');
     if (selectedTheme === 'dark') {
       setDarkMode();
+      setIsDark(true);
+    } else {
+      setLightMode();
+      setIsDark(false);
     }
   }, []);
 
@@ -31,18 +39,28 @@ function ToggleDark() {
     const currentTheme = localStorage.getItem('selectedThemeType');
     if (currentTheme === 'dark') {
       setLightMode();
+      setIsDark(false);
     } else {
       setDarkMode();
+      setIsDark(true);
     }
   }
 
   return (
       <button
         onClick={toggleTheme}
-        defaultChecked={selectedTheme === 'dark'}
-        className="text-gray-100 dark:text-white"
+        className="text-gray-100"
+        aria-label="Toggle dark mode"
       >
-        <Expand className="transition-none " duration={750} reversed placeholder={<div>Loading...</div>} />
+        <Expand 
+          className="transition-none" 
+          duration={750} 
+          reversed={isDark}
+          toggled={isDark}
+          onPointerEnterCapture={undefined}
+          placeholder={<div>Loading...</div>}
+          onPointerLeaveCapture={undefined}
+        />
       </button>
   );
 }

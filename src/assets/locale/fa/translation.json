@@ -54,6 +54,11 @@
 
     "placeHolderName": "اسم شما",
     "placeHolderYourMessage": "پیام شما",
+        
+    "messageSentSuccess": "پیام با موفقیت ارسال شد! 🎉",
+    "messageSentError": "ارسال پیام ناموفق بود. لطفا دوباره تلاش کنید.",
+    "emailConfigError": "سرویس ایمیل پیکربندی نشده است. لطفا متغیرهای محیطی را بررسی کنید.",
+    
 
     "list": "لیست",
     "grid": "Grid"

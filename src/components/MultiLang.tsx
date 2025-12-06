@@ -45,7 +45,7 @@ function MultiLang({ }: Props) {
     ];
 
     return (
-        <div className="text-gray-100 dark:text-white">
+        <div className="text-gray-100">
             <Dropdown
                 options={options}
                 text={<button><IoLanguage /></button>}

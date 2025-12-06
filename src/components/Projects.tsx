@@ -14,7 +14,7 @@ type Props = {}
 
 function Projects({ }: Props) {
   const [t, i18n] = useTranslation("global");
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
 
   const projects = [
     {
@@ -155,9 +155,9 @@ function Projects({ }: Props) {
               </div>
 
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
-              <div className={`absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r ${project.badgeGradient} flex items-center justify-center text-white font-bold text-sm md:text-base shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500`}>
+              {/* <div className={`absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r ${project.badgeGradient} flex items-center justify-center text-white font-bold text-sm md:text-base shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500`}>
                 {project.id}
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

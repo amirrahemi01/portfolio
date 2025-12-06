@@ -113,13 +113,13 @@ function Navbar({ }: Props) {
         </div>
       </nav>
       
-      <div dir="ltr" className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-100 dark:text-white toggle">
+      <div dir="ltr" className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-300 toggle">
         <ToggleDark />
         <MultiLang />
         <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>
-          <span className="bar bg-gray-100 dark:bg-white"></span>
-          <span className="bar bg-gray-100 dark:bg-white"></span>
-          <span className="bar bg-gray-100 dark:bg-white"></span>
+          <span className="bar bg-gray-100"></span>
+          <span className="bar bg-gray-100"></span>
+          <span className="bar bg-gray-100"></span>
         </div>
       </div>
     </header>

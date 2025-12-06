@@ -156,7 +156,7 @@ function App() {
             id={isVisible ? "nohide" : "hide"}
             aria-label="Scroll to top"
           >
-            <MdKeyboardDoubleArrowUp />
+            {<MdKeyboardDoubleArrowUp /> as React.ReactNode}
           </button>
 
           <img

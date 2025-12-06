@@ -57,6 +57,11 @@
     "placeHolderName": "Your name",
     "placeHolderYourMessage": "Your message...",
 
+    "messageSentSuccess": "Message sent successfully! 🎉",
+    "messageSentError": "Failed to send message. Please try again.",
+    "emailConfigError": "Email service is not configured. Please check environment variables.",
+    
+
     "list": "List",
     "grid": "Grid"
   }

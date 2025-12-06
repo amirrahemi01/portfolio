@@ -29,11 +29,16 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
 
   return (
     <div
-      className={`fixed top-6 right-6 z-50 transition-all duration-300 transform ${
-        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
-      }`}
+      className={`
+        fixed z-50 transition-all duration-300 transform
+        ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}
+        /* Mobile: Full width with margins */
+        top-4 left-4 right-4
+        /* Tablet: Centered with max-width */
+        md:left-auto md:right-6 md:top-6 md:max-w-md md:w-auto
+      `}
     >
-      <div className="backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden min-w-[320px] max-w-md">
+      <div className="backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden w-full">
         <div className={`h-1 bg-gradient-to-r ${bgGradient}`}></div>
         
         <div className="p-4 flex items-start gap-3">
@@ -41,8 +46,8 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
             <Icon className="w-5 h-5 text-white" />
           </div>
           
-          <div className="flex-1 pt-1">
-            <p className="text-slate-800 dark:text-white font-medium leading-relaxed">
+          <div className="flex-1 min-w-0">
+            <p className="text-slate-800 dark:text-white font-medium leading-relaxed break-words text-sm md:text-base">
               {message}
             </p>
           </div>

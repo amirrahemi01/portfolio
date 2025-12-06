@@ -14,43 +14,42 @@ const ContactUs: React.FC<ContactProps> = () => {
 
   const { showToast, ToastContainer } = useToast();
 
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    if (!form.current) return;
+  if (!form.current) return;
 
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+  const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('EmailJS environment variables are missing');
-      alert('Email service is not configured. Please check environment variables.');
-      return;
-    }
+  if (!serviceId || !templateId || !publicKey) {
+    console.error('EmailJS environment variables are missing');
+    showToast(t('content.emailConfigError'), 'error');
+    return;
+  }
 
-    emailjs
-      .sendForm(serviceId, templateId, form.current, {
-        publicKey: publicKey,
-      })
-      .then(
-        (response: EmailJSResponseStatus) => {
-          console.log('SUCCESS!', response);
-          showToast('Message sent successfully! 🎉', 'success');
-          form.current?.reset();
-        },
-        (error: any) => {
-          console.error('FAILED...', error);
-          showToast('Failed to send message. Please try again.', 'error');
-        }
-      );
-
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('EmailJS environment variables are missing');
-      showToast('Email service is not configured. Please check environment variables.', 'error');
-      return;
-    }
-  };
+  // Get form data
+  const formData = new FormData(form.current);
+  
+  emailjs
+    .send(serviceId, templateId, {
+      name: formData.get('user_name'),
+      email: formData.get('user_email'),
+      message: formData.get('message'),
+    }, publicKey)
+    .then(
+      (response: EmailJSResponseStatus) => {
+        console.log('SUCCESS!', response);
+        showToast(t('content.messageSentSuccess'), 'error');
+        form.current?.reset();
+      },
+      (error: any) => {
+        console.error('FAILED...', error);
+        showToast(t('content.messageSentError'), 'error');
+      }
+    );
+};
 
   const socialLinks = [
     { icon: <MdOutlineAlternateEmail />, href: 'mailto:amirrahemi01@gmail.com', color: 'hover:text-red-400', label: 'Email' },
@@ -82,7 +81,7 @@ const ContactUs: React.FC<ContactProps> = () => {
           </h2>
 
           <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-slate-655 via-purple-500 to-pink-500 rounded-full"></div>
-          <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg px-4">Let's create something amazing together</p>
+          <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg px-4">{t('content.contactText')}</p>
         </div>
 
         {/* Main Content Grid */}
