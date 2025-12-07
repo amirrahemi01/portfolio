@@ -1,0 +1,1672 @@
+================================================================
+Files Structure
+================================================================
+assets/
+  locale/
+    en/
+      translation.json
+    fa/
+      translation.json
+components/
+  About.tsx
+  ContactUs.tsx
+  Dropdown.tsx
+  Footer.tsx
+  MultiLang.tsx
+  Navbar.tsx
+  Projects.tsx
+  Skills.tsx
+  Toast.tsx
+  ToggleDark.tsx
+App.tsx
+index.css
+index.tsx
+
+================================================================
+Repository Files
+================================================================
+
+================
+File: assets/locale/en/translation.json
+================
+{
+  "navbar": {
+    "work": "works",
+    "skills": "skills",
+    "about": "about",
+    "contact": "contact"
+  },
+  "header": {
+    "hello": "hello",
+    "Welcome to my slice of the internet": "Welcome to my slice of the internet",
+    "cancel": "cancel",
+    "continue": "continue"
+  },
+  "content": {
+    "amirrahemi": "amir rahemi",
+    "reactjs": "I'm a passionate React.js developer with a knack for crafting engaging web experiences. With a keen eye for detail and a love for clean code, I specialize in building dynamic and responsive applications that leave a lasting impression. Let's collaborate to bring your ideas to life!",
+
+    "my interests": "My Interests",
+    "music": "music",
+    "sport": "sport",
+    "game": "game",
+    "movie": "movie",
+    "photo": "photo",
+    "travel": "travel",
+
+    "my skills": "my skills",
+    "skills": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
+
+    "download cv": "Download CV",
+    "projects": "projects",
+    "pr": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
+    
+    "e-commerce": "E-Commerce",
+    "shopping": "Our E-commerce project, powered by React.js, Next.js, and MongoDB, reimagines the online shopping experience. Seamlessly blending the frontend magic of React.js with the server-side rendering capabilities of Next.js",
+    
+    "rent car": "rent car",
+    "rent": "Experience the future of car rental services with our project, leveraging React.js and Next.js. With the power of Tailwind CSS, we've crafted a sleek and intuitive interface that seamlessly adapts to your preferences.",
+    
+    "food delivery": "food delivery",
+    "food": "Our Food Delivery project, powered by MongoDB, offers a seamless ordering experience in multiple languages. With MongoDB's flexible data management, we ensure efficient order processing and personalized user experiences.",
+    
+    "contact": "just say hello",
+    "contactText": "Let's create something amazing together",
+    
+    "copy": "Amir Rahemi, All rights reserved",
+    "made with": "Made With",
+    "in rasht": "in Rasht",
+
+    "contactName": "Name",
+    "contactEmail": "Email",
+    "contactMessage": "",
+    "contactSendMessage": "Send Message",
+    "contactConnect": "Connect With Me",
+    "contactGet": "Get In Touch",
+    "contactDes": "Available for freelance projects and full-time opportunities. Let's build something great together!",
+
+    "placeHolderName": "Your name",
+    "placeHolderYourMessage": "Your message...",
+
+    "messageSentSuccess": "Message sent successfully! 🎉",
+    "messageSentError": "Failed to send message. Please try again.",
+    "emailConfigError": "Email service is not configured. Please check environment variables.",
+    
+
+    "list": "List",
+    "grid": "Grid"
+  }
+}
+
+================
+File: assets/locale/fa/translation.json
+================
+{
+  "navbar": {
+    "work": "نمونه کار",
+    "skills": "مهارت ها",
+    "about": "درباره من",
+    "contact": "ارتباط"
+  },
+  "header": {
+    "hello": "سلام",
+    "Welcome to my slice of the internet": "به قسمتی از اینترنت خوش اومدید"
+  },
+  "content": {
+    "amirrahemi": "امیر راحمی",
+    "reactjs": "من یک برنامه نویس و توسعه دهنده Front-End هستم. درحال حاضر با فریم ورک React.JS پروژه های خودم رو میبرم جلو و میتونید تو گیت هاب و بخش پروژه ها، از نمونه کارهای من دیدن کنید :)",
+
+    "my interests": "مورد علاقه های من",
+    "music": "موسیقی",
+    "sport": "ورزش",
+    "game": "بازی",
+    "movie": "فیلم",
+    "photo": "عکاسی",
+    "travel": "سفر",
+
+    "my skills": "مهارت های من",
+    "skills": "من یک برنامه نویس هستم که تجربه کار با زبان JavaScript و مهارت در فریم ورک های مانند Three.js",
+
+    "download cv": "دانلود رزومه",
+    "projects": "پروژه ها",
+    "pr": "پروژه‌های زیر مهارت‌ها و تجربیات من را از طریق نمونه‌هایی از کارهای من در دنیای واقعی به نمایش می‌گذارند. هر پروژه به طور خلاصه با پیوندهایی به مخازن کد و دموهای زنده در آن توضیح داده شده است. این نشان دهنده توانایی من در حل مسائل، کار با فناوری های مختلف و مدیریت موثر پروژه ها است.",
+
+    "e-commerce": "فروشگاه",
+    "shopping": "ما که توسط React.js، Next.js و MongoDB طراحی شده است، تجربه خرید آنلاین را دوباره به تصویر می کشد. با ترکیب یکپارچه جادوی frontend React.js با قابلیت‌های رندر سمت سرور Next.js است",
+    
+    "rent car": "اجاره ماشین",
+    "rent": "با استفاده از React.js و Next.js، آینده خدمات کرایه اتومبیل را با پروژه ما تجربه کنید. با قدرت Tailwind CSS، ما یک رابط براق و بصری ایجاد کرده ایم که به طور یکپارچه با ترجیحات شما سازگار است.",
+    
+    "food delivery": "غذا",
+    "food": "پروژه تحویل غذا ما، که توسط MongoDB طراحی شده است، یک تجربه سفارش بدون درز را به چندین زبان ارائه می دهد. با مدیریت داده‌های انعطاف‌پذیر MongoDB، ما از پردازش سفارشات کارآمد و تجربیات شخصی‌سازی شده کاربر اطمینان می‌دهیم.",
+    
+    "contact": "یه سلامی بگو",
+    "contactText": "با هم می‌سازیمش",
+
+    "copy": "تمامی حقوق متعلق به امیر راحمی میباشد",
+    "made with": "ساخته شده با",
+    "in rasht": "در رشت",
+
+    "contactName": "نام",
+    "contactEmail": "ایمیل",
+    "contactMessage": "پیام",
+    "contactSendMessage": "ارسال پیام",
+    "contactConnect": "ارتباط با من",
+    "contactGet": "تماس بگیرید",
+    "contactDes": "برای پروژه‌های فریلنس و فرصت‌های تمام‌وقت در دسترس هستم. بیایید با هم چیزی عالی بسازیم!",
+
+    "placeHolderName": "اسم شما",
+    "placeHolderYourMessage": "پیام شما",
+        
+    "messageSentSuccess": "پیام با موفقیت ارسال شد! 🎉",
+    "messageSentError": "ارسال پیام ناموفق بود. لطفا دوباره تلاش کنید.",
+    "emailConfigError": "سرویس ایمیل پیکربندی نشده است. لطفا متغیرهای محیطی را بررسی کنید.",
+    
+
+    "list": "لیست",
+    "grid": "Grid"
+
+  }
+}
+
+================
+File: components/About.tsx
+================
+import React from 'react'
+
+import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
+import { IoGameController } from 'react-icons/io5';
+import { TiVideo } from "react-icons/ti";
+import { useTranslation } from 'react-i18next';
+
+import IMG1 from "../assets/image/cover2.png";
+
+import Skills from './Skills';
+
+type Props = {}
+
+function About({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+
+  return (
+    <div className="w-full bg-white dark:bg-black" id="about">
+      <div className="flex flex-col md:flex-row px-4">
+        <div className="w-full ml-auto p-5">
+          <img src={IMG1} alt="" className="a w-full aspect-square object-cover" />
+        </div>
+        <br />
+
+        <div className="flex flex-col justify-center">
+          <h1 className="text-base lg:text-5xl text-blue-200 dark:text-blue-100">{t("content.amirrahemi")}</h1>
+          <h2 className="text-base lg:text-2xl text-black dark:text-white">REACT.JS DEVELOPER</h2>
+          <p className="text-slate-800 dark:text-slate-300 text-sm lg:text-base text-justify">{t("content.reactjs")}</p>
+
+          <button
+            className="flex bg-blue-200 dark:bg-blue-100 text-white dark:text-black w-fit mt-4 py-2 px-4 rounded-md"
+            onClick={() => window.open("/AmirRahemiCV.pdf", "_blank")}
+          >
+            {t("content.download cv")}
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-col mt-4">
+        <h1 className="px-4 text-2xl text-black dark:text-white">{t("content.my interests")}</h1>
+
+        <div className="flex flex-row justify-between mt-4 p-3 overflow-y-hidden overflow-x-scroll md:overflow-x-auto md:justify-center text-black dark:text-white">
+          <div className="flex items-center w-fit mx-5">
+            <FaHeadphones className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.music")}</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <FaDumbbell className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.sport")}</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <IoGameController className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.game")}</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <TiVideo className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.movie")}</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <FaCamera className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.photo")}</p>
+          </div>
+          <div className="flex items-center w-fit mx-5">
+            <FaRoad className="mx-2 text-blue-200 dark:text-blue-100 text-4xl" />
+            <p>{t("content.travel")}</p>
+          </div>
+        </div>
+
+        <Skills />
+      </div>
+    </div>
+  )
+}
+
+export default About
+
+================
+File: components/ContactUs.tsx
+================
+// Path: src/components/ContactUs.tsx
+import React, { useRef, FormEvent } from 'react';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaSquareXTwitter } from 'react-icons/fa6';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
+import { useToast } from './Toast';
+
+interface ContactProps { }
+
+const ContactUs: React.FC<ContactProps> = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [t, i18n] = useTranslation("global");
+
+  const { showToast, ToastContainer } = useToast();
+
+const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (!form.current) return;
+
+  const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+  if (!serviceId || !templateId || !publicKey) {
+    console.error('EmailJS environment variables are missing');
+    showToast(t('content.emailConfigError'), 'error');
+    return;
+  }
+
+  // Get form data
+  const formData = new FormData(form.current);
+  
+  emailjs
+    .send(serviceId, templateId, {
+      name: formData.get('user_name'),
+      email: formData.get('user_email'),
+      message: formData.get('message'),
+    }, publicKey)
+    .then(
+      (response: EmailJSResponseStatus) => {
+        console.log('SUCCESS!', response);
+        showToast(t('content.messageSentSuccess'), 'error');
+        form.current?.reset();
+      },
+      (error: any) => {
+        console.error('FAILED...', error);
+        showToast(t('content.messageSentError'), 'error');
+      }
+    );
+};
+
+  const socialLinks = [
+    { icon: <MdOutlineAlternateEmail />, href: 'mailto:amirrahemi01@gmail.com', color: 'hover:text-red-400', label: 'Email' },
+    { icon: <FaLinkedinIn />, href: 'https://linkedin.com/in/amirrahemi', color: 'hover:text-blue-400', label: 'LinkedIn' },
+    { icon: <FaGithub />, href: 'https://github.com/amirrahemi', color: 'hover:text-purple-400', label: 'GitHub' },
+    { icon: <FaFacebookF />, href: 'https://facebook.com/madeby_amir', color: 'hover:text-blue-500', label: 'Facebook' },
+    { icon: <FaInstagram />, href: 'https://instagram.com/amirrahemiii', color: 'hover:text-pink-400', label: 'Instagram' },
+    { icon: <FaSquareXTwitter />, href: 'https://twitter.com/madeby_amir', color: 'hover:text-sky-400', label: 'Twitter' },
+  ];
+
+  return (
+    <div className="w-full py-20 px-4 relative rounded-2xl bg-[#ededed] dark:bg-[#080808] p-4" id="contact">
+      <ToastContainer />
+
+      {/* Background Effects */}
+      <div className="absolute top-10 left-5 md:top-20 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-10 right-5 md:bottom-20 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 px-4 
+            bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
+          dark:from-gray-100 dark:via-white dark:to-gray-300
+            [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
+          >
+            {t('content.contact')}
+          </h2>
+
+          <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-slate-655 via-purple-500 to-pink-500 rounded-full"></div>
+          <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg px-4">{t('content.contactText')}</p>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          {/* Contact Form */}
+          <div
+            className="backdrop-blur-xl bg-white/10 dark:bg-slate-800/30 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
+            style={{ animation: 'fadeInLeft 0.6s ease-out' }}
+          >
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+              {/* Name & Email Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="group">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{t("content.contactName")}</label>
+                  <input
+                    type="text"
+                    name="user_name"
+                    placeholder={t("content.placeHolderName")}
+                    required
+                    className="w-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 rounded-xl px-5 py-3 border-2 border-transparent focus:border-blue-400 dark:focus:border-blue-500 focus:outline-none transition-all duration-300 group-hover:bg-white/70 dark:group-hover:bg-slate-900/70"
+                  />
+                </div>
+
+                <div className="group">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{t("content.contactEmail")}</label>
+                  <input
+                    type="email"
+                    name="user_email"
+                    placeholder="your@email.com"
+                    required
+                    className="w-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 rounded-xl px-5 py-3 border-2 border-transparent focus:border-blue-400 dark:focus:border-blue-500 focus:outline-none transition-all duration-300 group-hover:bg-white/70 dark:group-hover:bg-slate-900/70"
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="group">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{t("content.contactMessage")}</label>
+                <textarea
+                  name="message"
+                  placeholder={t("content.placeHolderYourMessage")}
+                  required
+                  rows={6}
+                  className="w-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 rounded-xl px-5 py-3 border-2 border-transparent focus:border-blue-400 dark:focus:border-blue-500 focus:outline-none resize-none transition-all duration-300 group-hover:bg-white/70 dark:group-hover:bg-slate-900/70"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="group relative w-full md:w-auto px-8 py-4 bg-gradient-to-r from-slate-655 to-purple-600 rounded-full text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105"
+              >
+                <span className="relative z-10">{t("content.contactSendMessage")}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </form>
+          </div>
+
+          {/* Social Links & Info */}
+          <div className="flex flex-col justify-center space-y-8">
+
+            {/* Social Icons */}
+            <div
+              className="backdrop-blur-xl bg-gradient-to-br from-slate-655/10 to-purple-500/10 dark:from-slate-655/20 dark:to-purple-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
+              style={{ animation: 'fadeInRight 0.6s ease-out' }}
+            >
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 text-center">{t("content.contactConnect")}</h3>
+              <div className="grid grid-cols-3 gap-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex items-center justify-center w-16 h-16 mx-auto bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl border-2 border-white/20 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 ${social.color} transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-xl`}
+                    style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
+                    aria-label={social.label}
+                  >
+                    <span className="text-3xl">{social.icon}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Info Cards */}
+            <div
+              className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
+              style={{ animation: 'fadeInRight 0.6s ease-out 0.2s both' }}
+            >
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">{t("content.contactGet")}</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                  <div className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                    <MdOutlineAlternateEmail className="text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <span className="lowercase">amirrahemi01@gmail.com</span>
+                </div>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
+                  {t("content.contactDes")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default ContactUs;
+
+================
+File: components/Dropdown.tsx
+================
+import React, { useState } from 'react';
+
+interface DropdownProps {
+  options: { value: string; label: React.ReactNode }[];
+  text: React.ReactNode;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<string>('');
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const selectOption = (option: string) => {
+    setSelectedOption(option);
+    toggleDropdown(); // Close dropdown after selecting an option
+  };
+
+  return (
+    <div className="px-4">
+      <button className="dropdown-toggle" onClick={toggleDropdown}>{text}</button>
+      {isOpen && (
+        <div className="fixed bg-slate-800 dark:bg-slate-300 text-white dark:text-black w-fit px-6 py-2 rounded-xl left-3">
+          {options.map((option, index) => (
+            <div key={index} className="dropdown-item" onClick={() => selectOption(option.value)}>
+              {option.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Dropdown;
+
+================
+File: components/Footer.tsx
+================
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+type Props = {}
+
+function Footer({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+  
+  // Function to get current year
+  const getCurrentYear = (): number => {
+    return new Date().getFullYear();
+  };
+
+  // Function to convert numbers to Persian/Arabic numerals
+  const toArabicNumerals = (num: number): string => {
+    const arabicNumerals = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return num.toString().split('').map(digit => arabicNumerals[parseInt(digit)]).join('');
+  };
+
+  // Get year in appropriate format based on language
+  const getFormattedYear = (): string => {
+    const year = getCurrentYear();
+    return i18n.language === 'fa' || i18n.language === 'ar' ? toArabicNumerals(year) : year.toString();
+  };
+
+  return (
+    <footer className="flex flex-col lg:block bg-slate-200 dark:bg-slate-960 text-slate-965 dark:text-slate-100 p-3 font-sans mt-4 font-lalezar">
+      <p className="float-right rtl:float-left">&copy; {getFormattedYear()} {t("content.copy")}</p>
+      <p className="flex">
+        {t("content.made with")}
+        <span className="mx-1">
+          <img src="https://emojicdn.elk.sh/%F0%9F%A9%B5" alt="" width="20" />
+        </span>
+        {t("content.in rasht")} :)
+      </p>
+    </footer>
+  );
+}
+
+export default Footer;
+
+================
+File: components/MultiLang.tsx
+================
+import React from 'react';
+
+import Dropdown from './Dropdown'
+
+import { useTranslation } from 'react-i18next';
+import { IoLanguage } from 'react-icons/io5';
+
+import IR from "../assets/icon/iran.jpeg"
+import USA from "../assets/icon/usa.jpeg"
+
+type Props = {}
+
+function MultiLang({ }: Props) {
+    // Multi Language Functions
+    const [t, i18n] = useTranslation("global");
+
+
+    const handleChangeLanguage = (lang: string) => {
+        i18n.changeLanguage(lang);
+        localStorage.setItem("language", lang);
+        document.documentElement.className = lang;
+        document.documentElement.setAttribute('lang', lang);
+    };
+
+    if (!localStorage.getItem("language")) {
+        localStorage.setItem("language", "en");
+    }
+
+    // if(localStorage.getItem("language") === "en") {
+    //     document.documentElement.setAttribute('dir', "ltr");
+    //     document.title = "AMIR RAHEMI";
+        
+    // } else if (localStorage.getItem("language") === "fa") {
+    //     document.documentElement.setAttribute('dir', "rtl");
+    //     document.title = "امیر راحمی";
+
+    // }
+
+    
+
+    // Dropdown values
+    const options = [
+        { value: 'FA', label: <button className="flex items-center justify-center" onClick={() => handleChangeLanguage("en")}><p>EN</p> &#10240;<img src={USA} className="rounded" alt="USA Flag" width="50px" loading="lazy" /></button> },
+        { value: 'EN', label: <button className="flex items-center justify-center mt-1" onClick={() => handleChangeLanguage("fa")}><p>FA</p> &#10240;<img src={IR} className="rounded" alt="IRAN Flag" width="50px" loading="lazy" /></button> },
+    ];
+
+    return (
+        <div className="text-gray-100">
+            <Dropdown
+                options={options}
+                text={<button><IoLanguage /></button>}
+            />
+        </div>
+    )
+}
+
+export default MultiLang;
+
+================
+File: components/Navbar.tsx
+================
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import MultiLang from './MultiLang';
+import ToggleDark from './ToggleDark';
+import ICON from "../assets/icon/logo.png";
+
+type Props = {}
+
+function Navbar({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+  
+  // NavBar Responsive
+  const [isActive, setIsActive] = useState(false);
+  
+  // Add the active class
+  const toggleActiveClass = () => {
+    setIsActive(!isActive);
+  };
+  
+  // Clean up function to remove the active class
+  const removeActive = () => {
+    setIsActive(false);
+  }
+  
+  // Smooth scroll to section without changing URL
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    removeActive();
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  return (
+    <header className={`flex flex-col items-center justify-start float-left fixed top-12 left-12 bottom-12 z-10 isolate nav ${isActive ? "active" : "disable"}`}>
+      <nav className="flex flex-col justify-between items-center flex-auto max-w-12">
+        <a 
+          href="/" 
+          className="flex items-center justify-center p-0 w-12 h-12 text-3xl"
+        >
+          <img src={ICON} className="rounded logo" alt="Logo" />
+        </a>
+        
+        <ul className="rotate-180 flex flex-row-reverse relative uppercase [writing-mode:vertical-lr]">
+          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+            <a 
+              href="#about" 
+              onClick={(e) => scrollToSection(e, 'about')}
+            >
+              {t("navbar.about")}
+            </a>
+          </li>
+          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+            <a 
+              href="#skills" 
+              onClick={(e) => scrollToSection(e, 'skills')}
+            >
+              {t("navbar.skills")}
+            </a>
+          </li>
+          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+            <a 
+              href="#projects" 
+              onClick={(e) => scrollToSection(e, 'projects')}
+            >
+              {t("navbar.work")}
+            </a>
+          </li>
+          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+            <a 
+              href="#contact" 
+              onClick={(e) => scrollToSection(e, 'contact')}
+            >
+              {t("navbar.contact")}
+            </a>
+          </li>
+        </ul>
+        
+        <div className="flex flex-col items-center justify-center social">
+          <a 
+            onClick={removeActive} 
+            href="https://twitter.com/madeby_amir" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+          >
+            <FaTwitter />
+          </a>
+          <a 
+            onClick={removeActive} 
+            href="https://github.com/amirrahemi01" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+          >
+            <FaGithub />
+          </a>
+          <a 
+            onClick={removeActive} 
+            href="https://linkedin.com/in/amirrahemi" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
+      </nav>
+      
+      <div dir="ltr" className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-300 toggle">
+        <ToggleDark />
+        <MultiLang />
+        <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>
+          <span className="bar bg-gray-100"></span>
+          <span className="bar bg-gray-100"></span>
+          <span className="bar bg-gray-100"></span>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;
+
+================
+File: components/Projects.tsx
+================
+// Path: src/components/Projects.tsx
+import React, { useState } from 'react'
+
+import IMG_RENT from "../assets/image/projects/rent.jpg";
+import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.png";
+import IMG_FOOD from "../assets/image/projects/food.jpg";
+
+import { useTranslation } from 'react-i18next';
+import { BsFillGridFill } from 'react-icons/bs';
+import { FaList } from 'react-icons/fa';
+
+type Props = {}
+
+
+function Projects({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+
+  const projects = [
+    {
+      id: 1,
+      image: IMG_ECOMMERCE,
+      title: t("content.e-commerce"),
+      description: t("content.shopping"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-purple-500/10",
+      gradientTo: "to-pink-500/10",
+      overlayFrom: "from-purple-500/20",
+      overlayTo: "to-pink-500/20",
+      badgeGradient: "from-purple-500 to-pink-500",
+      hoverShadow: "hover:shadow-purple-500/30",
+      hoverGlow: "from-purple-500 to-pink-500",
+      hoverTextFrom: "group-hover:from-purple-400",
+      hoverTextTo: "group-hover:to-pink-400",
+      hoverColor: "group-hover:text-red-200",
+      delay: "0s"
+    },
+    {
+      id: 2,
+      image: IMG_RENT,
+      title: t("content.rent car"),
+      description: t("content.rent"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-slate-500/10",
+      gradientTo: "to-cyan-500/10",
+      overlayFrom: "from-slate-500/20",
+      overlayTo: "to-cyan-500/20",
+      badgeGradient: "from-slate-500 to-cyan-500",
+      hoverShadow: "hover:shadow-slate-500/30",
+      hoverGlow: "from-slate-500 to-cyan-500",
+      hoverTextFrom: "group-hover:from-slate-400",
+      hoverTextTo: "group-hover:to-cyan-400",
+      hoverColor: "group-hover:text-slate-200",
+      delay: "0.1s"
+    },
+    {
+      id: 3,
+      image: IMG_FOOD,
+      title: t("content.food delivery"),
+      description: t("content.shopping"),
+      tags: ["#react.js", "#mongodb"],
+      gradientFrom: "from-orange-500/10",
+      gradientTo: "to-red-500/10",
+      overlayFrom: "from-orange-500/20",
+      overlayTo: "to-red-500/20",
+      badgeGradient: "from-orange-500 to-red-500",
+      hoverShadow: "hover:shadow-orange-500/30",
+      hoverGlow: "from-orange-500 to-red-500",
+      hoverTextFrom: "group-hover:from-orange-400",
+      hoverTextTo: "group-hover:to-red-400",
+      hoverColor: "group-hover:text-green-100",
+      delay: "0.2s"
+    }
+  ];
+
+  return (
+    <div className="w-full py-12 md:py-20 px-4" id="projects">
+      <div className="max-w-7xl mx-auto">
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center pb-4 md:pb-8 px-4 
+          bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
+        dark:from-gray-100 dark:via-white dark:to-gray-300
+          [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
+        >
+          {t('content.projects')}
+        </h1>
+
+
+
+        <div className="h-1.5 w-24 md:w-32 mx-auto bg-gradient-to-r from-slate-655 via-purple-500 to-pink-500 rounded-full mb-8 md:mb-12"></div>
+
+        {/* View Toggle - Only visible on large screens */}
+        <div className="hidden lg:flex justify-end mb-8">
+          <div className="inline-flex rounded-xl bg-white/10 dark:bg-slate-800/30 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-1">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${viewMode === 'grid'
+                ? 'bg-gradient-to-r from-slate-655 to-purple-600 text-white shadow-lg'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+            >
+              <BsFillGridFill className="inline mr-2" />
+              {/* {t("content.grid")} */}
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
+              className={`px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 ${viewMode === 'list'
+                ? 'bg-gradient-to-r from-slate-655 to-purple-600 text-white shadow-lg'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+            >
+              <FaList className="inline mr-2" />
+              {/* {t("content.list")} */}
+            </button>
+          </div>
+        </div>
+
+        <div className={
+          "grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-8 " +
+          (viewMode === 'list' ? 'lg:grid-cols-1' : 'lg:grid-cols-3')
+        }>
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} border border-white/10 shadow-2xl hover:scale-105 ${project.hoverShadow} transition-all duration-500 flex flex-col ${viewMode === 'list' ? 'lg:flex-row' : ''
+                }`}
+              style={{ animation: `fadeInUp 0.6s ease-out ${project.delay} both` }}
+            >
+
+              <div className={`relative overflow-hidden flex-shrink-0 cursor-pointer h-48 md:h-64 ${viewMode === 'list' ? 'lg:w-80' : ''
+                }`}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.overlayFrom} ${project.overlayTo} z-10`}></div>
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+              </div>
+
+              <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${viewMode === 'list' ? 'lg:justify-center' : ''
+                }`}>
+                <div className="flex-grow">
+                  <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`}>
+                    {project.title}
+                  </h2>
+                  <p className="text-black dark:text-slate-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6">{project.description}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag, index) => (
+                    <p key={index} className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 text-xs md:text-sm text-gray-100 dark:text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                      {tag}
+                    </p>
+                  ))}
+                </div>
+
+                <div className={`absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-r ${project.hoverGlow} rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none`}></div>
+              </div>
+
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
+              {/* <div className={`absolute -top-3 -right-3 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r ${project.badgeGradient} flex items-center justify-center text-white font-bold text-sm md:text-base shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500`}>
+                {project.id}
+              </div> */}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .animate-gradient {
+          background-size: 200% auto;
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
+    </div>
+  )
+}
+
+export default Projects
+
+================
+File: components/Skills.tsx
+================
+import React from 'react';
+
+import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Original, JavascriptOriginal, NextjsOriginal, NodejsOriginalWordmark, ReactOriginal, ReduxOriginal, TailwindcssPlainWordmark, TypescriptOriginal } from 'devicons-react';
+
+import { useTranslation } from 'react-i18next';
+
+type Props = {}
+
+function Skills({ }: Props) {
+  const [t, i18n] = useTranslation("global");
+
+  return (
+    <div id="skills">
+      <div className="flex flex-col mt-4">
+        <h1 className="px-4 text-2xl">{t("content.my skills")}</h1>
+        <p className="dark:text-slate-300 text-slate-800 text-sm large:text-base px-4 text-justify">{t("content.skills")}</p>
+
+        <div className="w-full overflow-x-scroll overflow-y-hidden md:overflow-x-auto md:flex md:justify-center">
+          <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">
+            <Html5Original className="text-white dark:text-black" />
+            <Css3Original className="text-white dark:text-black" />
+            <JavascriptOriginal className="text-white dark:text-black" />
+            <TypescriptOriginal className="text-white dark:text-black" />
+            <ReactOriginal className="text-white dark:text-black" />
+            <NextjsOriginal className="text-white dark:text-black" />
+            <NodejsOriginalWordmark className="text-white dark:text-black" />
+            <TailwindcssPlainWordmark className="text-white dark:text-black" />
+            <GitOriginalWordmark className="text-white dark:text-black" />
+            <ReduxOriginal className="text-white dark:text-black" />
+            <DockerOriginalWordmark className="text-white dark:text-black" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Skills
+
+================
+File: components/Toast.tsx
+================
+// Path: src/components/Toast.tsx
+import React, { useState, useEffect } from 'react';
+import { X, CheckCircle, AlertCircle } from 'lucide-react';
+
+interface ToastProps {
+  message: string;
+  type: 'success' | 'error';
+  onClose: () => void;
+}
+
+export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+      setTimeout(onClose, 300);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  const bgGradient = type === 'success' 
+    ? 'from-emerald-500 to-teal-500' 
+    : 'from-rose-500 to-pink-500';
+
+  const Icon = type === 'success' ? CheckCircle : AlertCircle;
+
+  return (
+    <div
+      className={`
+        fixed z-50 transition-all duration-300 transform
+        ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}
+        /* Mobile: Full width with margins */
+        top-4 left-4 right-4
+        /* Tablet: Centered with max-width */
+        md:left-auto md:right-6 md:top-6 md:max-w-md md:w-auto
+      `}
+    >
+      <div className="backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden w-full">
+        <div className={`h-1 bg-gradient-to-r ${bgGradient}`}></div>
+        
+        <div className="p-4 flex items-start gap-3">
+          <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${bgGradient} flex items-center justify-center shadow-lg`}>
+            <Icon className="w-5 h-5 text-white" />
+          </div>
+          
+          <div className="flex-1 min-w-0">
+            <p className="text-slate-800 dark:text-white font-medium leading-relaxed break-words text-sm md:text-base">
+              {message}
+            </p>
+          </div>
+          
+          <button
+            onClick={() => {
+              setIsVisible(false);
+              setTimeout(onClose, 300);
+            }}
+            className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center justify-center group"
+          >
+            <X className="w-4 h-4 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+interface ToastData {
+  id: number;
+  message: string;
+  type: 'success' | 'error';
+}
+
+export const useToast = () => {
+  const [toasts, setToasts] = useState<ToastData[]>([]);
+
+  const showToast = (message: string, type: 'success' | 'error') => {
+    const id = Date.now();
+    setToasts(prev => [...prev, { id, message, type }]);
+  };
+
+  const removeToast = (id: number) => {
+    setToasts(prev => prev.filter(toast => toast.id !== id));
+  };
+
+  const ToastContainer = () => (
+    <>
+      {toasts.map(toast => (
+        <Toast
+          key={toast.id}
+          message={toast.message}
+          type={toast.type}
+          onClose={() => removeToast(toast.id)}
+        />
+      ))}
+    </>
+  );
+
+  return { showToast, ToastContainer };
+};
+
+================
+File: components/ToggleDark.tsx
+================
+// Path: src/components/ToggleDark.tsx
+
+import React, { useEffect, useState } from 'react';
+
+import "@theme-toggles/react/css/Expand.css";
+import { Expand } from "@theme-toggles/react";
+
+function ToggleDark() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const selectedTheme = localStorage.getItem('selectedThemeType');
+    if (selectedTheme === 'dark') {
+      setDarkMode();
+      setIsDark(true);
+    } else {
+      setLightMode();
+      setIsDark(false);
+    }
+  }, []);
+
+  function setDarkMode() {
+    document.body.setAttribute('data-mode', 'dark');
+    localStorage.setItem('selectedThemeType', 'dark');
+  }
+
+  function setLightMode() {
+    document.body.setAttribute('data-mode', 'light');
+    localStorage.setItem('selectedThemeType', 'light');
+  }
+
+  const selectedTheme = localStorage.getItem('selectedThemeType');
+
+  if (!selectedTheme) {
+    setDarkMode();
+  }
+
+  function toggleTheme(e: React.MouseEvent<HTMLButtonElement>) {
+    const currentTheme = localStorage.getItem('selectedThemeType');
+    if (currentTheme === 'dark') {
+      setLightMode();
+      setIsDark(false);
+    } else {
+      setDarkMode();
+      setIsDark(true);
+    }
+  }
+
+  return (
+      <button
+        onClick={toggleTheme}
+        className="text-gray-100"
+        aria-label="Toggle dark mode"
+      >
+        <Expand 
+          className="transition-none" 
+          duration={750} 
+          reversed={isDark}
+          toggled={isDark}
+          onPointerEnterCapture={undefined}
+          placeholder={<div>Loading...</div>}
+          onPointerLeaveCapture={undefined}
+        />
+      </button>
+  );
+}
+
+export default ToggleDark;
+
+================
+File: App.tsx
+================
+// Path: src/App.tsx
+import React, { useEffect, useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Helmet } from 'react-helmet';
+
+import Navbar from './components/Navbar';
+import About from './components/About';
+import Projects from './components/Projects';
+import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
+
+import IMG from "./assets/image/cover.png";
+
+function App() {
+  const [t, i18n] = useTranslation("global");
+
+  const handleChangeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
+
+
+  // On Scroll Hide Content
+  const [isVisible, setIsVisible] = useState(true);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => {
+      window.removeEventListener("scroll", listenToScroll);
+    }
+  }, []);
+
+  function listenToScroll() {
+    let heightToHideFrom = 15;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    setHeight(winScroll);
+
+    if (winScroll > heightToHideFrom) {
+      isVisible && setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  };
+
+  // Smooth scroll to section without changing URL
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  const currentLang = (i18n.language || 'en') as 'en' | 'fa';
+  console.log(currentLang);
+  const isRTL = currentLang === 'fa';
+
+
+  return (
+    <div className="bg-[white] dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-medium transition-all capitalize">
+      <Helmet>
+        {/* HTML attributes */}
+        <html lang="en" dir="ltr" />
+
+        {/* Basic Meta Tags */}
+        <title>Amir Rahemi - Full-Stack Developer | React & Next.js</title>
+        <meta name="description" content="Amir Rahemi is a passionate full-stack developer specializing in modern JavaScript, React, Next.js, Node.js, and TypeScript. Browse my portfolio projects and get in touch." />
+        <meta name="keywords" content="Amir Rahemi, full-stack developer, web developer, React developer, Next.js, JavaScript, Node.js, portfolio, frontend developer, backend developer" />
+        <meta name="author" content="Amir Rahemi" />
+        <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="g_1thjCsV9Zsk6mFnfvHTwtioi2tn7J4Zz_4ufHwNrg" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://amirrahemi.com" />
+
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Amir Rahemi - Full-Stack Developer | React & Next.js" />
+        <meta property="og:description" content="Portfolio of Amir Rahemi - Skilled full-stack developer specializing in React, Next.js, and modern web technologies. View my projects and experience." />
+        <meta property="og:image" content="https://amirrahemi.com/logo.png" />
+        <meta property="og:url" content="https://amirrahemi.com" />
+        <meta property="og:site_name" content="Amir Rahemi Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@madeby_amir" />
+        <meta name="twitter:creator" content="@madeby_amir" />
+        <meta name="twitter:title" content="Amir Rahemi - Full-Stack Developer" />
+        <meta name="twitter:description" content="Portfolio of Amir Rahemi - Skilled full-stack developer specializing in React, Next.js, and modern web technologies." />
+        <meta name="twitter:image" content="https://amirrahemi.com/logo.png" />
+        <meta name="twitter:image:alt" content="Amir Rahemi - Full-Stack Developer" />
+
+        {/* Additional Important Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="theme-color" content="#000000" />
+
+        {/* Schema.org structured data for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Amir Rahemi",
+            "jobTitle": "Full-Stack Developer",
+            "url": "https://amirrahemi.com",
+            "sameAs": [
+              "https://github.com/amirrahemi",
+              "https://linkedin.com/in/amirrahemi",
+              "https://twitter.com/madeby_amir"
+            ],
+            "knowsAbout": [
+              "JavaScript",
+              "React",
+              "Next.js",
+              "Node.js",
+              "TypeScript",
+              "Full-Stack Development"
+            ],
+            "description": "Full-Stack Developer specializing in React, Next.js, and modern web technologies",
+            "image": "https://amirrahemi.com/logo.png",
+            "inLanguage": "en-US"
+          })}
+        </script>
+      </Helmet>
+
+      <Navbar />
+
+      <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
+      <section className="h-[2vh]"></section>
+        <section className="relative h-[96vh] w-full max-w-none flex items-center justify-center flex-col bg-black dark:bg-white rounded-2xl overflow-hidden">
+          <div className="absolute bottom-20 z-40 p-3">
+            <h2 className="text-2xl md:text-5xl lg:text-8xl text-white dark:text-black">{t("header.hello")}</h2>
+            <p className="text-sm md:text-3xl lg:text-5xl text-white dark:text-black">
+              {t("header.Welcome to my slice of the internet")}
+            </p>
+          </div>
+
+          <a
+            id={isVisible ? "hide" : "nohide"}
+            className="mouse-scroll z-50"
+            href="#about"
+            onClick={(e) => scrollToSection(e, "about")}
+          ></a>
+
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed right-3 lg:right-10 bottom-14 z-50 text-white dark:text-black rounded-full p-4 text-2xl bg-blue-200 dark:bg-blue-100 hover:bg-blue-300 dark:hover:bg-blue-200 transition-colors shadow-lg"
+            id={isVisible ? "nohide" : "hide"}
+            aria-label="Scroll to top"
+          >
+            {<MdKeyboardDoubleArrowUp /> as React.ReactNode}
+          </button>
+
+          <img
+            className="absolute w-3/4 sm:w-96 md:w-80 lg:w-3/5 max-w-2xl bottom-0 sm:bottom-2 md:bottom-0 lg:bottom-0 object-contain object-bottom transition-all duration-300"
+            src={IMG || "/placeholder.svg"}
+            alt="Amir Rahemi - Full-Stack Developer"
+            loading="lazy"
+          />
+        </section>
+
+        <section className="h-[2vh]"></section>
+
+        <section className="h-auto flex items-center justify-center flex-col text-white">
+
+          <About />
+
+        </section>
+
+        <section className="h-auto flex items-center justify-center flex-col text-white">
+
+          <Projects />
+
+        </section>
+
+        <section className="h-auto flex items-center justify-center flex-col text-white">
+
+          <ContactUs />
+
+        </section>
+      </div>
+
+      <Footer />
+
+      <SpeedInsights />
+
+    </div>
+  );
+}
+
+export default App;
+
+================
+File: index.css
+================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+::selection {
+  background-color: #100635;
+  /* Selected text background color */
+  color: #fff;
+  /* Selected text color */
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.35s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#hide {
+  opacity: 1;
+  transition: 0.5s all;
+}
+
+#nohide {
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.toggle svg {
+  font-size: 33px;
+}
+
+.mouse-scroll {
+  border: 2px solid #666666;
+  border-radius: 20px;
+  width: 26px;
+  height: 38px;
+  position: fixed;
+  bottom: 30px;
+  transition-property: opacity;
+  transition-duration: 600ms;
+  transition-timing-function: ease;
+  opacity: 1;
+}
+
+.mouse-scroll:before {
+  content: "";
+  height: 7px;
+  width: 2px;
+  background: #666666;
+  border-radius: 4px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translate(-1px);
+}
+
+.mouse-scroll:before {
+  animation: mouse-scroll 2s ease infinite;
+}
+
+@keyframes mouse-scroll {
+  0% {
+    transform: translate3d(-1px, 0, 0);
+    opacity: 0
+  }
+
+  20% {
+    transform: translate3d(-1px, 0, 0);
+    opacity: 1
+  }
+
+  to {
+    transform: translate3d(-1px, 8px, 0);
+    opacity: 0
+  }
+}
+
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  min-height: 70px;
+}
+
+.navMenu {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.navLink {
+  color: #246692;
+}
+
+/* media queries */
+@media screen and (max-width: 780px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .bar {
+    width: 20px;
+    height: 3px;
+    display: block;
+    margin: 5px;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navMenu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    top: 70px;
+    left: -100%;
+    text-align: start;
+    width: 100%;
+    transition: 0.7s ease-in-out;
+    padding: 10px;
+  }
+
+  .navMenu.active {
+    left: 0;
+  }
+
+  .navMenu li {
+    margin: 16px 0;
+  }
+
+  .nav.disable {
+    all: unset;
+  }
+
+  .nav.disable nav {
+    opacity: 0;
+    display: none;
+  }
+
+  .nav.active {
+    all: unset;
+    backdrop-filter: blur(8px);
+    background: #0000007a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 99999999999999;
+  }
+
+  .nav.active nav {
+    all: unset;
+    display: block;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  .nav.active ul {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .nav.active img.logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 50px;
+  }
+
+  .nav.active .social {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  .nav.active li {
+    all: unset;
+  }
+}
+
+img.a {
+  box-shadow: 0 0 0 2px #9bddff, -8px 8px 0 0 #9bddff;
+}
+
+.skills svg {
+  width: 4.5rem !important;
+  height: 4.5rem !important;
+  margin: 0 8px;
+}
+
+================
+File: index.tsx
+================
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import './index.css';
+
+import App from './App';
+
+import translation_en from "./assets/locale/en/translation.json"
+import translation_fa from "./assets/locale/fa/translation.json"
+
+import i18next from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: localStorage.getItem("language") || 'en',
+  resources: {
+    en: {
+      global: translation_en,
+    },
+    fa: {
+      global: translation_fa,
+    },
+  },
+})
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
+  <React.StrictMode>
+    <I18nextProvider i18n={i18next}>
+      <App />
+    </I18nextProvider>
+  </React.StrictMode>
+);

@@ -13,6 +13,7 @@ import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 import IMG from "./assets/image/cover.png";
+import clsx from 'clsx';
 
 function App() {
   const [t, i18n] = useTranslation("global");
@@ -134,11 +135,11 @@ function App() {
       <Navbar />
 
       <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
-      <section className="h-[2vh]"></section>
-        <section className="relative h-[96vh] w-full max-w-none flex items-center justify-center flex-col bg-black dark:bg-white rounded-2xl overflow-hidden">
-          <div className="absolute bottom-20 z-40 p-3">
-            <h2 className="text-2xl md:text-5xl lg:text-8xl text-white dark:text-black">{t("header.hello")}</h2>
-            <p className="text-sm md:text-3xl lg:text-5xl text-white dark:text-black">
+      <section className="h-0 sm:h-[2vh]"></section>
+        <section className="relative h-screen sm:h-[96vh] w-full max-w-none flex items-center justify-center flex-col bg-black dark:bg-white rounded-none sm:rounded-2xl overflow-hidden">
+          <div className="absolute top-20 md:top-40 lg:top-8 px-4 py-3 w-full sm:w-auto text-center sm:text-left">
+            <h2 className={clsx("text-7xl sm:text-3xl md:text-5xl lg:text-8xl text-white dark:text-black leading-tight", currentLang === "fa" ? "text-right" : "text-left")}>{t("header.hello")}</h2>
+            <p className={clsx("text-base sm:text-base md:text-2xl lg:text-3xl text-white dark:text-black mt-2 sm:mt-3", currentLang === "fa" ? "text-right" : "text-left")}>
               {t("header.Welcome to my slice of the internet")}
             </p>
           </div>
@@ -152,18 +153,18 @@ function App() {
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed right-3 lg:right-10 bottom-14 z-50 text-white dark:text-black rounded-full p-4 text-2xl bg-blue-200 dark:bg-blue-100 hover:bg-blue-300 dark:hover:bg-blue-200 transition-colors shadow-lg"
+            className="fixed right-2 sm:right-3 lg:right-10 bottom-12 sm:bottom-14 z-50 text-white dark:text-black rounded-full p-3 sm:p-4 text-xl sm:text-2xl bg-blue-200 dark:bg-blue-100 hover:bg-blue-300 dark:hover:bg-blue-200 transition-colors shadow-lg"
             id={isVisible ? "nohide" : "hide"}
             aria-label="Scroll to top"
           >
-            {<MdKeyboardDoubleArrowUp /> as React.ReactNode}
+            <MdKeyboardDoubleArrowUp />
           </button>
 
           <img
-            className="absolute w-3/4 sm:w-96 md:w-80 lg:w-3/5 max-w-2xl bottom-0 sm:bottom-2 md:bottom-0 lg:bottom-0 object-contain object-bottom transition-all duration-300"
-            src={IMG || "/placeholder.svg"}
+            className="absolute w-5/6 xs:w-3/5 sm:w-80 md:w-2/5  lg:w-2/6 max-w-2xl bottom-0 object-contain object-bottom transition-all duration-300"
             alt="Amir Rahemi - Full-Stack Developer"
             loading="lazy"
+            src={IMG || "/placeholder.svg"}
           />
         </section>
 

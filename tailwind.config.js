@@ -67,6 +67,9 @@ module.exports = {
         paytone: ["Paytone One", "vazirmatn"],
         lalezar: ["vazirmatn", "Paytone One"],
       },
+      screens: {
+        'xs': '390px',
+      },
     },
   },
   plugins: [],

@@ -5,6 +5,7 @@ import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaSquareXTwitter } fr
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { useToast } from './Toast';
+import clsx from 'clsx';
 
 interface ContactProps { }
 
@@ -60,6 +61,8 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     { icon: <FaSquareXTwitter />, href: 'https://twitter.com/madeby_amir', color: 'hover:text-sky-400', label: 'Twitter' },
   ];
 
+  const isFa = (i18n.language || "en") as "en" | "fa";
+
   return (
     <div className="w-full py-20 px-4 relative rounded-2xl bg-[#ededed] dark:bg-[#080808] p-4" id="contact">
       <ToastContainer />
@@ -68,14 +71,13 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
       <div className="absolute top-10 left-5 md:top-20 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-10 right-5 md:bottom-20 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10" dir={isFa === "fa"  ? "rtl" : "ltr"} >
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 px-4 
             bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
-          dark:from-gray-100 dark:via-white dark:to-gray-300
-            [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
+          dark:from-gray-100 dark:via-white dark:to-gray-300 [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
           >
             {t('content.contact')}
           </h2>
@@ -89,10 +91,10 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
 
           {/* Contact Form */}
           <div
-            className="backdrop-blur-xl bg-white/10 dark:bg-slate-800/30 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
+            className={clsx("backdrop-blur-xl bg-white/10 dark:bg-slate-800/30 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500", isFa === "fa" ? "text-right" : "text-left")}
             style={{ animation: 'fadeInLeft 0.6s ease-out' }}
           >
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            <form dir={isFa === "fa" ? "rtl" : "ltr"} ref={form} onSubmit={sendEmail} className="space-y-6">
               {/* Name & Email Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="group">
@@ -172,7 +174,7 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
               className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl"
               style={{ animation: 'fadeInRight 0.6s ease-out 0.2s both' }}
             >
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">{t("content.contactGet")}</h3>
+              <h3 className={clsx("text-2xl font-bold text-slate-800 dark:text-white mb-4", isFa === "fa" ? "text-right" : "text-left")}>{t("content.contactGet")}</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                   <div className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 rounded-lg">

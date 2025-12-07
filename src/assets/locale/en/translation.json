@@ -13,7 +13,7 @@
   },
   "content": {
     "amirrahemi": "amir rahemi",
-    "reactjs": "I'm a passionate React.js developer with a knack for crafting engaging web experiences. With a keen eye for detail and a love for clean code, I specialize in building dynamic and responsive applications that leave a lasting impression. Let's collaborate to bring your ideas to life!",
+    "reactjs": "I'm a passionate Next.JS developer with a knack for crafting engaging web experiences. With a keen eye for detail and a love for clean code, I specialize in building dynamic and responsive applications that leave a lasting impression. Let's collaborate to bring your ideas to life!",
 
     "my interests": "My Interests",
     "music": "music",
@@ -31,13 +31,13 @@
     "pr": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
     
     "e-commerce": "E-Commerce",
-    "shopping": "Our E-commerce project, powered by React.js, Next.js, and MongoDB, reimagines the online shopping experience. Seamlessly blending the frontend magic of React.js with the server-side rendering capabilities of Next.js",
+    "shopping": "Built with Next.js, MongoDB, Redux, and Express. A full-stack online store with dynamic product pages and admin panel.",
     
     "rent car": "rent car",
-    "rent": "Experience the future of car rental services with our project, leveraging React.js and Next.js. With the power of Tailwind CSS, we've crafted a sleek and intuitive interface that seamlessly adapts to your preferences.",
+    "rent": "Developed a responsive car rental platform with Next.js. Users can browse, book, and manage rentals seamlessly.",
     
     "food delivery": "food delivery",
-    "food": "Our Food Delivery project, powered by MongoDB, offers a seamless ordering experience in multiple languages. With MongoDB's flexible data management, we ensure efficient order processing and personalized user experiences.",
+    "food": "A food ordering app using Next.js and backend APIs. Customers can browse menus, place orders, and track delivery in real-time.",
     
     "contact": "just say hello",
     "contactText": "Let's create something amazing together",

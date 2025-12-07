@@ -4,6 +4,7 @@ import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
 import { IoGameController } from 'react-icons/io5';
 import { TiVideo } from "react-icons/ti";
 import { useTranslation } from 'react-i18next';
+import clsx from "clsx";
 
 import IMG1 from "../assets/image/cover2.png";
 
@@ -14,6 +15,8 @@ type Props = {}
 function About({ }: Props) {
   const [t, i18n] = useTranslation("global");
 
+  const isFa = (i18n.language || 'en') as 'en' | 'fa';
+
   return (
     <div className="w-full bg-white dark:bg-black" id="about">
       <div className="flex flex-col md:flex-row px-4">
@@ -22,10 +25,10 @@ function About({ }: Props) {
         </div>
         <br />
 
-        <div className="flex flex-col justify-center">
-          <h1 className="text-base lg:text-5xl text-blue-200 dark:text-blue-100">{t("content.amirrahemi")}</h1>
-          <h2 className="text-base lg:text-2xl text-black dark:text-white">REACT.JS DEVELOPER</h2>
-          <p className="text-slate-800 dark:text-slate-300 text-sm lg:text-base text-justify">{t("content.reactjs")}</p>
+        <div className="flex flex-col justify-center" dir={isFa ? "rtl" : "ltr"} >
+          <h1 className={clsx("text-base lg:text-5xl text-blue-200 dark:text-blue-100", isFa === "fa" ? "text-right" : "text-left")}>{t("content.amirrahemi")}</h1>
+          <h2 className={clsx("text-base lg:text-2xl text-black dark:text-white", isFa === "fa" ? "text-right" : "text-left")}>NEXT.JS DEVELOPER</h2>
+          <p dir="auto" className={clsx("text-slate-800 dark:text-slate-300 text-sm lg:text-base text-left", isFa === "fa" ? "text-right" : "text-left")}>{t("content.reactjs")}</p>
 
           <button
             className="flex bg-blue-200 dark:bg-blue-100 text-white dark:text-black w-fit mt-4 py-2 px-4 rounded-md"
@@ -37,7 +40,7 @@ function About({ }: Props) {
       </div>
 
       <div className="flex flex-col mt-4">
-        <h1 className="px-4 text-2xl text-black dark:text-white">{t("content.my interests")}</h1>
+        <h1 className={clsx("px-4 text-2xl text-black dark:text-white", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my interests")}</h1>
 
         <div className="flex flex-row justify-between mt-4 p-3 overflow-y-hidden overflow-x-scroll md:overflow-x-auto md:justify-center text-black dark:text-white">
           <div className="flex items-center w-fit mx-5">

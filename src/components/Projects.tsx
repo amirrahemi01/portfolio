@@ -8,6 +8,7 @@ import IMG_FOOD from "../assets/image/projects/food.jpg";
 import { useTranslation } from 'react-i18next';
 import { BsFillGridFill } from 'react-icons/bs';
 import { FaList } from 'react-icons/fa';
+import clsx from 'clsx';
 
 type Props = {}
 
@@ -22,25 +23,25 @@ function Projects({ }: Props) {
       image: IMG_ECOMMERCE,
       title: t("content.e-commerce"),
       description: t("content.shopping"),
-      tags: ["#react.js", "#mongodb"],
-      gradientFrom: "from-purple-500/10",
-      gradientTo: "to-pink-500/10",
-      overlayFrom: "from-purple-500/20",
-      overlayTo: "to-pink-500/20",
-      badgeGradient: "from-purple-500 to-pink-500",
-      hoverShadow: "hover:shadow-purple-500/30",
-      hoverGlow: "from-purple-500 to-pink-500",
-      hoverTextFrom: "group-hover:from-purple-400",
-      hoverTextTo: "group-hover:to-pink-400",
-      hoverColor: "group-hover:text-red-200",
-      delay: "0s"
+      tags: ["NEXT.JS", "EXPRESS.JS"],
+      gradientFrom: "from-slate-500/10",
+      gradientTo: "to-cyan-500/10",
+      overlayFrom: "from-slate-500/20",
+      overlayTo: "to-cyan-500/20",
+      badgeGradient: "from-slate-500 to-cyan-500",
+      hoverShadow: "hover:shadow-slate-500/30",
+      hoverGlow: "from-slate-500 to-cyan-500",
+      hoverTextFrom: "group-hover:from-slate-400",
+      hoverTextTo: "group-hover:to-cyan-400",
+      hoverColor: "group-hover:text-slate-200",
+      delay: "0.1s"
     },
     {
       id: 2,
       image: IMG_RENT,
       title: t("content.rent car"),
       description: t("content.rent"),
-      tags: ["#react.js", "#mongodb"],
+      tags: ["NEXT.JS", "EXPRESS.JS"],
       gradientFrom: "from-slate-500/10",
       gradientTo: "to-cyan-500/10",
       overlayFrom: "from-slate-500/20",
@@ -57,21 +58,23 @@ function Projects({ }: Props) {
       id: 3,
       image: IMG_FOOD,
       title: t("content.food delivery"),
-      description: t("content.shopping"),
-      tags: ["#react.js", "#mongodb"],
-      gradientFrom: "from-orange-500/10",
-      gradientTo: "to-red-500/10",
-      overlayFrom: "from-orange-500/20",
-      overlayTo: "to-red-500/20",
-      badgeGradient: "from-orange-500 to-red-500",
-      hoverShadow: "hover:shadow-orange-500/30",
-      hoverGlow: "from-orange-500 to-red-500",
-      hoverTextFrom: "group-hover:from-orange-400",
-      hoverTextTo: "group-hover:to-red-400",
-      hoverColor: "group-hover:text-green-100",
-      delay: "0.2s"
+      description: t("content.food"),
+      tags: ["NEXT.JS", "EXPRESS.JS"],
+      gradientFrom: "from-slate-500/10",
+      gradientTo: "to-cyan-500/10",
+      overlayFrom: "from-slate-500/20",
+      overlayTo: "to-cyan-500/20",
+      badgeGradient: "from-slate-500 to-cyan-500",
+      hoverShadow: "hover:shadow-slate-500/30",
+      hoverGlow: "from-slate-500 to-cyan-500",
+      hoverTextFrom: "group-hover:from-slate-400",
+      hoverTextTo: "group-hover:to-cyan-400",
+      hoverColor: "group-hover:text-slate-200",
+      delay: "0.1s"
     }
   ];
+
+  const isFa = (i18n.language || 'en') as 'en' | 'fa';
 
   return (
     <div className="w-full py-12 md:py-20 px-4" id="projects">
@@ -137,10 +140,10 @@ function Projects({ }: Props) {
               <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${viewMode === 'list' ? 'lg:justify-center' : ''
                 }`}>
                 <div className="flex-grow">
-                  <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`}>
+                  <h2 className={clsx(`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`, isFa === "fa" ? "text-right" : "text-left")}>
                     {project.title}
                   </h2>
-                  <p className="text-black dark:text-slate-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6">{project.description}</p>
+                  <p dir="auto" className={clsx("text-black dark:text-slate-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6", isFa === "fa" ? "text-right" : "text-left")}>{project.description}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-auto">
