@@ -55,7 +55,7 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
   const socialLinks = [
     { icon: <MdOutlineAlternateEmail />, href: 'mailto:amirrahemi01@gmail.com', color: 'hover:text-red-400', label: 'Email' },
     { icon: <FaLinkedinIn />, href: 'https://linkedin.com/in/amirrahemi', color: 'hover:text-blue-400', label: 'LinkedIn' },
-    { icon: <FaGithub />, href: 'https://github.com/amirrahemi', color: 'hover:text-purple-400', label: 'GitHub' },
+    { icon: <FaGithub />, href: 'https://github.com/amirrahemi01', color: 'hover:text-purple-400', label: 'GitHub' },
     { icon: <FaFacebookF />, href: 'https://facebook.com/madeby_amir', color: 'hover:text-blue-500', label: 'Facebook' },
     { icon: <FaInstagram />, href: 'https://instagram.com/amirrahemiii', color: 'hover:text-pink-400', label: 'Instagram' },
     { icon: <FaSquareXTwitter />, href: 'https://twitter.com/madeby_amir', color: 'hover:text-sky-400', label: 'Twitter' },

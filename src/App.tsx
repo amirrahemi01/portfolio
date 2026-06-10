@@ -113,7 +113,7 @@ function App() {
             "jobTitle": "Full-Stack Developer",
             "url": "https://amirrahemi.com",
             "sameAs": [
-              "https://github.com/amirrahemi",
+              "https://github.com/amirrahemi01",
               "https://linkedin.com/in/amirrahemi",
               "https://twitter.com/madeby_amir"
             ],
