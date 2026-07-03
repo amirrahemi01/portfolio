@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import IMG_RENT from "../assets/image/projects/rent.jpg";
-import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.png";
+import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.jpg";
 import IMG_FOOD from "../assets/image/projects/food.jpg";
 
 import { useTranslation } from 'react-i18next';
@@ -10,11 +10,8 @@ import { BsFillGridFill } from 'react-icons/bs';
 import { FaList } from 'react-icons/fa';
 import clsx from 'clsx';
 
-type Props = {}
-
-
-function Projects({ }: Props) {
-  const [t, i18n] = useTranslation("global");
+function Projects() {
+  const { t, i18n } = useTranslation("global");
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
 
   const projects = [
@@ -79,14 +76,14 @@ function Projects({ }: Props) {
   return (
     <div className="w-full py-12 md:py-20 px-4" id="projects">
       <div className="max-w-7xl mx-auto">
-        <h1
+        <h2
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center pb-4 md:pb-8 px-4 
           bg-gradient-to-r from-slate-600 via-purple-400 to-pink-400 bg-clip-text text-transparent 
         dark:from-gray-100 dark:via-white dark:to-gray-300
           [text-shadow:_0_2px_10px_rgba(0,0,0,0.4)]"
         >
           {t('content.projects')}
-        </h1>
+        </h2>
 
 
 
@@ -133,16 +130,22 @@ function Projects({ }: Props) {
               <div className={`relative overflow-hidden flex-shrink-0 cursor-pointer h-48 md:h-64 ${viewMode === 'list' ? 'lg:w-80' : ''
                 }`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.overlayFrom} ${project.overlayTo} z-10`}></div>
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700" />
+                <img
+                  src={project.image}
+                  alt={`${project.title} project screenshot`}
+                  className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
               </div>
 
               <div className={`relative p-6 md:p-8 flex flex-col flex-grow cursor-pointer ${viewMode === 'list' ? 'lg:justify-center' : ''
                 }`}>
                 <div className="flex-grow">
-                  <h2 className={clsx(`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`, isFa === "fa" ? "text-right" : "text-left")}>
+                  <h3 className={clsx(`text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 md:mb-4 ${project.hoverColor} group-hover:bg-clip-text group-hover:bg-gradient-to-r ${project.hoverTextFrom} ${project.hoverTextTo} transition-all duration-300`, isFa === "fa" ? "text-right" : "text-left")}>
                     {project.title}
-                  </h2>
+                  </h3>
                   <p dir="auto" className={clsx("text-black dark:text-slate-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6", isFa === "fa" ? "text-right" : "text-left")}>{project.description}</p>
                 </div>
 

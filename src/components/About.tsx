@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import { FaCamera, FaDumbbell, FaHeadphones, FaRoad } from 'react-icons/fa6';
 import { IoGameController } from 'react-icons/io5';
@@ -8,11 +8,9 @@ import clsx from "clsx";
 
 import IMG1 from "../assets/image/cover2.png";
 
-import Skills from './Skills';
+const Skills = React.lazy(() => import('./Skills'));
 
-type Props = {}
-
-function About({ }: Props) {
+function About() {
   const [t, i18n] = useTranslation("global");
 
   const isFa = (i18n.language || 'en') as 'en' | 'fa';
@@ -21,7 +19,7 @@ function About({ }: Props) {
     <div className="w-full bg-white dark:bg-black" id="about">
       <div className="flex flex-col md:flex-row px-4">
         <div className="w-full ml-auto p-5">
-          <img src={IMG1} alt="" className="a w-full aspect-square object-cover" />
+          <img src={IMG1} alt="Amir Rahemi portrait" className="a w-full aspect-square object-cover" loading="lazy" />
         </div>
         <br />
 
@@ -40,7 +38,7 @@ function About({ }: Props) {
       </div>
 
       <div className="flex flex-col mt-4">
-        <h1 className={clsx("px-4 text-2xl text-black dark:text-white", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my interests")}</h1>
+        <h2 className={clsx("px-4 text-2xl text-black dark:text-white", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my interests")}</h2>
 
         <div className="flex flex-row justify-between mt-4 p-3 overflow-y-hidden overflow-x-scroll md:overflow-x-auto md:justify-center text-black dark:text-white">
           <div className="flex items-center w-fit mx-5">
@@ -69,7 +67,9 @@ function About({ }: Props) {
           </div>
         </div>
 
-        <Skills />
+        <Suspense fallback={null}>
+          <Skills />
+        </Suspense>
       </div>
     </div>
   )

@@ -8,11 +8,9 @@ import { IoLanguage } from 'react-icons/io5';
 import IR from "../assets/icon/iran.jpeg"
 import USA from "../assets/icon/usa.jpeg"
 
-type Props = {}
-
-function MultiLang({ }: Props) {
+function MultiLang() {
     // Multi Language Functions
-    const [t, i18n] = useTranslation("global");
+    const { i18n } = useTranslation("global");
 
 
     const handleChangeLanguage = (lang: string) => {

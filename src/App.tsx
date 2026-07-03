@@ -1,5 +1,5 @@
 // Path: src/App.tsx
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
@@ -8,44 +8,37 @@ import { Helmet } from 'react-helmet';
 
 import Navbar from './components/Navbar';
 import About from './components/About';
-import Projects from './components/Projects';
-import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 import IMG from "./assets/image/cover.png";
 import clsx from 'clsx';
 
+const Projects = React.lazy(() => import('./components/Projects'));
+const ContactUs = React.lazy(() => import('./components/ContactUs'));
+
 function App() {
   const [t, i18n] = useTranslation("global");
 
-  const handleChangeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem("language", lang);
-  };
-
-
   // On Scroll Hide Content
   const [isVisible, setIsVisible] = useState(true);
-  const [height, setHeight] = useState(0);
+
+  const listenToScroll = useCallback(() => {
+    const heightToHideFrom = 15;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToHideFrom) {
+      setIsVisible((prev) => (prev ? false : prev));
+    } else {
+      setIsVisible(true);
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () => {
       window.removeEventListener("scroll", listenToScroll);
     }
-  }, []);
-
-  function listenToScroll() {
-    let heightToHideFrom = 15;
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    setHeight(winScroll);
-
-    if (winScroll > heightToHideFrom) {
-      isVisible && setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  };
+  }, [listenToScroll]);
 
   // Smooth scroll to section without changing URL
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -60,15 +53,12 @@ function App() {
   };
 
   const currentLang = (i18n.language || 'en') as 'en' | 'fa';
-  console.log(currentLang);
-  const isRTL = currentLang === 'fa';
-
 
   return (
     <div className="bg-[white] dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-medium transition-all capitalize">
       <Helmet>
         {/* HTML attributes */}
-        <html lang="en" dir="ltr" />
+        <html lang={currentLang} dir={currentLang === 'fa' ? 'rtl' : 'ltr'} />
 
         {/* Basic Meta Tags */}
         <title>Amir Rahemi - Full-Stack Developer | React & Next.js</title>
@@ -88,7 +78,7 @@ function App() {
         <meta property="og:image" content="https://amirrahemi.com/logo.png" />
         <meta property="og:url" content="https://amirrahemi.com" />
         <meta property="og:site_name" content="Amir Rahemi Portfolio" />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content={currentLang === 'fa' ? 'fa_IR' : 'en_US'} />
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -134,7 +124,7 @@ function App() {
 
       <Navbar />
 
-      <div className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
+      <main className="flex flex-col justify-center w-full lg:w-3/4 my-0 mx-auto">
       <section className="h-0 sm:h-[2vh]"></section>
         <section className="relative h-screen sm:h-[96vh] w-full max-w-none flex items-center justify-center flex-col bg-black dark:bg-white rounded-none sm:rounded-2xl overflow-hidden">
           <div className="absolute top-20 md:top-40 lg:top-8 px-4 py-3 w-full sm:w-auto text-center sm:text-left">
@@ -149,7 +139,10 @@ function App() {
             className="mouse-scroll z-50"
             href="#about"
             onClick={(e) => scrollToSection(e, "about")}
-          ></a>
+            aria-label={t("navbar.about") || "Scroll to About section"}
+          >
+            <span className="sr-only">{t("navbar.about") || "Scroll to About section"}</span>
+          </a>
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -163,7 +156,8 @@ function App() {
           <img
             className="absolute w-5/6 xs:w-3/5 sm:w-80 md:w-2/5  lg:w-2/6 max-w-2xl bottom-0 object-contain object-bottom transition-all duration-300"
             alt="Amir Rahemi - Full-Stack Developer"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             src={IMG || "/placeholder.svg"}
           />
         </section>
@@ -178,16 +172,20 @@ function App() {
 
         <section className="h-auto flex items-center justify-center flex-col text-white">
 
-          <Projects />
+          <Suspense fallback={null}>
+            <Projects />
+          </Suspense>
 
         </section>
 
         <section className="h-auto flex items-center justify-center flex-col text-white">
 
-          <ContactUs />
+          <Suspense fallback={null}>
+            <ContactUs />
+          </Suspense>
 
         </section>
-      </div>
+      </main>
 
       <Footer />
 

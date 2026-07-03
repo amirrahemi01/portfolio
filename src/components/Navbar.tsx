@@ -5,10 +5,8 @@ import MultiLang from './MultiLang';
 import ToggleDark from './ToggleDark';
 import ICON from "../assets/icon/logo.png";
 
-type Props = {}
-
-function Navbar({ }: Props) {
-  const [t, i18n] = useTranslation("global");
+function Navbar() {
+  const { t } = useTranslation("global");
   
   // NavBar Responsive
   const [isActive, setIsActive] = useState(false);
@@ -43,8 +41,9 @@ function Navbar({ }: Props) {
         <a 
           href="/" 
           className="flex items-center justify-center p-0 w-12 h-12 text-3xl"
+          aria-label="Amir Rahemi - Home"
         >
-          <img src={ICON} className="rounded logo" alt="Logo" />
+          <img src={ICON} className="rounded logo" alt="Amir Rahemi logo" width="48" height="48" />
         </a>
         
         <ul className="rotate-180 flex flex-row-reverse relative uppercase [writing-mode:vertical-lr]">
@@ -89,6 +88,7 @@ function Navbar({ }: Props) {
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            aria-label="Twitter"
           >
             <FaTwitter />
           </a>
@@ -98,6 +98,7 @@ function Navbar({ }: Props) {
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            aria-label="GitHub"
           >
             <FaGithub />
           </a>
@@ -107,6 +108,7 @@ function Navbar({ }: Props) {
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>

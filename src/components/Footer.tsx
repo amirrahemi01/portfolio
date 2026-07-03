@@ -1,9 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-type Props = {}
-
-function Footer({ }: Props) {
+function Footer() {
   const [t, i18n] = useTranslation("global");
   
   // Function to get current year

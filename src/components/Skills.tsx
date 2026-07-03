@@ -5,9 +5,7 @@ import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Origina
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
-type Props = {}
-
-function Skills({ }: Props) {
+function Skills() {
   const [t, i18n] = useTranslation("global");
 
   const isFa = (i18n.language || 'en') as 'en' | 'fa';
@@ -15,7 +13,7 @@ function Skills({ }: Props) {
   return (
     <div id="skills">
       <div className="flex flex-col mt-4">
-        <h1 className={clsx("px-4 text-2xl", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my skills")}</h1>
+        <h2 className={clsx("px-4 text-2xl", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my skills")}</h2>
         {/* <p dir="auto" className={clsx("dark:text-slate-300 text-slate-800 text-sm large:text-base px-4 text-left", isFa === "fa" ? "text-right" : "text-left")}>{t("content.skills")}</p> */}
 
         <div className="w-full overflow-x-scroll overflow-y-hidden md:overflow-x-auto md:flex md:justify-center">

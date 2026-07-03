@@ -7,14 +7,12 @@ interface DropdownProps {
 
 const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string>('');
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const selectOption = (option: string) => {
-    setSelectedOption(option);
+  const selectOption = () => {
     toggleDropdown(); // Close dropdown after selecting an option
   };
 
@@ -24,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, text }) => {
       {isOpen && (
         <div className="fixed bg-slate-800 dark:bg-slate-300 text-white dark:text-black w-fit px-6 py-2 rounded-xl left-3">
           {options.map((option, index) => (
-            <div key={index} className="dropdown-item" onClick={() => selectOption(option.value)}>
+            <div key={index} className="dropdown-item" onClick={() => selectOption()}>
               {option.label}
             </div>
           ))}
