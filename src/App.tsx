@@ -2,6 +2,7 @@
 import React, { Suspense, useCallback, useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Helmet } from 'react-helmet';
@@ -16,8 +17,39 @@ import clsx from 'clsx';
 const Projects = React.lazy(() => import('./components/Projects'));
 const ContactUs = React.lazy(() => import('./components/ContactUs'));
 
+const SITE_URL = "https://amirrahemi.com";
+
+const SEO_CONTENT = {
+  en: {
+    title: "Amir Rahemi - Full-Stack Developer | React & Next.js",
+    description: "Amir Rahemi is a passionate full-stack developer specializing in modern JavaScript, React, Next.js, Node.js, and TypeScript. Browse my portfolio projects and get in touch.",
+    keywords: "Amir Rahemi, full-stack developer, web developer, React developer, Next.js, JavaScript, Node.js, portfolio, frontend developer, backend developer",
+    ogDescription: "Portfolio of Amir Rahemi - Skilled full-stack developer specializing in React, Next.js, and modern web technologies. View my projects and experience.",
+    schemaDescription: "Full-Stack Developer specializing in React, Next.js, and modern web technologies",
+  },
+  fa: {
+    title: "امیر راحمی - توسعه‌دهنده فول‌استک | React و Next.js",
+    description: "امیر راحمی یک توسعه‌دهنده فول‌استک با تخصص در جاوااسکریپت مدرن، React، Next.js، Node.js و TypeScript است. نمونه‌کارهای من را ببینید و در تماس باشید.",
+    keywords: "امیر راحمی, توسعه دهنده فول استک, برنامه نویس وب, توسعه دهنده React, Next.js, جاوااسکریپت, Node.js, نمونه کار",
+    ogDescription: "نمونه‌کار امیر راحمی - توسعه‌دهنده فول‌استک با تخصص در React، Next.js و فناوری‌های وب مدرن.",
+    schemaDescription: "توسعه‌دهنده فول‌استک با تخصص در React، Next.js و فناوری‌های وب مدرن",
+  },
+} as const;
+
 function App() {
   const [t, i18n] = useTranslation("global");
+  const location = useLocation();
+
+  // URL is the source of truth for language: "/" = English, "/fa" = Persian.
+  // This lets Google crawl and index each language as a distinct, canonical page.
+  const currentLang = (location.pathname.startsWith('/fa') ? 'fa' : 'en') as 'en' | 'fa';
+
+  useEffect(() => {
+    if (i18n.language !== currentLang) {
+      i18n.changeLanguage(currentLang);
+    }
+    localStorage.setItem("language", currentLang);
+  }, [currentLang, i18n]);
 
   // On Scroll Hide Content
   const [isVisible, setIsVisible] = useState(true);
@@ -52,7 +84,8 @@ function App() {
     }
   };
 
-  const currentLang = (i18n.language || 'en') as 'en' | 'fa';
+  const seo = SEO_CONTENT[currentLang];
+  const canonicalUrl = currentLang === 'fa' ? `${SITE_URL}/fa` : SITE_URL;
 
   return (
     <div className="bg-[white] dark:bg-black h-screen text-white font-paytone rtl:font-lalezar font-medium transition-all capitalize">
@@ -61,33 +94,39 @@ function App() {
         <html lang={currentLang} dir={currentLang === 'fa' ? 'rtl' : 'ltr'} />
 
         {/* Basic Meta Tags */}
-        <title>Amir Rahemi - Full-Stack Developer | React & Next.js</title>
-        <meta name="description" content="Amir Rahemi is a passionate full-stack developer specializing in modern JavaScript, React, Next.js, Node.js, and TypeScript. Browse my portfolio projects and get in touch." />
-        <meta name="keywords" content="Amir Rahemi, full-stack developer, web developer, React developer, Next.js, JavaScript, Node.js, portfolio, frontend developer, backend developer" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="keywords" content={seo.keywords} />
         <meta name="author" content="Amir Rahemi" />
         <meta name="robots" content="index, follow" />
         <meta name="google-site-verification" content="g_1thjCsV9Zsk6mFnfvHTwtioi2tn7J4Zz_4ufHwNrg" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://amirrahemi.com" />
+        {/* Canonical URL (self-referencing per language) */}
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Hreflang alternates - tells Google these are language variants of the same page */}
+        <link rel="alternate" hrefLang="en" href={SITE_URL} />
+        <link rel="alternate" hrefLang="fa" href={`${SITE_URL}/fa`} />
+        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
 
         {/* Open Graph Tags */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Amir Rahemi - Full-Stack Developer | React & Next.js" />
-        <meta property="og:description" content="Portfolio of Amir Rahemi - Skilled full-stack developer specializing in React, Next.js, and modern web technologies. View my projects and experience." />
-        <meta property="og:image" content="https://amirrahemi.com/logo.png" />
-        <meta property="og:url" content="https://amirrahemi.com" />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.ogDescription} />
+        <meta property="og:image" content={`${SITE_URL}/logo.png`} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Amir Rahemi Portfolio" />
         <meta property="og:locale" content={currentLang === 'fa' ? 'fa_IR' : 'en_US'} />
+        <meta property="og:locale:alternate" content={currentLang === 'fa' ? 'en_US' : 'fa_IR'} />
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@madeby_amir" />
         <meta name="twitter:creator" content="@madeby_amir" />
-        <meta name="twitter:title" content="Amir Rahemi - Full-Stack Developer" />
-        <meta name="twitter:description" content="Portfolio of Amir Rahemi - Skilled full-stack developer specializing in React, Next.js, and modern web technologies." />
-        <meta name="twitter:image" content="https://amirrahemi.com/logo.png" />
-        <meta name="twitter:image:alt" content="Amir Rahemi - Full-Stack Developer" />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.ogDescription} />
+        <meta name="twitter:image" content={`${SITE_URL}/logo.png`} />
+        <meta name="twitter:image:alt" content={seo.title} />
 
         {/* Additional Important Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -100,8 +139,9 @@ function App() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Amir Rahemi",
+            "alternateName": "امیر راحمی",
             "jobTitle": "Full-Stack Developer",
-            "url": "https://amirrahemi.com",
+            "url": canonicalUrl,
             "sameAs": [
               "https://github.com/amirrahemi01",
               "https://linkedin.com/in/amirrahemi",
@@ -115,9 +155,9 @@ function App() {
               "TypeScript",
               "Full-Stack Development"
             ],
-            "description": "Full-Stack Developer specializing in React, Next.js, and modern web technologies",
-            "image": "https://amirrahemi.com/logo.png",
-            "inLanguage": "en-US"
+            "description": seo.schemaDescription,
+            "image": `${SITE_URL}/logo.png`,
+            "inLanguage": currentLang === 'fa' ? 'fa-IR' : 'en-US'
           })}
         </script>
       </Helmet>

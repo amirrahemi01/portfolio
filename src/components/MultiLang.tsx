@@ -2,7 +2,7 @@ import React from 'react';
 
 import Dropdown from './Dropdown'
 
-import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { IoLanguage } from 'react-icons/io5';
 
 import IR from "../assets/icon/iran.jpeg"
@@ -10,31 +10,11 @@ import USA from "../assets/icon/usa.jpeg"
 
 function MultiLang() {
     // Multi Language Functions
-    const { i18n } = useTranslation("global");
+    const navigate = useNavigate();
 
-
-    const handleChangeLanguage = (lang: string) => {
-        i18n.changeLanguage(lang);
-        localStorage.setItem("language", lang);
-        document.documentElement.className = lang;
-        document.documentElement.setAttribute('lang', lang);
+    const handleChangeLanguage = (lang: 'en' | 'fa') => {
+        navigate(lang === 'fa' ? '/fa' : '/');
     };
-
-    if (!localStorage.getItem("language")) {
-        localStorage.setItem("language", "en");
-    }
-
-    // if(localStorage.getItem("language") === "en") {
-    //     document.documentElement.setAttribute('dir', "ltr");
-    //     document.title = "AMIR RAHEMI";
-        
-    // } else if (localStorage.getItem("language") === "fa") {
-    //     document.documentElement.setAttribute('dir', "rtl");
-    //     document.title = "امیر راحمی";
-
-    // }
-
-    
 
     // Dropdown values
     const options = [

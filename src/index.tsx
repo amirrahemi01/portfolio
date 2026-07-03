@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 
@@ -13,7 +14,7 @@ import { I18nextProvider } from 'react-i18next';
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: localStorage.getItem("language") || 'en',
+  lng: 'en',
   resources: {
     en: {
       global: translation_en,
@@ -31,7 +32,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </I18nextProvider>
   </React.StrictMode>
 );
