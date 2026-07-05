@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Css3Original, DockerOriginalWordmark, GitOriginalWordmark, Html5Original, JavascriptOriginal, NextjsOriginal, NodejsOriginalWordmark, ReactOriginal, ReduxOriginal, TailwindcssPlainWordmark, TypescriptOriginal } from 'devicons-react';
+import Html5Original from 'devicons-react/lib/icons/Html5Original';
+import Css3Original from 'devicons-react/lib/icons/Css3Original';
+import JavascriptOriginal from 'devicons-react/lib/icons/JavascriptOriginal';
+import TypescriptOriginal from 'devicons-react/lib/icons/TypescriptOriginal';
+import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
+import NextjsOriginal from 'devicons-react/lib/icons/NextjsOriginal';
+import NodejsOriginalWordmark from 'devicons-react/lib/icons/NodejsOriginalWordmark';
+import TailwindcssPlainWordmark from 'devicons-react/lib/icons/TailwindcssPlainWordmark';
+import GitOriginalWordmark from 'devicons-react/lib/icons/GitOriginalWordmark';
+import ReduxOriginal from 'devicons-react/lib/icons/ReduxOriginal';
+import DockerOriginalWordmark from 'devicons-react/lib/icons/DockerOriginalWordmark';
 
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
