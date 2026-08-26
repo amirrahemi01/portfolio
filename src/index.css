@@ -120,7 +120,7 @@ html {
 }
 
 /* media queries */
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1025px) {
 
   .hamburger {
     display: block;

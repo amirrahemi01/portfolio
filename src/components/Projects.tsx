@@ -30,7 +30,7 @@ function Projects() {
       hoverGlow: "from-slate-500 to-cyan-500",
       hoverTextFrom: "group-hover:from-slate-400",
       hoverTextTo: "group-hover:to-cyan-400",
-      hoverColor: "group-hover:text-slate-200",
+      hoverColor: "group-hover:text-slate-400",
       delay: "0.1s"
     },
     {
@@ -48,7 +48,7 @@ function Projects() {
       hoverGlow: "from-slate-500 to-cyan-500",
       hoverTextFrom: "group-hover:from-slate-400",
       hoverTextTo: "group-hover:to-cyan-400",
-      hoverColor: "group-hover:text-slate-200",
+      hoverColor: "group-hover:text-slate-400",
       delay: "0.1s"
     },
     {
@@ -66,7 +66,7 @@ function Projects() {
       hoverGlow: "from-slate-500 to-cyan-500",
       hoverTextFrom: "group-hover:from-slate-400",
       hoverTextTo: "group-hover:to-cyan-400",
-      hoverColor: "group-hover:text-slate-200",
+      hoverColor: "group-hover:text-slate-400",
       delay: "0.1s"
     }
   ];
