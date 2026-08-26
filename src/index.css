@@ -235,3 +235,74 @@ img.a {
   height: 4.5rem !important;
   margin: 0 8px;
 }
+
+/* Hide scrollbar but keep scroll functionality — used by DragScroll */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+/* Drag-to-scroll interaction — Apple-style thin scrollbar, smooth, no cursor change on hover */
+.drag-scroll {
+  cursor: default;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+.drag-scroll:hover {
+  cursor: default;
+}
+.drag-scroll.active,
+.drag-scroll:active {
+  cursor: default;
+  scroll-behavior: smooth;
+}
+
+/* Apple-like thin scrollbar — 4px rounded */
+.drag-scroll::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background: transparent;
+}
+.drag-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.drag-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+.drag-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+  background-clip: content-box;
+}
+
+/* Dark mode */
+body[data-mode="dark"] .drag-scroll {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+body[data-mode="dark"] .drag-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  background-clip: content-box;
+}
+body[data-mode="dark"] .drag-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+  background-clip: content-box;
+}
+body[data-mode="light"] .drag-scroll {
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+html[data-mode="dark"] .drag-scroll {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+html[data-mode="dark"] .drag-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+}

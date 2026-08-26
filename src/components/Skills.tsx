@@ -14,6 +14,7 @@ import DockerOriginalWordmark from 'devicons-react/lib/icons/DockerOriginalWordm
 
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import DragScroll from './DragScroll';
 
 function Skills() {
   const [t, i18n] = useTranslation("global");
@@ -26,8 +27,8 @@ function Skills() {
         <h2 className={clsx("px-4 text-2xl", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my skills")}</h2>
         {/* <p dir="auto" className={clsx("dark:text-slate-300 text-slate-800 text-sm large:text-base px-4 text-left", isFa === "fa" ? "text-right" : "text-left")}>{t("content.skills")}</p> */}
 
-        <div className="w-full overflow-x-scroll overflow-y-hidden md:overflow-x-auto md:flex md:justify-center">
-          <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit">
+        <DragScroll className="w-full overflow-x-auto overflow-y-hidden md:flex">
+          <div className="flex flex-row text-7xl skills mt-4 py-3 w-fit select-none">
             <Html5Original className="text-white dark:text-black" />
             <Css3Original className="text-white dark:text-black" />
             <JavascriptOriginal className="text-white dark:text-black" />
@@ -40,7 +41,7 @@ function Skills() {
             <ReduxOriginal className="text-white dark:text-black" />
             <DockerOriginalWordmark className="text-white dark:text-black" />
           </div>
-        </div>
+        </DragScroll>
       </div>
     </div>
   )
