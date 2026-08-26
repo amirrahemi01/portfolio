@@ -278,15 +278,15 @@ export default function ProjectDetail() {
                 {lang === "fa" ? "جزئیات" : "Project Details"}
               </h4>
               <div dir={isFa ? "rtl" : "ltr"} className="space-y-3 text-sm">
-                <div className={clsx("flex justify-between py-2 border-b border-black/5 dark:border-white/5", isFa ? "flex-row-reverse" : "")}>
+                <div className={clsx("flex justify-between py-2 border-b border-black/5 dark:border-white/5", isFa ? "text-right" : "text-left")}>
                   <span className="text-slate-500">{lang === "fa" ? "وضعیت" : "Status"}</span>
-                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">{lang === "fa" ? "کامل شده" : "Completed"}</span>
+                  <span className="font-medium text-black dark:text-white">{status}</span>
                 </div>
-                <div className={clsx("flex justify-between py-2 border-b border-black/5 dark:border-white/5", isFa ? "flex-row-reverse" : "")}>
+                <div className={clsx("flex justify-between py-2 border-b border-black/5 dark:border-white/5", isFa ? "text-right" : "text-left")}>
                   <span className="text-slate-500">{lang === "fa" ? "پلتفرم" : "Platform"}</span>
                   <span className="font-medium text-black dark:text-white">Web</span>
                 </div>
-                <div className={clsx("flex justify-between py-2", isFa ? "flex-row-reverse" : "")}>
+                <div className={clsx("flex justify-between py-2", isFa ? "text-right" : "text-left")}>
                   <span className="text-slate-500">{lang === "fa" ? "دسترسی" : "Access"}</span>
                   <span className="font-medium text-black dark:text-white">{lang === "fa" ? "ریسپانسیو" : "Responsive"}</span>
                 </div>
