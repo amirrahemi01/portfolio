@@ -1,18 +1,79 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
-import MultiLang from './MultiLang';
+import LanguageSwitch from './LanguageSwitch';
 import ToggleDark from './ToggleDark';
-import ICON from "../assets/icon/logo.png";
+import ICON from "@/assets/icon/logo.webp";
 
 function Navbar() {
   const { t } = useTranslation("global");
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
   
   // NavBar Responsive
   const [isActive, setIsActive] = useState(false);
+
+  // While the mobile menu is open: the page behind it doesn't scroll, Escape closes it, and it
+  // closes by itself if the window grows to desktop width (where there is no hamburger).
+  useEffect(() => {
+    if (!isActive) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsActive(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth > 1025) setIsActive(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [isActive]);
+
+  // Phones and tablets (where the menu is a hamburger): the theme/language/menu pill slides away
+  // while you read (scrolling down) and comes back as soon as you scroll up. Desktop keeps it fixed.
+  const [pillHidden, setPillHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  useEffect(() => {
+    const HIDE_AFTER = 80; // px from the top before it may hide
+    const DOWN_STEP = 6; // px of downward scroll to hide
+    const UP_STEP = 10; // px of upward scroll to show, so tiny shakes don't make it flicker
+    const compact = window.matchMedia('(max-width: 1025px)');
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (!compact.matches || y <= HIDE_AFTER) {
+        setPillHidden(false);
+        lastScrollY.current = y;
+        return;
+      }
+      const diff = y - lastScrollY.current;
+      if (diff >= DOWN_STEP) {
+        setPillHidden(true);
+        lastScrollY.current = y;
+      } else if (diff <= -UP_STEP) {
+        setPillHidden(false);
+        lastScrollY.current = y;
+      }
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
   
   // Add the active class
   const toggleActiveClass = () => {
@@ -25,8 +86,8 @@ function Navbar() {
   }
   
   // Check if we're on home page (with or without /fa)
-  const isHomePage = location.pathname === '/' || location.pathname === '/fa' || location.pathname === '/fa/';
-  const isFa = location.pathname.startsWith('/fa');
+  const isHomePage = pathname === '/' || pathname === '/fa' || pathname === '/fa/';
+  const isFa = pathname.startsWith('/fa');
   const homePrefix = isFa ? '/fa' : '';
 
   // Smooth scroll to section — if not on home, navigate to home then scroll
@@ -45,46 +106,44 @@ function Navbar() {
         window.location.hash = sectionId;
       }
     } else {
-      // Navigate to home with hash; Home will be rendered and we scroll after navigation
-      navigate(`${homePrefix || '/'}#${sectionId}`);
-      // Allow navigation to complete then scroll
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          // If element still not found (route changed), scroll to top first
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          // Retry after a bit (for lazy-loaded sections)
-          setTimeout(() => {
-            const el = document.getElementById(sectionId);
-            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 300);
-        }
-      }, 100);
+      // From another page: go home with the hash. The home page scrolls to the section itself.
+      router.push(`${homePrefix || '/'}#${sectionId}`);
     }
   };
 
   return (
-    <header className={`flex flex-col items-center justify-start float-left fixed top-12 left-12 bottom-12 z-10 isolate nav ${isActive ? "active" : "disable"}`}>
+    <>
+    <header
+      // With the mobile menu open, a tap anywhere that is not a link (the empty area around the texts) closes it.
+      onClick={(e) => {
+        if (isActive && !(e.target as HTMLElement).closest("a")) removeActive();
+      }}
+      // iOS Safari does not deliver taps on empty areas to onClick; this makes them count.
+      onTouchEnd={(e) => {
+        if (isActive && !(e.target as HTMLElement).closest("a")) {
+          e.preventDefault();
+          removeActive();
+        }
+      }}
+      className={`flex flex-col items-center justify-start float-left fixed top-12 left-12 bottom-12 z-10 isolate nav ${isActive ? "active" : "disable"}`}
+    >
       <nav className="flex flex-col justify-between items-center flex-auto max-w-12">
-        <a 
-          href={homePrefix || '/'} 
-          onClick={(e) => {
-            // If already on home, smooth scroll to top instead of full navigation
-            if (isHomePage) {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        <Link
+          href={homePrefix || '/'}
+          onClick={() => {
+            removeActive();
+            // Already home: smooth-scroll to the top. From another page the router navigates and
+            // the new page starts at the top (see ScrollToTop in App.tsx), with no page reload.
+            if (isHomePage) window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
           className="flex items-center justify-center p-0 w-12 h-12 text-3xl"
           aria-label="Amir Rahemi - Home"
         >
-          <img src={ICON} className="rounded logo" alt="Amir Rahemi logo" width="48" height="48" />
-        </a>
+          <Image src={ICON} className="rounded logo" alt="Amir Rahemi logo" width={48} height={48} priority />
+        </Link>
         
         <ul className="rotate-180 flex flex-row-reverse relative uppercase [writing-mode:vertical-lr]">
-          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+          <li className="block m-0 p-0 pt-8 hover:text-blue-300 dark:hover:text-blue-200 [writing-mode:vertical-rl] text-black dark:text-white">
             <a 
               href={`${homePrefix || ''}#about`}
               onClick={(e) => scrollToSection(e, 'about')}
@@ -92,7 +151,7 @@ function Navbar() {
               {t("navbar.about")}
             </a>
           </li>
-          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+          <li className="block m-0 p-0 pt-8 hover:text-blue-300 dark:hover:text-blue-200 [writing-mode:vertical-rl] text-black dark:text-white">
             <a 
               href={`${homePrefix || ''}#skills`}
               onClick={(e) => scrollToSection(e, 'skills')}
@@ -100,7 +159,7 @@ function Navbar() {
               {t("navbar.skills")}
             </a>
           </li>
-          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+          <li className="block m-0 p-0 pt-8 hover:text-blue-300 dark:hover:text-blue-200 [writing-mode:vertical-rl] text-black dark:text-white">
             <a 
               href={`${homePrefix || ''}#projects`}
               onClick={(e) => scrollToSection(e, 'projects')}
@@ -108,7 +167,7 @@ function Navbar() {
               {t("navbar.work")}
             </a>
           </li>
-          <li className="block m-0 p-0 pt-8 hover:text-blue-200 dark:hover:text-blue-100 [writing-mode:vertical-rl] text-black dark:text-white">
+          <li className="block m-0 p-0 pt-8 hover:text-blue-300 dark:hover:text-blue-200 [writing-mode:vertical-rl] text-black dark:text-white">
             <a 
               href={`${homePrefix || ''}#contact`}
               onClick={(e) => scrollToSection(e, 'contact')}
@@ -124,7 +183,7 @@ function Navbar() {
             href="https://twitter.com/madeby_amir" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-300 dark:hover:text-blue-200"
             aria-label="Twitter"
           >
             <FaTwitter />
@@ -134,7 +193,7 @@ function Navbar() {
             href="https://github.com/amirrahemi01" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-300 dark:hover:text-blue-200"
             aria-label="GitHub"
           >
             <FaGithub />
@@ -144,7 +203,7 @@ function Navbar() {
             href="https://linkedin.com/in/amirrahemi" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-200 dark:hover:text-blue-100"
+            className="flex items-center justify-center p-0 w-12 h-12 text-black dark:text-white text-3xl hover:text-blue-300 dark:hover:text-blue-200"
             aria-label="LinkedIn"
           >
             <FaLinkedin />
@@ -152,16 +211,38 @@ function Navbar() {
         </div>
       </nav>
       
-      <div dir="ltr" className="fixed z-40 top-4 right-4 lg:top-16 lg:right-12 transform translate-z-[0] text-base flex items-start text-gray-300 toggle">
-        <ToggleDark />
-        <MultiLang />
-        <div className={`hamburger ${isActive ? "active" : ''}`} onClick={toggleActiveClass}>
-          <span className="bar bg-gray-100"></span>
-          <span className="bar bg-gray-100"></span>
-          <span className="bar bg-gray-100"></span>
-        </div>
-      </div>
     </header>
+
+      {/* Theme + language + menu. One solid pill with its own background, so it stays readable over
+          the hero card, over plain page sections, and in both themes.
+          It lives OUTSIDE <header>: the header is its own stacking context (z-10), and page sections
+          that also use z-10 (the hero, the contact form) were painting on top of the left half of
+          this pill, so the EN button could not be clicked on some screen widths. */}
+      <div
+        dir="ltr"
+        // Tabbing into it with the keyboard always brings it back. Stays put while the menu is open.
+        onFocusCapture={() => setPillHidden(false)}
+        className={`fixed z-[9999] top-4 right-4 sm:top-6 sm:right-6 lg:top-12 lg:right-12 flex items-center gap-1.5 rounded-full border border-black/10 bg-white/90 p-1 shadow-sm backdrop-blur transition-transform duration-150 motion-reduce:transition-none dark:border-white/15 dark:bg-black/85 ${
+          pillHidden && !isActive ? '-translate-y-[200%]' : ''
+        }`}
+      >
+        <LanguageSwitch />
+        <ToggleDark />
+        <button
+          type="button"
+          onClick={toggleActiveClass}
+          aria-label={t('navbar.menu')}
+          aria-expanded={isActive}
+          className={`hamburger h-9 w-9 place-items-center rounded-full hover:bg-black/10 dark:hover:bg-white/15 ${isActive ? 'active' : ''}`}
+        >
+          <span className="bars">
+            <span className="bar bg-black dark:bg-white"></span>
+            <span className="bar bg-black dark:bg-white"></span>
+            <span className="bar bg-black dark:bg-white"></span>
+          </span>
+        </button>
+      </div>
+    </>
   );
 }
 

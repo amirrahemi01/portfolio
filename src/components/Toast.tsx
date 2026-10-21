@@ -1,3 +1,5 @@
+"use client";
+
 // Path: src/components/Toast.tsx
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle, AlertCircle } from 'lucide-react';
@@ -21,9 +23,7 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
     return () => clearTimeout(timer);
   }, [onClose]);
 
-  const bgGradient = type === 'success' 
-    ? 'from-emerald-500 to-teal-500' 
-    : 'from-rose-500 to-pink-500';
+  const accent = type === 'success' ? 'bg-emerald-500' : 'bg-rose-500';
 
   const Icon = type === 'success' ? CheckCircle : AlertCircle;
 
@@ -39,10 +39,10 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
       `}
     >
       <div className="backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden w-full">
-        <div className={`h-1 bg-gradient-to-r ${bgGradient}`}></div>
+        <div className={`h-1 ${accent}`}></div>
         
         <div className="p-4 flex items-start gap-3">
-          <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${bgGradient} flex items-center justify-center shadow-lg`}>
+          <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${accent} flex items-center justify-center shadow-lg`}>
             <Icon className="w-5 h-5 text-white" />
           </div>
           

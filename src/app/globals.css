@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: #100635;
+  /* Selected text background color */
+  color: #fff;
+  /* Selected text color */
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#hide {
+  opacity: 1;
+  transition: 0.5s all;
+}
+
+#nohide {
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.mouse-scroll {
+  border: 2px solid #666666;
+  border-radius: 20px;
+  width: 26px;
+  height: 38px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition-property: opacity;
+  transition-duration: 600ms;
+  transition-timing-function: ease;
+  opacity: 1;
+}
+
+.mouse-scroll:before {
+  content: "";
+  height: 7px;
+  width: 2px;
+  background: #666666;
+  border-radius: 4px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translate(-1px);
+}
+
+.mouse-scroll:before {
+  animation: mouse-scroll 2s ease infinite;
+}
+
+@keyframes mouse-scroll {
+  0% {
+    transform: translate3d(-1px, 0, 0);
+    opacity: 0
+  }
+
+  20% {
+    transform: translate3d(-1px, 0, 0);
+    opacity: 1
+  }
+
+  to {
+    transform: translate3d(-1px, 8px, 0);
+    opacity: 0
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+/* media queries */
+@media screen and (max-width: 1025px) {
+
+  .hamburger {
+    display: grid;
+  }
+
+  /* three 2px bars, 6px apart (4px gap + 2px bar), so the X below can use +/-6px */
+  .hamburger .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .bar {
+    width: 18px;
+    height: 2px;
+    display: block;
+    border-radius: 2px;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Mobile menu: a full-screen overlay that is always in the page but invisible, so it can fade
+     in and out (display: none can't be animated). Text is always white: the overlay is dark, and
+     `all: unset` below would otherwise inherit the page's color (black on the project pages). */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9998; /* below the theme/language pill (9999) so the menu can be closed */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #000000d9;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* visibility flips after the fade ends, so closing fades out instead of vanishing */
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    /* iOS Safari only fires click on elements that look clickable. Without this, tapping the empty
+       area of the open menu did nothing on iPhones, so the menu could not be closed that way. */
+    cursor: pointer;
+    transition: opacity 0.25s ease, visibility 0s;
+  }
+
+  .nav nav {
+    all: unset;
+    display: block;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  .nav ul {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  /* Links rise into place one after another when the menu opens */
+  .nav li {
+    all: unset;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav.active li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav.active li:nth-child(1) { transition-delay: 0.06s; }
+  .nav.active li:nth-child(2) { transition-delay: 0.12s; }
+  .nav.active li:nth-child(3) { transition-delay: 0.18s; }
+  .nav.active li:nth-child(4) { transition-delay: 0.24s; }
+
+  .nav img.logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 50px;
+  }
+
+  /* The social icons carry their own text-black / dark:text-white classes: force white here too */
+  .nav .social a {
+    color: #ffffff;
+  }
+
+  .nav .social a:hover {
+    color: #00a5ff;
+  }
+
+  .nav .social {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav.active .social {
+    opacity: 1;
+    transition-delay: 0.3s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav,
+    .nav.active,
+    .nav li,
+    .nav.active li,
+    .nav .social,
+    .nav.active .social {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+}
+
+/* Photo frame in About: same blue as the rest of the site (dark blue on white, bright blue on black). */
+img.a {
+  box-shadow: 0 0 0 2px #0369a1, -8px 8px 0 0 #0369a1;
+}
+[data-mode="dark"] img.a {
+  box-shadow: 0 0 0 2px #00a5ff, -8px 8px 0 0 #00a5ff;
+}
+
+.skills svg {
+  width: 4.5rem !important;
+  height: 4.5rem !important;
+  margin: 0 8px;
+}
+
+/* Horizontal drag rows (Interests, Skills) — see DragScroll.tsx */
+.drag-scroll {
+  /* Smooth scroll-behavior made every drag step animate and lag behind the mouse */
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain; /* don't trigger browser back/forward swipe at the ends */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  cursor: grab;
+}
+.drag-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.drag-scroll.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.drag-scroll.dragging * {
+  pointer-events: none; /* no hover flicker on items while dragging */
+}
+.drag-scroll img,
+.drag-scroll svg {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+
+/* Vazirmatn's ascent/descent put Latin text about 0.12em above the middle of its line box,
+   so text inside buttons and pills looks too high. These nudge it down. Visual only: the
+   layout box doesn't move.
+   .optical-y    — text that is always Latin (project tags, tech names)
+   .optical-y-en — translated text: only English needs it, Persian is already centered. */
+.optical-y {
+  position: relative;
+  top: 0.17em; /* pills measure ~0.05em higher than buttons, so they need a bit more */
+}
+html[dir="ltr"] .optical-y-en {
+  position: relative;
+  top: 0.12em;
+}
+
+
+/* ---- Typography shared by every page, taken from the hero ----------------------------------
+   Hero: titles are heavy (900) and tightly tracked; body is 16px/26px at 65% opacity; small
+   text is 12.8px; labels are tiny, uppercase and widely tracked. Colors are plain black/white
+   with opacity (not a mix of slate shades), so they match the hero in light and dark.
+   Sizes only use values that exist in tailwind.config.js (it has no text-xs / text-lg). */
+@layer components {
+  .type-title {
+    @apply text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-black dark:text-white;
+  }
+  .type-heading {
+    @apply text-2xl md:text-3xl font-bold leading-tight tracking-tight text-black dark:text-white;
+  }
+  .type-body {
+    @apply text-base leading-relaxed text-black/65 dark:text-white/65;
+  }
+  .type-small {
+    @apply text-sm leading-normal text-black/65 dark:text-white/65;
+  }
+  .type-label {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-black/60 dark:text-white/60;
+  }
+  .type-pill {
+    @apply rounded-full border border-black/10 bg-black/[0.04] px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-black/70
+      dark:border-white/10 dark:bg-white/10 dark:text-white/70;
+  }
+}
+
+/* Persian is a connected script: letter-spacing would break the letters apart. */
+html[lang="fa"] .type-title,
+html[lang="fa"] .type-heading,
+html[lang="fa"] .type-label,
+html[lang="fa"] .type-pill {
+  letter-spacing: normal;
+}
+html[lang="fa"] .type-label {
+  font-size: 0.8rem;
+}
+
+/* Contact form fields. Typed text stays 16px (smaller makes iPhones zoom the page when you tap a
+   field); the placeholder is smaller and lighter so it reads as a hint, not as content. */
+@layer components {
+  .contact-field {
+    @apply w-full rounded-xl border-2 border-transparent bg-white/70 px-4 py-3 text-base font-medium text-black
+      placeholder:text-[0.8125rem] placeholder:font-normal placeholder:text-black/55
+      transition-colors focus:border-blue-200 focus:outline-none
+      dark:bg-white/10 dark:text-white dark:placeholder:text-white/55;
+  }
+}
+
+
+/* Keyboard focus: a visible ring everywhere (white-on-dark and dark-on-light variants). */
+:focus-visible {
+  outline: 2px solid #0369a1;
+  outline-offset: 2px;
+}
+[data-mode="dark"] :focus-visible {
+  outline-color: #00a5ff;
+}
+
+/* Demo video player (Plyr): site blue, Vazirmatn, no extra shadow */
+.demo-player {
+  --plyr-color-main: #0369a1;
+  --plyr-font-family: var(--font-vazirmatn), system-ui, sans-serif;
+  --plyr-video-background: #000;
+  --plyr-control-radius: 8px;
+}
+.demo-player .plyr--video {
+  border-radius: inherit;
+}
