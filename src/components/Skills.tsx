@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 
 import Html5Original from 'devicons-react/lib/icons/Html5Original';
@@ -6,25 +8,31 @@ import JavascriptOriginal from 'devicons-react/lib/icons/JavascriptOriginal';
 import TypescriptOriginal from 'devicons-react/lib/icons/TypescriptOriginal';
 import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
 import NextjsOriginal from 'devicons-react/lib/icons/NextjsOriginal';
+import AstroPlain from 'devicons-react/lib/icons/AstroPlain';
+import FlutterOriginal from 'devicons-react/lib/icons/FlutterOriginal';
+import DartOriginal from 'devicons-react/lib/icons/DartOriginal';
 import NodejsOriginalWordmark from 'devicons-react/lib/icons/NodejsOriginalWordmark';
+import ExpressOriginal from 'devicons-react/lib/icons/ExpressOriginal';
+import GoOriginal from 'devicons-react/lib/icons/GoOriginal';
 import TailwindcssPlainWordmark from 'devicons-react/lib/icons/TailwindcssPlainWordmark';
-import GitOriginalWordmark from 'devicons-react/lib/icons/GitOriginalWordmark';
+import GitOriginal from 'devicons-react/lib/icons/GitOriginal';
 import ReduxOriginal from 'devicons-react/lib/icons/ReduxOriginal';
+import ZustandOriginal from 'devicons-react/lib/icons/ZustandOriginal';
+import MongodbOriginal from 'devicons-react/lib/icons/MongodbOriginal';
+import PostgresqlOriginal from 'devicons-react/lib/icons/PostgresqlOriginal';
+import GithubOriginal from 'devicons-react/lib/icons/GithubOriginal';
 import DockerOriginalWordmark from 'devicons-react/lib/icons/DockerOriginalWordmark';
 
-import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
+import { useTranslation } from '@/i18n';
 import DragScroll from './DragScroll';
 
 function Skills() {
-  const [t, i18n] = useTranslation("global");
-
-  const isFa = (i18n.language || 'en') as 'en' | 'fa';
+  const [t] = useTranslation("global");
 
   return (
     <div id="skills">
-      <div className="flex flex-col mt-4">
-        <h2 className={clsx("px-4 text-2xl", isFa === "fa" ? "text-right" : "text-left")}>{t("content.my skills")}</h2>
+      <div className="flex flex-col mt-8">
+        <h2 className="type-heading px-4 text-left rtl:text-right">{t("content.my skills")}</h2>
         {/* <p dir="auto" className={clsx("dark:text-slate-300 text-slate-800 text-sm large:text-base px-4 text-left", isFa === "fa" ? "text-right" : "text-left")}>{t("content.skills")}</p> */}
 
         <DragScroll className="w-full overflow-x-auto overflow-y-hidden md:flex">
@@ -35,10 +43,19 @@ function Skills() {
             <TypescriptOriginal className="text-white dark:text-black" />
             <ReactOriginal className="text-white dark:text-black" />
             <NextjsOriginal className="text-white dark:text-black" />
+            <AstroPlain className="[&_*]:fill-black dark:[&_*]:fill-white" />
+            <FlutterOriginal className="text-white dark:text-black" />
+            <DartOriginal className="text-white dark:text-black" />
             <NodejsOriginalWordmark className="text-white dark:text-black" />
+            <ExpressOriginal className="[&_*]:fill-black dark:[&_*]:fill-white" />
+            <GoOriginal className="text-white dark:text-black" />
             <TailwindcssPlainWordmark className="text-white dark:text-black" />
-            <GitOriginalWordmark className="text-white dark:text-black" />
             <ReduxOriginal className="text-white dark:text-black" />
+            <ZustandOriginal className="text-white dark:text-black" />
+            <MongodbOriginal className="text-white dark:text-black" />
+            <PostgresqlOriginal className="text-white dark:text-black" />
+            <GitOriginal className="text-white dark:text-black" />
+            <GithubOriginal className="[&_*]:fill-black dark:[&_*]:fill-white" />
             <DockerOriginalWordmark className="text-white dark:text-black" />
           </div>
         </DragScroll>

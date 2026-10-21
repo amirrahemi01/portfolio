@@ -1,52 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,tsx}"],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   darkMode: ['selector', '[data-mode="dark"]'],
   theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'white': '#ffffff',
-      'black': '#000000',
-      'slate': {
-        50: '#f8fafc',
-        100: '#f1f5f9',
-        200: '#e2e8f0',
-        300: '#cbd5e1',
-        400: '#94a3b8',
-        500: '#64748b',
-        600: '#475569',
-        655: '#4E5C89',
-        700: '#334155',
-        800: '#1e293b',
-        900: '#0f172a',
-        950: '#020617',
-        960: '#090909',
-        965: '#111111',
-      },
-      'gray': {
-        100: '#353535',
-        500: '#6b7280',
-        600: '#4b5563',
-        800: '#021500',
-      },
-      'green': {
-        100: '#58BB71',
-        700: '#0B2A13',
-      },
-      'red': {
-        100: '#E92C55',
-        200: '#E93131',
-        250: '#ED6464',
-        600: '#350E0C',
-      },
-      'blue': {
-        100: '#9bddff',
-        200: '#00A5FF',
-        250: '#ED6464',
-        600: '#350E0C',
-      },
-    },
     fontSize: {
       sm: '0.8rem',
       base: '1rem',
@@ -63,9 +19,53 @@ module.exports = {
       '11xl': '12rem',
     },
     extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'black': '#000000',
+        'slate': {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          655: '#4E5C89',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+          960: '#090909',
+          965: '#111111',
+        },
+        'gray': {
+          100: '#353535',
+          500: '#6b7280',
+          600: '#4b5563',
+          800: '#021500',
+        },
+        'green': {
+          100: '#58BB71',
+          700: '#0B2A13',
+        },
+        'red': {
+          100: '#E92C55',
+          200: '#E93131',
+          250: '#ED6464',
+          600: '#350E0C',
+        },
+        'blue': {
+          100: '#9bddff',
+          200: '#00A5FF',
+          // 200 is too light for white text or for text on white (contrast 2.7:1); this passes AA (5.9:1)
+          300: '#0369a1',
+        },
+      },
+      // One family for everything: Vazirmatn (Persian + Latin), loaded in src/app/[lang]/layout.tsx
       fontFamily: {
-        paytone: ["Paytone One", "vazirmatn"],
-        lalezar: ["vazirmatn", "Paytone One"],
+        sans: ["var(--font-vazirmatn)", "system-ui", "-apple-system", "Segoe UI", "Tahoma", "sans-serif"],
       },
       screens: {
         'xs': '390px',

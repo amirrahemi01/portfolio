@@ -1,6 +1,19 @@
-import IMG_ECOMMERCE from "../assets/image/projects/ecommerce.jpg";
-import IMG_RENT from "../assets/image/projects/rent.jpg";
-import IMG_FOOD from "../assets/image/projects/food.jpg";
+import LOGO_TICKER from "@/assets/image/projects/logo-ticker.webp";
+import IMG_TICKER from "@/assets/image/projects/ticker.webp";
+import LOGO_TELEGRAM from "@/assets/image/projects/logo-telegram.webp";
+import IMG_CLINIC from "@/assets/image/projects/clinic.webp";
+import LOGO_CLINIC from "@/assets/image/projects/logo-clinic.webp";
+import IMG_AMLAK from "@/assets/image/projects/amlak.webp";
+import LOGO_AMLAK from "@/assets/image/projects/logo-amlak.webp";
+import LOGO_BELAMI from "@/assets/image/projects/logo-belami.webp";
+import LOGO_DRAW from "@/assets/image/projects/logo-draw.webp";
+import LOGO_ZINDER from "@/assets/image/projects/logo-zinder.webp";
+import IMG_DRAW from "@/assets/image/projects/draw.webp";
+import IMG_TELEGRAM from "@/assets/image/projects/telegram-clone.webp";
+import IMG_ZINDER from "@/assets/image/projects/zinder.webp";
+import IMG_BELAMI from "@/assets/image/projects/belami-dashboard.webp";
+import IMG_BELAMI_CATEGORIES from "@/assets/image/projects/belami-categories.webp";
+import type { StaticImageData } from "next/image";
 
 export interface ProjectLink {
   label: string;
@@ -13,193 +26,228 @@ export interface ProjectData {
   title: { en: string; fa: string };
   shortDescription: { en: string; fa: string };
   longDescription: { en: string; fa: string };
-  cover: string;
-  screenshots: string[];
+  cover: StaticImageData;
+  /** Optional. When set, the card on the home page shows this logo instead of the cover screenshot. */
+  logo?: StaticImageData;
+  /** Real screenshots. A string is a URL; imported files work too. */
+  screenshots: (StaticImageData | string)[];
   tags: string[];
   techStack: string[];
-  features: { en: string[]; fa: string[] };
+  /** Optional. Only shown on the project page when filled in. */
+  features?: { en: string[]; fa: string[] };
   links: {
     live?: string;
+    /** Optional. Link used on the Persian version of the portfolio, when the demo has a Persian address. */
+    liveFa?: string;
     github?: string;
     figma?: string;
+    /** Projects with a separate admin side. */
+    adminLive?: string;
+    adminGithub?: string;
   };
   year: string;
   role: { en: string; fa: string };
   duration: { en: string; fa: string };
   status: { en: string; fa: string };
-  gradientFrom: string;
-  gradientTo: string;
-  overlayFrom: string;
-  overlayTo: string;
-  accent: string;
+  /** Optional. When filled in, the project page shows "the problem / what I built / the result". */
+  writeup?: {
+    problem: { en: string; fa: string };
+    solution: { en: string; fa: string };
+    result: { en: string; fa: string };
+  };
+  /** Optional demo recording: a URL, or a file in /public (e.g. "/demos/ecommerce.mp4"). */
+  video?: string;
+  /** Pixel size of the video (reserves the right space on the page). Defaults to 16:9. */
+  videoSize?: { width: number; height: number };
+  /** Optional image shown before the video plays (a file in /public). */
+  videoPoster?: string;
 }
-
-// Placeholder screenshots — if media missing we generate placeholders via picsum
-const placeholder = (seed: string) => `https://picsum.photos/seed/${seed}/1200/750`;
-const placeholderSmall = (seed: string) => `https://picsum.photos/seed/${seed}/800/500`;
 
 export const projectsData: ProjectData[] = [
   {
-    id: "ecommerce",
-    slug: "e-commerce",
-    title: { en: "E-Commerce Platform", fa: "فروشگاه اینترنتی" },
+    id: "zinder",
+    slug: "zinder",
+    title: { en: "Zinder", fa: "Zinder" },
     shortDescription: {
-      en: "Built with Next.js, MongoDB, Redux, and Express. A full-stack online store with dynamic product pages and admin panel.",
-      fa: "ساخته شده با Next.js، MongoDB، Redux و Express. فروشگاه آنلاین با صفحات محصول داینامیک و پنل مدیریت.",
+      en: "A service marketplace that connects car owners with local automotive service providers, built with Next.js.",
+      fa: "یک وب‌سایت خدماتی که صاحبان خودرو را به ارائه‌دهندگان خدمات خودرویی نزدیک خودشان وصل می‌کند، ساخته‌شده با Next.js.",
     },
     longDescription: {
-      en: "A modern, scalable e-commerce platform crafted to deliver a premium shopping experience. From pixel-perfect product pages to a powerful admin dashboard, every detail is optimized for conversion and performance. Features real-time inventory, secure checkout with Stripe, advanced filtering, wishlist, and order tracking. Built with a clean, modular architecture that mirrors high-end retail experiences — fast, responsive, and SEO-ready.",
-      fa: "یک پلتفرم فروشگاهی مدرن و مقیاس‌پذیر که برای ارائه تجربه خرید پرمیوم ساخته شده. از صفحات محصول دقیق تا داشبورد مدیریت قدرتمند، هر جزئیات برای تبدیل و کارایی بهینه شده. شامل موجودی لحظه‌ای، پرداخت امن، فیلترینگ پیشرفته، لیست علاقه‌مندی و پیگیری سفارش است. با معماری تمیز و ماژولار، سریع، ریسپانسیو و آماده سئو.",
+      en: "Zinder helps car owners find local automotive services such as mechanics, detailers, tire shops and battery services. Visitors can browse categories and listings, filter them, and read the FAQ. Signed-in users get a dashboard with their orders, profile, addresses and notifications, and providers have their own area to manage their services. There is also an admin panel. I worked on the front end with Next.js, building the pages, the user dashboard and the sign-in flow, and connecting everything to the API.",
+      fa: "Zinder به صاحبان خودرو کمک می‌کند خدمات خودرویی نزدیک خودشان مثل مکانیکی، کارواش و دیتیلینگ، تایرفروشی و باتری‌سازی را پیدا کنند. بازدیدکننده‌ها می‌توانند دسته‌بندی‌ها و لیست خدمات را ببینند، فیلتر کنند و سؤالات متداول را بخوانند. کاربران واردشده داشبورد شخصی با سفارش‌ها، پروفایل، آدرس‌ها و اعلان‌ها دارند و ارائه‌دهندگان خدمات هم بخش مخصوص خودشان را برای مدیریت خدماتشان دارند. یک پنل ادمین هم وجود دارد. من بخش فرانت‌اند را با Next.js انجام دادم: ساخت صفحه‌ها، داشبورد کاربر و روند ورود، و اتصال همه‌چیز به API.",
     },
-    cover: IMG_ECOMMERCE,
-    screenshots: [
-      IMG_ECOMMERCE,
-      placeholderSmall("ecommerce-1"),
-      placeholderSmall("ecommerce-2"),
-      placeholder("ecommerce-3"),
-      placeholderSmall("ecommerce-4"),
-    ],
-    tags: ["NEXT.JS", "MONGODB", "REDUX", "EXPRESS.JS", "TAILWIND"],
-    techStack: ["Next.js 14", "TypeScript", "MongoDB", "Express", "Redux Toolkit", "Tailwind CSS", "Stripe", "JWT"],
-    features: {
-      en: [
-        "Dynamic product catalog with SSR & ISR for SEO",
-        "Admin panel — products, orders, users & analytics",
-        "Cart, wishlist & secure Stripe checkout",
-        "Advanced search, filters & pagination",
-        "JWT authentication & role-based access",
-        "Responsive, Apple-like UI with smooth transitions",
-      ],
-      fa: [
-        "کاتالوگ پویا با SSR و ISR برای سئو",
-        "پنل مدیریت — محصولات، سفارشات، کاربران و آنالیز",
-        "سبد خرید، علاقه‌مندی و پرداخت امن Stripe",
-        "جستجو و فیلترینگ پیشرفته با صفحه‌بندی",
-        "احراز هویت JWT و دسترسی نقش‌محور",
-        "رابط کاربری ریسپانسیو شبیه اپل با ترنزیشن نرم",
-      ],
-    },
+    cover: IMG_ZINDER,
+    logo: LOGO_ZINDER,
+    screenshots: [],
+    tags: ["Frontend", "Marketplace"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
     links: {
-      live: "https://example.com/ecommerce",
-      github: "https://github.com/amirrahemi01",
+      live: "https://zinder-web-test.vercel.app/",
+      github: "https://github.com/amirrahemi01/zinder-web-test",
     },
-    year: "2024",
-    role: { en: "Full-Stack Developer", fa: "توسعه‌دهنده فول‌استک" },
-    duration: { en: "6 weeks", fa: "۶ هفته" },
-    status: { en: "Completed", fa: "کامل شده" },
-    gradientFrom: "from-slate-500/10",
-    gradientTo: "to-cyan-500/10",
-    overlayFrom: "from-slate-500/20",
-    overlayTo: "to-cyan-500/20",
-    accent: "from-slate-655 via-purple-500 to-cyan-500",
+    year: "2026",
+    role: { en: "Frontend developer", fa: "توسعه‌دهنده فرانت‌اند" },
+    duration: { en: "3 months", fa: "۳ ماه" },
+    status: { en: "In progress", fa: "در حال انجام" },
   },
   {
-    id: "rent-car",
-    slug: "rent-car",
-    title: { en: "Rent Car Platform", fa: "پلتفرم اجاره خودرو" },
+    id: "belami",
+    slug: "belami",
+    title: { en: "Belami", fa: "Belami" },
     shortDescription: {
-      en: "Developed a responsive car rental platform with Next.js. Users can browse, book, and manage rentals seamlessly.",
-      fa: "پلتفرم رنت ماشین با Next.js. کاربران می‌توانند ماشین‌ها را مشاهده، رزرو و مدیریت کنند.",
+      en: "A Persian e-commerce website with a full admin panel, built with React, Express, MongoDB and Redux.",
+      fa: "یک فروشگاه اینترنتی فارسی با پنل مدیریت کامل، ساخته‌شده با React، Express، MongoDB و Redux.",
     },
     longDescription: {
-      en: "A premium car rental experience designed for clarity and speed. Users browse a curated fleet, compare specs, check real-time availability, and book in under 30 seconds. Includes calendar-based booking, instant price calculation, user dashboard for upcoming & past rentals, and an admin view for fleet management. The UI takes inspiration from luxury automotive brands — minimal, bold, and confident on every screen size.",
-      fa: "یک تجربه اجاره خودرو پرمیوم که برای وضوح و سرعت طراحی شده. کاربران ناوگان منتخب را مرور می‌کنند، مشخصات را مقایسه می‌کنند، موجودی لحظه‌ای را می‌بینند و در کمتر از ۳۰ ثانیه رزرو می‌کنند. شامل تقویم رزرو، محاسبه آنی قیمت، داشبورد کاربر برای رزروهای آینده و گذشته و پنل مدیریت ناوگان. رابط کاربری الهام‌گرفته از برندهای لوکس خودرو — مینیمال، جسور و مطمئن در هر سایز صفحه.",
+      en: "Belami is a Persian online store I built from start to finish. Customers can browse products by category and brand, search, save favorites, use a cart and discount codes, and place orders. Behind it is an admin panel for managing products and stock, orders, users, blog posts, banners, comments and settings, with sales and analytics dashboards. The API is written with Express and MongoDB, sign-in uses JWT with email verification and password reset, and the front end uses React and Redux.",
+      fa: "Belami یک فروشگاه اینترنتی فارسی است که از صفر تا صد خودم ساختم. مشتری‌ها می‌توانند محصولات را بر اساس دسته‌بندی و برند ببینند، جستجو کنند، علاقه‌مندی‌ها را ذخیره کنند، از سبد خرید و کد تخفیف استفاده کنند و سفارش ثبت کنند. پشت آن یک پنل مدیریت برای محصولات و موجودی، سفارش‌ها، کاربران، مقالات بلاگ، بنرها، دیدگاه‌ها و تنظیمات وجود دارد، همراه با داشبوردهای فروش و آمار. API با Express و MongoDB نوشته شده، ورود کاربران با JWT همراه با تأیید ایمیل و بازیابی رمز عبور است و بخش کاربری با React و Redux ساخته شده.",
     },
-    cover: IMG_RENT,
-    screenshots: [
-      IMG_RENT,
-      placeholderSmall("rent-1"),
-      placeholderSmall("rent-2"),
-      placeholder("rent-3"),
-      placeholderSmall("rent-4"),
-    ],
-    tags: ["NEXT.JS", "EXPRESS.JS", "MONGODB", "TAILWIND"],
-    techStack: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Prisma", "Tailwind CSS", "Framer Motion"],
-    features: {
-      en: [
-        "Fleet browsing with filters (type, price, transmission)",
-        "Real-time availability & booking calendar",
-        "Dynamic pricing & instant booking confirmation",
-        "User dashboard — trips, invoices & favorites",
-        "Admin fleet management & booking timeline",
-        "Fully responsive — mobile-first, tablet-optimized",
-      ],
-      fa: [
-        "مرور ناوگان با فیلتر (نوع، قیمت، گیربکس)",
-        "موجودی لحظه‌ای و تقویم رزرو",
-        "قیمت‌گذاری داینامیک و تایید آنی",
-        "داشبورد کاربر — سفرها، فاکتورها و علاقه‌مندی",
-        "مدیریت ناوگان و تایم‌لاین رزرو در پنل ادمین",
-        "کاملاً ریسپانسیو — موبایل‌فرست و بهینه برای تبلت",
-      ],
-    },
+    cover: IMG_BELAMI,
+    logo: LOGO_BELAMI,
+    screenshots: [IMG_BELAMI, IMG_BELAMI_CATEGORIES],
+    tags: ["Full-stack", "E-commerce"],
+    techStack: ["React", "Express.js", "MongoDB", "Redux"],
     links: {
-      live: "https://example.com/rent-car",
-      github: "https://github.com/amirrahemi01",
+      live: "https://belami.ir",
+      github: "https://github.com/amirrahemi01/fullstack_nextjs_ecommerce",
     },
-    year: "2024",
-    role: { en: "Frontend & Backend", fa: "فرانت و بک‌اند" },
-    duration: { en: "4 weeks", fa: "۴ هفته" },
-    status: { en: "Completed", fa: "کامل شده" },
-    gradientFrom: "from-slate-500/10",
-    gradientTo: "to-cyan-500/10",
-    overlayFrom: "from-slate-500/20",
-    overlayTo: "to-cyan-500/20",
-    accent: "from-slate-655 via-purple-500 to-pink-500",
+    year: "2025",
+    role: { en: "Full-stack developer", fa: "توسعه‌دهنده فول‌استک" },
+    duration: { en: "1 year", fa: "۱ سال" },
+    status: { en: "Completed", fa: "تکمیل‌شده" },
   },
   {
-    id: "food-delivery",
-    slug: "food-delivery",
-    title: { en: "Food Delivery App", fa: "اپلیکیشن سفارش غذا" },
+    id: "ticker",
+    slug: "ticker",
+    title: { en: "Ticker", fa: "Ticker" },
     shortDescription: {
-      en: "A food ordering app using Next.js and backend APIs. Browse menus, place orders, and track delivery in real-time.",
-      fa: "اپ سفارش غذا با Next.js و API بک‌اند. مشتریان می‌توانند منوها را ببینند، سفارش دهند و تحویل را دنبال کنند.",
+      en: "A Flutter mobile app for real-time cryptocurrency and currency prices, with charts and a light and dark theme.",
+      fa: "یک اپلیکیشن موبایل فلاتر برای قیمت لحظه‌ای ارزهای دیجیتال و ارزها، با نمودار و تم روشن و تاریک.",
     },
     longDescription: {
-      en: "A vibrant food delivery app built for appetite and speed. Customers explore restaurants, customize meals, track their order from kitchen to doorstep with live status updates, and reorder in one tap. Restaurant owners get a live order board. The design is warm, playful, and ultra-responsive — generous imagery, rounded cards, and soft shadows that echo my portfolio’s aesthetic: clean, modern, and human.",
-      fa: "اپ سفارش غذا پرانرژی که برای اشتها و سرعت ساخته شده. مشتریان رستوران‌ها را کاوش می‌کنند، غذا را شخصی‌سازی می‌کنند، وضعیت سفارش را از آشپزخانه تا درب منزل به‌صورت زنده دنبال می‌کنند و با یک تپ دوباره سفارش می‌دهند. رستوران‌داران برد سفارش زنده دارند. طراحی گرم، بازیگوش و کاملاً ریسپانسیو — تصاویر سخاوتمند، کارت‌های گرد و سایه‌های نرم که زیبایی پورتفولیوی من را منعکس می‌کند: تمیز، مدرن و انسانی.",
+      en: "Ticker is a mobile app I built with Flutter to follow cryptocurrency and currency prices. You pick an asset such as BTC, ETH, USDT, BNB or SOL and see its current price with the daily change, a price chart you can switch between 1 hour, 1 day, 1 week, 1 month, 1 year and all time, and the 24-hour high, low and volume. It shows when the data was last updated and has a light and dark theme. The app is not released in any store yet, so the demo video on this page shows how it works.",
+      fa: "Ticker یک اپلیکیشن موبایل است که با فلاتر ساختم تا قیمت ارزهای دیجیتال و ارزها را دنبال کنم. یک دارایی مثل BTC، ETH، USDT، BNB یا SOL را انتخاب می‌کنید و قیمت فعلی همراه با تغییر روزانه، نمودار قیمت با بازه‌های ۱ ساعت، ۱ روز، ۱ هفته، ۱ ماه، ۱ سال و کل دوره، و بیشترین، کمترین و حجم ۲۴ ساعته را می‌بینید. زمان آخرین بروزرسانی نمایش داده می‌شود و تم روشن و تاریک دارد. اپ هنوز در هیچ فروشگاهی منتشر نشده، به همین دلیل ویدیوی دمو در این صفحه طرز کارش را نشان می‌دهد.",
     },
-    cover: IMG_FOOD,
-    screenshots: [
-      IMG_FOOD,
-      placeholderSmall("food-1"),
-      placeholderSmall("food-2"),
-      placeholder("food-3"),
-      placeholderSmall("food-4"),
-    ],
-    tags: ["NEXT.JS", "EXPRESS.JS", "REST API", "TAILWIND"],
-    techStack: ["Next.js", "TypeScript", "REST API", "Tailwind CSS", "React Query", "Socket.io"],
-    features: {
-      en: [
-        "Restaurant & menu discovery with categories",
-        "Cart with modifiers, notes & real-time total",
-        "Live order tracking (preparing → on the way → delivered)",
-        "Reorder & favorites in one tap",
-        "Restaurant admin — incoming & preparing boards",
-        "Delightful animations & haptics-ready UI",
-      ],
-      fa: [
-        "کاوش رستوران و منو با دسته‌بندی",
-        "سبد خرید با افزودنی‌ها، یادداشت و جمع لحظه‌ای",
-        "پیگیری زنده سفارش (آماده‌سازی → در راه → تحویل)",
-        "سفارش مجدد و علاقه‌مندی با یک تپ",
-        "پنل رستوران — برد سفارش‌های ورودی و در حال آماده‌سازی",
-        "انیمیشن‌های لذت‌بخش و رابط آماده haptics",
-      ],
+    cover: IMG_TICKER,
+    logo: LOGO_TICKER,
+    screenshots: [],
+    video: "/demos/crypto-app.mp4",
+    videoPoster: "/demos/crypto-app-poster.webp",
+    videoSize: { width: 468, height: 990 },
+    tags: ["Mobile", "Flutter"],
+    techStack: ["Flutter", "Dart"],
+    links: {},
+    year: "2026",
+    role: { en: "Mobile developer", fa: "توسعه‌دهنده موبایل" },
+    duration: { en: "Personal project", fa: "پروژه شخصی" },
+    status: { en: "Not released yet", fa: "هنوز منتشر نشده" },
+  },
+  {
+    id: "draw",
+    slug: "draw",
+    title: { en: "Draw", fa: "Draw" },
+    shortDescription: {
+      en: "An exchange-rate platform with two sides: a public rates website and an admin dashboard to manage the prices.",
+      fa: "یک پلتفرم نرخ ارز و طلا با دو بخش: وب‌سایت عمومی نرخ‌ها و داشبورد مدیریت برای کنترل قیمت‌ها.",
     },
+    longDescription: {
+      en: "Draw is an exchange-rate platform with two sides that I built as a full-stack developer. The client site shows live-style currency rates, gold and metal prices, a currency converter and a price chart, in Arabic, English and Kurdish with right-to-left support and light and dark themes. The admin dashboard is where the team manages the data: partners, the pricing policy, published prices, currencies and metals, plus analytics and an audit log. The links on this page open static demos with sample data, so you can click through both sides without a backend.",
+      fa: "Draw یک پلتفرم نرخ ارز با دو بخش است که به‌عنوان توسعه‌دهنده فول‌استک ساختم. سایت کاربری نرخ ارز، قیمت طلا و فلزات، مبدل ارز و نمودار قیمت را به زبان‌های عربی، انگلیسی و کردی با پشتیبانی راست‌به‌چپ و تم روشن و تاریک نشان می‌دهد. داشبورد مدیریت جایی است که تیم داده‌ها را مدیریت می‌کند: شرکا، سیاست قیمت‌گذاری، قیمت‌های منتشرشده، ارزها و فلزات، به‌همراه آمار و گزارش تغییرات. لینک‌های این صفحه به نسخه‌های دموی استاتیک با داده نمونه باز می‌شوند تا بدون بک‌اند در هر دو بخش گشت بزنید.",
+    },
+    cover: IMG_DRAW,
+    logo: LOGO_DRAW,
+    screenshots: [],
+    tags: ["Full-stack", "Dashboard"],
+    techStack: ["Astro", "Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
     links: {
-      live: "https://example.com/food-delivery",
-      github: "https://github.com/amirrahemi01",
+      live: "https://draw.amirrahemi.com/",
+      github: "https://github.com/amirrahemi01/draw-frontend",
+      adminLive: "https://admin-draw.amirrahemi.com/login",
+      adminGithub: "https://github.com/amirrahemi01/draw-adminpanel",
     },
-    year: "2023",
-    role: { en: "Full-Stack Developer", fa: "توسعه‌دهنده فول‌استک" },
-    duration: { en: "5 weeks", fa: "۵ هفته" },
-    status: { en: "Completed", fa: "کامل شده" },
-    gradientFrom: "from-slate-500/10",
-    gradientTo: "to-cyan-500/10",
-    overlayFrom: "from-slate-500/20",
-    overlayTo: "to-cyan-500/20",
-    accent: "from-purple-500 via-pink-500 to-orange-400",
+    year: "2026",
+    role: { en: "Full-stack developer", fa: "توسعه‌دهنده فول‌استک" },
+    duration: { en: "2 months", fa: "۲ ماه" },
+    status: { en: "Completed", fa: "تکمیل‌شده" },
+  },
+  {
+    id: "clinic",
+    slug: "sportorthopaedie",
+    title: { en: "Sportorthopädie Berlin", fa: "Sportorthopädie Berlin" },
+    shortDescription: {
+      en: "A redesigned two-language (German and English) website for an orthopaedic clinic in Berlin, built with Astro.",
+      fa: "بازطراحی وب‌سایت یک کلینیک ارتوپدی در برلین، به دو زبان آلمانی و انگلیسی، ساخته‌شده با Astro.",
+    },
+    longDescription: {
+      en: "A complete redesign of an orthopaedic clinic website in Berlin, rebuilt from the original content. It has German and English versions with proper language routes, patient information with insurance, costs and an FAQ, a page about the doctor, events, reviews, and a contact page with an appointment request form, map and opening hours. The appointment form is a UI-only demo.",
+      fa: "بازطراحی کامل وب‌سایت یک کلینیک ارتوپدی در برلین که از روی محتوای اصلی دوباره ساخته شد. نسخه آلمانی و انگلیسی با مسیرهای زبان درست دارد و اطلاعات بیماران شامل بیمه، هزینه‌ها و سؤالات متداول، صفحه معرفی پزشک، رویدادها، نظرات و صفحه تماس با فرم درخواست نوبت، نقشه و ساعات کاری را در بر می‌گیرد. فرم نوبت‌دهی فقط نمایشی است.",
+    },
+    cover: IMG_CLINIC,
+    logo: LOGO_CLINIC,
+    screenshots: [],
+    tags: ["Frontend", "Multi-language"],
+    techStack: ["Astro", "TypeScript", "Tailwind CSS"],
+    links: {
+      live: "https://dr.amirrahemi.com/",
+      github: "https://github.com/amirrahemi01/sportorthopaedie.berlin",
+    },
+    year: "2026",
+    role: { en: "Frontend developer", fa: "توسعه‌دهنده فرانت‌اند" },
+    duration: { en: "1 month", fa: "۱ ماه" },
+    status: { en: "Completed", fa: "تکمیل‌شده" },
+  },
+  {
+    id: "realestate",
+    slug: "realestate",
+    title: { en: "Real Estate", fa: "املاک" },
+    shortDescription: {
+      en: "A real-estate website in English and Persian, with search, filters, listing pages and saved favorites. A demo built from scratch.",
+      fa: "یک وب‌سایت املاک به دو زبان انگلیسی و فارسی، با جستجو، فیلتر، صفحه آگهی و ذخیره علاقه‌مندی‌ها. یک دمو که از صفر ساخته‌ام.",
+    },
+    longDescription: {
+      en: "A demo real-estate website that I designed and built from scratch. It works in English and Persian: the Persian version is fully right-to-left with the Vazirmatn font and Persian digits, and the English version shows prices in US dollars. Visitors can search to buy or rent by city, property type and price, filter and sort the results, open a listing with its gallery, key facts, amenities, location and a visit request form, and save listings they like. It has 37 sample listings, an agents page, a contact page, light and dark themes. Everything is static sample data with no backend.",
+      fa: "یک دموی سایت املاک که از صفر طراحی و ساختم. به دو زبان انگلیسی و فارسی کار می‌کند: نسخه فارسی کاملاً راست‌به‌چپ است و از فونت وزیرمتن و ارقام فارسی استفاده می‌کند و نسخه انگلیسی قیمت‌ها را به دلار نشان می‌دهد. بازدیدکننده می‌تواند برای خرید یا اجاره بر اساس شهر، نوع ملک و قیمت جستجو کند، نتایج را فیلتر و مرتب کند، یک آگهی را با گالری، مشخصات، امکانات، موقعیت و فرم درخواست بازدید ببیند و آگهی‌های موردعلاقه را ذخیره کند. شامل ۳۷ آگهی نمونه، صفحه مشاوران، صفحه تماس، تم روشن و تاریک است. همه‌چیز داده نمونه استاتیک است و بک‌اند ندارد.",
+    },
+    cover: IMG_AMLAK,
+    logo: LOGO_AMLAK,
+    screenshots: [],
+    tags: ["Frontend", "Multi-language"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    links: {
+      live: "https://realestate.amirrahemi.com/en",
+      liveFa: "https://realestate.amirrahemi.com/fa",
+      github: "https://github.com/amirrahemi01/amlak-demo",
+    },
+    year: "2026",
+    role: { en: "Frontend developer", fa: "توسعه‌دهنده فرانت‌اند" },
+    duration: { en: "3 months", fa: "۳ ماه" },
+    status: { en: "Completed", fa: "تکمیل‌شده" },
+  },
+  {
+    id: "telegram-clone",
+    slug: "telegram-clone",
+    title: { en: "Telegram Clone", fa: "کلون تلگرام" },
+    shortDescription: {
+      en: "A front-end clone of Telegram Web with chats, search and dark mode, running on mock data. Built with Next.js and Zustand.",
+      fa: "کلون فرانت‌اند تلگرام وب با چت، جستجو و تم تاریک، با داده‌های نمونه. ساخته‌شده با Next.js و Zustand.",
+    },
+    longDescription: {
+      en: "A front-end only recreation of Telegram Web that I built to practice complex interface work. It has a phone-number login screen, a chat list with pinned and archived chats, unread badges and online status, a conversation view with an emoji picker, search, a contacts list, a settings section and light and dark themes. There is no backend: all chats, contacts and messages are mock data, and a small simulation makes the conversations feel alive. State is managed with Zustand.",
+      fa: "بازسازی فقط فرانت‌اند تلگرام وب که برای تمرین ساخت رابط‌های پیچیده نوشتم. شامل صفحه ورود با شماره تلفن، لیست چت‌ها با چت‌های پین‌شده و آرشیو، نشان پیام‌های خوانده‌نشده و وضعیت آنلاین، صفحه گفتگو با انتخاب ایموجی، جستجو، لیست مخاطبان، بخش تنظیمات و تم روشن و تاریک است. بک‌اند ندارد: همه چت‌ها، مخاطبان و پیام‌ها داده نمونه هستند و یک شبیه‌سازی کوچک گفتگوها را زنده نشان می‌دهد. مدیریت state با Zustand انجام شده.",
+    },
+    cover: IMG_TELEGRAM,
+    logo: LOGO_TELEGRAM,
+    screenshots: [],
+    tags: ["Frontend", "Web app"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
+    links: {
+      live: "https://telegram-clone-three-lyart.vercel.app/",
+      github: "https://github.com/amirrahemi01/telegram-clone",
+    },
+    year: "2025",
+    role: { en: "Frontend developer", fa: "توسعه‌دهنده فرانت‌اند" },
+    duration: { en: "Personal project", fa: "پروژه شخصی" },
+    status: { en: "Completed", fa: "تکمیل‌شده" },
   },
 ];
 

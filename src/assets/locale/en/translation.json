@@ -1,51 +1,37 @@
 {
   "navbar": {
-    "work": "works",
-    "skills": "skills",
-    "about": "about",
-    "contact": "contact"
+    "work": "Works",
+    "skills": "Skills",
+    "about": "About",
+    "contact": "Contact",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode",
+    "menu": "Menu"
   },
   "header": {
-    "hello": "hello",
-    "Welcome to my slice of the internet": "Welcome to my slice of the internet",
-    "cancel": "cancel",
-    "continue": "continue"
+    "hello": "Hello, I'm",
+    "Welcome to my slice of the internet": "Welcome to my slice of the internet"
   },
   "content": {
-    "amirrahemi": "amir rahemi",
-    "reactjs": "I'm a passionate Next.JS developer with a knack for crafting engaging web experiences. With a keen eye for detail and a love for clean code, I specialize in building dynamic and responsive applications that leave a lasting impression. Let's collaborate to bring your ideas to life!",
-
+    "amirrahemi": "Amir Rahemi",
+    "role": "FULL-STACK DEVELOPER",
+    "reactjs": "Hi! I'm a full-stack developer. I make websites with Next.js, mobile apps with Flutter, and backends and server side with Go and Node.js. I like clean code and small details, and I want my apps to be fast and easy to use on any screen. Have an idea? Let's build it together!",
     "my interests": "My Interests",
-    "music": "music",
-    "sport": "sport",
-    "game": "game",
-    "movie": "movie",
-    "photo": "photo",
-    "travel": "travel",
-
-    "my skills": "my skills",
+    "music": "Music",
+    "sport": "Sport",
+    "game": "Game",
+    "movie": "Movie",
+    "photo": "Photo",
+    "travel": "Travel",
+    "my skills": "My Skills",
     "skills": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
-
     "download cv": "Download CV",
-    "projects": "projects",
-    "pr": "I'm a developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js",
-    
-    "e-commerce": "E-Commerce",
-    "shopping": "Built with Next.js, MongoDB, Redux, and Express. A full-stack online store with dynamic product pages and admin panel.",
-    
-    "rent car": "rent car",
-    "rent": "Developed a responsive car rental platform with Next.js. Users can browse, book, and manage rentals seamlessly.",
-    
-    "food delivery": "food delivery",
-    "food": "A food ordering app using Next.js and backend APIs. Customers can browse menus, place orders, and track delivery in real-time.",
-    
-    "contact": "just say hello",
+    "projects": "Projects",
+    "contact": "Just say hello",
     "contactText": "Let's create something amazing together",
-    
     "copy": "Amir Rahemi, All rights reserved",
     "made with": "Made With",
     "in rasht": "in Rasht",
-
     "contactName": "Name",
     "contactEmail": "Email",
     "contactMessage": "",
@@ -53,16 +39,82 @@
     "contactConnect": "Connect With Me",
     "contactGet": "Get In Touch",
     "contactDes": "Available for freelance projects and full-time opportunities. Let's build something great together!",
-
     "placeHolderName": "Your name",
     "placeHolderYourMessage": "Your message...",
-
     "messageSentSuccess": "Message sent successfully! 🎉",
     "messageSentError": "Failed to send message. Please try again.",
-    "emailConfigError": "Email service is not configured. Please check environment variables.",
-    
-
     "list": "List",
-    "grid": "Grid"
+    "grid": "Grid",
+    "viewMode": "Project layout",
+    "scrollBack": "Scroll back",
+    "scrollForward": "Scroll forward"
+  },
+  "hero": {
+    "firstName": "Amir",
+    "lastName": "Rahemi",
+    "nameSuffix": "",
+    "badge": "Available for new projects",
+    "tagline": "Full-stack developer — web with Next.js, mobile with Flutter, backend with Go.",
+    "viewProjects": "View Projects",
+    "letsTalk": "Let’s Talk",
+    "cv": "CV",
+    "statYears": "Years Exp."
+  },
+  "project": {
+    "backHome": "Back to home",
+    "backToProjects": "Back to projects",
+    "back": "Back",
+    "caseStudy": "Case Study",
+    "year": "Year",
+    "role": "Role",
+    "timeline": "Timeline",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "adminDemo": "Admin Panel Demo",
+    "adminSource": "Admin Source",
+    "linksSoon": "Links coming soon",
+    "overview": "Overview",
+    "techStack": "Tech Stack",
+    "keyFeatures": "Key Features",
+    "details": "Project Details",
+    "status": "Status",
+    "platform": "Platform",
+    "mobile": "Mobile app",
+    "screenshots": "Screenshots",
+    "shots": "shots",
+    "previous": "Previous",
+    "next": "Next",
+    "problem": "The problem",
+    "solution": "What I built",
+    "result": "The result",
+    "demoVideo": "Demo video"
+  },
+  "seo": {
+    "title": "Amir Rahemi - Full-Stack Developer | Next.js, Flutter & Go",
+    "description": "Amir Rahemi is a full-stack developer building websites with Next.js and React, mobile apps with Flutter, and backends with Go and Node.js. Browse my portfolio projects and get in touch.",
+    "ogDescription": "Portfolio of Amir Rahemi - full-stack developer working across web (Next.js), mobile (Flutter) and backend (Go). View my projects and experience.",
+    "schemaDescription": "Full-stack developer working across web (Next.js, React), mobile (Flutter) and backend (Go, Node.js)"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home",
+    "projects": "See my projects"
+  },
+  "cvPage": {
+    "title": "Curriculum Vitae",
+    "export": "Export PDF",
+    "back": "Back to home",
+    "summary": "Profile summary",
+    "education": "Education",
+    "projects": "Projects",
+    "skills": "Skills",
+    "language": "Language",
+    "social": "Social",
+    "tech": "Tech",
+    "visit": "Visit"
+  },
+  "a11y": {
+    "skip": "Skip to content"
   }
 }

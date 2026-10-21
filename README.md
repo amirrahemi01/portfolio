@@ -1,66 +1,81 @@
-<h1 align="center"> Multilingual React.JS Portfolio Website </h1>
+<h1 align="center">Amir Rahemi — Portfolio</h1>
 
-<p align="center"> Classic Portfolio Website </p>
+<p align="center">A bilingual (English / Persian) developer portfolio built with Next.js.</p>
 
-- Multi Language
-- Toggle For Dark & Light Theme
-- Custom Style For Each Language
-- Classic Design & Responsive Full
+- English at `/`, Persian (right-to-left) at `/fa`
+- Pages are pre-rendered, so search engines and link previews (Telegram, LinkedIn, WhatsApp) see real titles and images
+- Light and dark theme (follows the system until you choose)
+- Contact form: sends an email (EmailJS) and an instant Telegram alert
+- Responsive from 320px up
 
-<p align="center">
-    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/amirrahemi01/portfolio">
-    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/amirrahemi01/portfolio">
-    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/amirrahemi01/portfolio">
-    <img alt="Lines of code" src="https://tokei.rs/b1/github/amirrahemi01/portfolio?category=code">
-</p>
+## Demo
 
+- [amirrahemi.com](https://amirrahemi.com/)
 
+## Screenshots
 
-## <img alt="Camputer" src="https://emojicdn.elk.sh/💻" width="25" align="center" > Demo
-- [Live demo](https://amirrahemi.com/)
-
-## <img alt="Camputer" src="https://emojicdn.elk.sh/📷" width="25" align="center" > Screenshots
 <div>
-  <img width="825" src="screenshot-en.png">
+  <img width="825" src="screenshot-en.png" alt="English home page">
 </div>
 <div>
-  <img width="825" src="screenshot-fa.png">
+  <img width="825" src="screenshot-fa.png" alt="Persian home page">
 </div>
 
-## <img alt="Camputer" src="https://emojicdn.elk.sh/⚡" width="25" align="center" > How To Run
+## Run it
 
-### Project Download
 ```bash
-# Clone Repository
-$ git clone https://github.com/amirrahemi01/portfolio.git
+git clone https://github.com/amirrahemi01/portfolio.git
+cd portfolio
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
 ```
 
-```bash
-# Open Directory
-$ cd portfolio
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run og` | Regenerate the social preview images in `public/og/` (needs Google Chrome) |
+| `npm run cv` | Rebuild `public/AmirRahemiCV.pdf` from `scripts/cv/cv.html` (needs Google Chrome) |
+
+## Environment variables
+
+See [.env.example](.env.example). In short:
+
+- `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` — EmailJS (public by design). The old `REACT_APP_EMAILJS_*` names still work.
+- `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` — **secret**, server-side only. Set them in Vercel (Project → Settings → Environment Variables) and in `.env.local`. Never commit them.
+
+The EmailJS email template is in [emailjs/contact-template.html](emailjs/contact-template.html).
+
+## Changing the content
+
+| What | Where |
+| --- | --- |
+| Texts (both languages), SEO titles and descriptions | `src/assets/locale/en/translation.json` and `.../fa/translation.json` |
+| Projects (titles, descriptions, links, screenshots, tech stack, optional write-up and demo video) | `src/data/projects.ts` |
+| Hero numbers, email, Telegram link, CV path | `src/data/site.ts` |
+| Skills icons | `src/components/Skills.tsx` |
+| Social links | `src/components/ContactUs.tsx` |
+
+After changing project or home text, run `npm run og` and commit the new images in `public/og/`.
+Update `public/sitemap.xml` when you add pages.
+
+## How it is organised
+
 ```
-
-### NPM
-```bash
-# Install dependencies & Run App
-$ npm i && npm start
-```
-
-## <img alt="Camputer" src="https://emojicdn.elk.sh/❔" width="25" align="center" > How To Use EMAIL.JS Contact Form
-
-In "ContactUs.tsx"component replace your custom service id, template id & public key :)
-
-
-```bash
-  .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-    publicKey: 'YOUR_PUBLIC_KEY',
-  })
+src/
+  app/[lang]/        every page lives under /en or /fa (src/proxy.ts hides the /en prefix)
+    page.tsx           home
+    projects/[slug]/   project pages
+    not-found.tsx      the 404 page
+  app/api/contact/   Telegram alert endpoint (server side)
+  components/        UI
+  data/              projects and site content
+  i18n/              language context + translation helper
+scripts/generate-og.mjs   builds the social preview images
 ```
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for more details.
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/amirrahemi01/portfolio.svg?variant=adaptive)](https://starchart.cc/amirrahemi01/portfolio)
+MIT — see [LICENSE.txt](LICENSE.txt).
