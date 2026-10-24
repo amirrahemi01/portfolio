@@ -4,7 +4,6 @@ import { SITE_URL } from "@/i18n/dictionaries";
 
 // Built from the project list, so a new project is in the sitemap as soon as it is added to
 // src/data/projects.ts. Each page lists both languages (English at "/", Persian under "/fa").
-// /cv is left out on purpose: it is set to noindex.
 const LAST_UPDATED = new Date("2026-10-20");
 
 const entry = (path: string, priority: number): MetadataRoute.Sitemap[number] => {
@@ -20,7 +19,7 @@ const entry = (path: string, priority: number): MetadataRoute.Sitemap[number] =>
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", ...projectsData.map((p) => `/projects/${p.slug}`)];
+  const pages = ["/", "/cv", ...projectsData.map((p) => `/projects/${p.slug}`)];
   // Persian pages are separate URLs, so they get their own entries too.
   return pages.flatMap((path) => {
     const en = entry(path, path === "/" ? 1 : 0.7);

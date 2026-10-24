@@ -1,5 +1,5 @@
 // Generates the 1200x630 social preview images (Open Graph) into public/og/:
-//   home-en.png, home-fa.png, project-<slug>-en.png, project-<slug>-fa.png
+//   home-en.png, home-fa.png, cv-en.png, cv-fa.png, project-<slug>-en.png, project-<slug>-fa.png
 //
 // Run it again after you change the content:   npm run og
 //
@@ -109,6 +109,22 @@ function homePage(lang) {
   });
 }
 
+function cvPage(lang) {
+  const d = dict[lang];
+  const name = `${esc(d.hero.firstName)} <span class="accent">${esc(d.hero.lastName)}</span>`;
+  return page({
+    lang,
+    body: `
+      <div class="text">
+        <div class="label">${esc(d.cvPage.metaTitle)}</div>
+        <div class="title">${name}</div>
+        <div class="lead">${esc(d.hero.tagline.split("—")[0].trim())}</div>
+        <div class="foot"><span class="dot"></span>amirrahemi.com</div>
+      </div>
+      <div class="photo"><img src="${portrait}"></div>`,
+  });
+}
+
 function projectPage(project, lang) {
   const d = dict[lang];
   const title = project.title[lang];
@@ -151,6 +167,7 @@ mkdirSync(outDir, { recursive: true });
 const jobs = [];
 for (const lang of ["en", "fa"]) {
   jobs.push([`home-${lang}.png`, homePage(lang)]);
+  jobs.push([`cv-${lang}.png`, cvPage(lang)]);
   for (const project of projectsData) jobs.push([`project-${project.slug}-${lang}.png`, projectPage(project, lang)]);
 }
 for (const [file, html] of jobs) {
