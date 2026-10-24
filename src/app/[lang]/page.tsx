@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Home from "@/components/Home";
-import { SITE_URL, getDictionary, isLang, prefixFor, type Lang } from "@/i18n/dictionaries";
+import { SITE_URL, getDictionary, isLang, type Lang } from "@/i18n/dictionaries";
+
+const PERSON_ID = `${SITE_URL}/#person`;
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -10,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang: raw } = await params;
   const lang: Lang = isLang(raw) ? raw : "en";
   const dict = getDictionary(lang);
-  const url = `${SITE_URL}${prefixFor(lang)}`;
+  const url = lang === "fa" ? `${SITE_URL}/fa` : `${SITE_URL}/`;
 
   return {
     // The home page title is the full line, so the "— Amir Rahemi" template from the layout is skipped.
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: dict.seo.description,
     alternates: {
       canonical: url,
-      languages: { en: SITE_URL, fa: `${SITE_URL}/fa`, "x-default": SITE_URL },
+      languages: { en: `${SITE_URL}/`, fa: `${SITE_URL}/fa`, "x-default": `${SITE_URL}/` },
     },
     openGraph: {
       type: "website",
@@ -45,26 +47,39 @@ export default async function HomePage({ params }: Props) {
   const { lang: raw } = await params;
   const lang: Lang = isLang(raw) ? raw : "en";
   const dict = getDictionary(lang);
-  const url = `${SITE_URL}${prefixFor(lang)}`;
-
+  // One connected graph: the Person (who the site is about) and the WebSite (this site, in two
+  // languages). The projects pages point back to the Person with its @id.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Amir Rahemi",
-    alternateName: "امیر راحمی",
-    jobTitle: "Full-Stack Developer",
-    url,
-    address: { "@type": "PostalAddress", addressLocality: "Rasht", addressCountry: "IR" },
-    sameAs: [
-      "https://github.com/amirrahemi01",
-      "https://linkedin.com/in/amirrahemi",
-      "https://twitter.com/madeby_amir",
-      "https://t.me/amirrahemii",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: "Amir Rahemi",
+        alternateName: "امیر راحمی",
+        jobTitle: "Full-Stack Developer",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/logo.png`,
+        address: { "@type": "PostalAddress", addressLocality: "Rasht", addressRegion: "Gilan", addressCountry: "IR" },
+        sameAs: [
+          "https://github.com/amirrahemi01",
+          "https://linkedin.com/in/amirrahemi",
+          "https://twitter.com/madeby_amir",
+          "https://t.me/amirrahemii",
+        ],
+        knowsLanguage: ["en", "fa"],
+        knowsAbout: ["JavaScript", "TypeScript", "React", "Next.js", "Astro", "Flutter", "Dart", "Go", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Full-Stack Development", "Mobile Development"],
+        description: dict.seo.schemaDescription,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "Amir Rahemi Portfolio",
+        inLanguage: ["en-US", "fa-IR"],
+        publisher: { "@id": PERSON_ID },
+      },
     ],
-    knowsAbout: ["JavaScript", "TypeScript", "React", "Next.js", "Flutter", "Dart", "Go", "Node.js", "Full-Stack Development", "Mobile Development"],
-    description: dict.seo.schemaDescription,
-    image: `${SITE_URL}/logo.png`,
-    inLanguage: lang === "fa" ? "fa-IR" : "en-US",
   };
 
   return (

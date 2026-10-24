@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-
-# Disallow crawling of any files that shouldn't be public
-# Disallow: /admin
+Disallow: /api/
 
 Sitemap: https://amirrahemi.com/sitemap.xml

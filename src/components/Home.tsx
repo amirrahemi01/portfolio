@@ -136,6 +136,7 @@ export default function Home() {
                   src={IMG}
                   alt="Amir Rahemi - Full-Stack Developer"
                   priority
+                  fetchPriority="high"
                   fill
                   sizes="(min-width: 1024px) 440px, 400px"
                   className="object-cover object-top"

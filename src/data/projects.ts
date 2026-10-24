@@ -24,6 +24,8 @@ export interface ProjectData {
   id: string;
   slug: string;
   title: { en: string; fa: string };
+  /** A few words for the page title and search results, e.g. "Car services marketplace". */
+  subtitle: { en: string; fa: string };
   shortDescription: { en: string; fa: string };
   longDescription: { en: string; fa: string };
   cover: StaticImageData;
@@ -68,6 +70,7 @@ export const projectsData: ProjectData[] = [
     id: "zinder",
     slug: "zinder",
     title: { en: "Zinder", fa: "Zinder" },
+    subtitle: { en: "Car services marketplace", fa: "بازارگاه خدمات خودرو" },
     shortDescription: {
       en: "A service marketplace that connects car owners with local automotive service providers, built with Next.js.",
       fa: "یک وب‌سایت خدماتی که صاحبان خودرو را به ارائه‌دهندگان خدمات خودرویی نزدیک خودشان وصل می‌کند، ساخته‌شده با Next.js.",
@@ -94,6 +97,7 @@ export const projectsData: ProjectData[] = [
     id: "belami",
     slug: "belami",
     title: { en: "Belami", fa: "Belami" },
+    subtitle: { en: "Persian e-commerce website", fa: "فروشگاه اینترنتی فارسی" },
     shortDescription: {
       en: "A Persian e-commerce website with a full admin panel, built with React, Express, MongoDB and Redux.",
       fa: "یک فروشگاه اینترنتی فارسی با پنل مدیریت کامل، ساخته‌شده با React، Express، MongoDB و Redux.",
@@ -120,6 +124,7 @@ export const projectsData: ProjectData[] = [
     id: "ticker",
     slug: "ticker",
     title: { en: "Ticker", fa: "Ticker" },
+    subtitle: { en: "Flutter crypto and currency prices app", fa: "اپ قیمت ارز دیجیتال و ارز با Flutter" },
     shortDescription: {
       en: "A Flutter mobile app for real-time cryptocurrency and currency prices, with charts and a light and dark theme.",
       fa: "یک اپلیکیشن موبایل فلاتر برای قیمت لحظه‌ای ارزهای دیجیتال و ارزها، با نمودار و تم روشن و تاریک.",
@@ -146,6 +151,7 @@ export const projectsData: ProjectData[] = [
     id: "draw",
     slug: "draw",
     title: { en: "Draw", fa: "Draw" },
+    subtitle: { en: "Exchange-rate platform", fa: "پلتفرم نرخ ارز" },
     shortDescription: {
       en: "An exchange-rate platform with two sides: a public rates website and an admin dashboard to manage the prices.",
       fa: "یک پلتفرم نرخ ارز و طلا با دو بخش: وب‌سایت عمومی نرخ‌ها و داشبورد مدیریت برای کنترل قیمت‌ها.",
@@ -174,6 +180,7 @@ export const projectsData: ProjectData[] = [
     id: "clinic",
     slug: "sportorthopaedie",
     title: { en: "Sportorthopädie Berlin", fa: "Sportorthopädie Berlin" },
+    subtitle: { en: "Orthopaedic clinic website", fa: "وب‌سایت کلینیک ارتوپدی" },
     shortDescription: {
       en: "A redesigned two-language (German and English) website for an orthopaedic clinic in Berlin, built with Astro.",
       fa: "بازطراحی وب‌سایت یک کلینیک ارتوپدی در برلین، به دو زبان آلمانی و انگلیسی، ساخته‌شده با Astro.",
@@ -200,6 +207,7 @@ export const projectsData: ProjectData[] = [
     id: "realestate",
     slug: "realestate",
     title: { en: "Real Estate", fa: "املاک" },
+    subtitle: { en: "Property search website", fa: "وب‌سایت جستجوی ملک" },
     shortDescription: {
       en: "A real-estate website in English and Persian, with search, filters, listing pages and saved favorites. A demo built from scratch.",
       fa: "یک وب‌سایت املاک به دو زبان انگلیسی و فارسی، با جستجو، فیلتر، صفحه آگهی و ذخیره علاقه‌مندی‌ها. یک دمو که از صفر ساخته‌ام.",
@@ -227,6 +235,7 @@ export const projectsData: ProjectData[] = [
     id: "telegram-clone",
     slug: "telegram-clone",
     title: { en: "Telegram Clone", fa: "کلون تلگرام" },
+    subtitle: { en: "Telegram Web clone", fa: "کلون تلگرام وب" },
     shortDescription: {
       en: "A front-end clone of Telegram Web with chats, search and dark mode, running on mock data. Built with Next.js and Zustand.",
       fa: "کلون فرانت‌اند تلگرام وب با چت، جستجو و تم تاریک، با داده‌های نمونه. ساخته‌شده با Next.js و Zustand.",

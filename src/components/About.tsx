@@ -29,7 +29,7 @@ function About() {
         <br />
 
         <div className="flex flex-col justify-center gap-3" dir={isFa === "fa" ? "rtl" : "ltr"} >
-          <h1 className="type-title text-left rtl:text-right">{t("content.amirrahemi")}</h1>
+          <h2 className="type-title text-left rtl:text-right">{t("content.amirrahemi")}</h2>
           <h2 className="type-label !text-blue-300 dark:!text-blue-200 text-left rtl:text-right">{t("content.role")}</h2>
           <p dir="auto" className="type-body text-left rtl:text-right">{t("content.reactjs")}</p>
 
