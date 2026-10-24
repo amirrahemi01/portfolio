@@ -6,7 +6,7 @@ export const cv = {
   role: "Full-Stack Developer",
   email: "amirrahemi01@gmail.com",
   website: "amirrahemi.com",
-  websiteUrl: "https://amirrahemi.com",
+  websiteUrl: "https://www.amirrahemi.com",
   location: "Rasht, Gilan, Iran",
   // Shown in the PDF only
   personal: ["DoB: 2005-09-23", "Marital Status: Single", "Military Service: Educational Exemption"],

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://amirrahemi.com/sitemap.xml
+Sitemap: https://www.amirrahemi.com/sitemap.xml

@@ -12,7 +12,9 @@ export const isLang = (value: string): value is Lang => (LANGS as readonly strin
 /** Server-safe: use in layouts, pages and generateMetadata. Client components use useTranslation(). */
 export const getDictionary = (lang: Lang): Dictionary => dictionaries[lang];
 
-export const SITE_URL = "https://amirrahemi.com";
+// Your real address. In Vercel the apex (amirrahemi.com) redirects to www, so every canonical URL,
+// sitemap entry and link preview must use www too; a canonical that redirects away confuses Google.
+export const SITE_URL = "https://www.amirrahemi.com";
 
 /** Path prefix for a language: English has none ("/"), Persian lives under "/fa". */
 export const prefixFor = (lang: Lang) => (lang === "fa" ? "/fa" : "");
