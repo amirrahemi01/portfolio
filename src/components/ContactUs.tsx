@@ -1,7 +1,7 @@
 "use client";
 
 // Path: src/components/ContactUs.tsx
-import React, { useRef, FormEvent } from 'react';
+import React, { useRef, useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaSquareXTwitter, FaTelegram } from 'react-icons/fa6';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
@@ -28,10 +28,26 @@ const ContactUs: React.FC<ContactProps> = () => {
 
   const { showToast, ToastContainer } = useToast();
 
+  // One message at a time. `sending` disables the button; the ref is the real lock, because two
+  // quick taps can both run before React has re-rendered the disabled button.
+  const [sending, setSending] = useState(false);
+  const [cooldown, setCooldown] = useState(false);
+  const busy = useRef(false);
+  const lastSent = useRef<{ key: string; at: number } | null>(null);
+
+const withTimeout = <T,>(promise: Promise<T>, ms: number, what: string): Promise<T> =>
+  new Promise<T>((resolve, reject) => {
+    const timer = window.setTimeout(() => reject(new Error(`${what} timed out`)), ms);
+    promise.then(
+      (v) => { window.clearTimeout(timer); resolve(v); },
+      (err) => { window.clearTimeout(timer); reject(err); }
+    );
+  });
+
 const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  if (!form.current) return;
+  if (!form.current || busy.current) return;
 
   const formData = new FormData(form.current);
 
@@ -47,13 +63,24 @@ const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
   const email = formData.get('user_email');
   const message = formData.get('message');
 
+  // The same message sent again within 10 minutes (a double tap, a refresh and resend) is not sent twice.
+  const key = `${name}|${email}|${message}`;
+  if (lastSent.current && lastSent.current.key === key && Date.now() - lastSent.current.at < 10 * 60 * 1000) {
+    showToast(t('content.messageDuplicate'), 'success');
+    return;
+  }
+
+  busy.current = true;
+  setSending(true);
+
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   // Two independent channels, sent together: the email (EmailJS) and an instant Telegram alert
   // (our own /api/contact function, which keeps the bot token on the server). The message
-  // counts as sent if either one gets through, so one service being down never loses it.
+  // counts as sent as soon as EITHER one gets through, so the visitor does not wait for the slower
+  // one, and one service being down never loses the message. Each has a timeout for slow networks.
   const sendEmailJs = async () => {
     if (!serviceId || !templateId || !publicKey) {
       throw new Error('EmailJS environment variables are missing');
@@ -61,28 +88,43 @@ const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
     // `time` and `lang` are used by the email template (see emailjs/contact-template.html).
     const time = `${new Date().toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Tehran' })} (Tehran)`;
     const language = i18n.language === 'fa' ? 'Persian' : 'English';
-    await emailjs.send(serviceId, templateId, { name, email, message, time, lang: language }, publicKey);
+    await withTimeout(emailjs.send(serviceId, templateId, { name, email, message, time, lang: language }, publicKey), 20000, 'EmailJS');
   };
 
   const sendTelegram = async () => {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message, lang: i18n.language }),
-    });
-    const data = await response.json().catch(() => null);
-    if (!response.ok || !data?.ok) throw new Error(`Telegram alert failed (${response.status})`);
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, lang: i18n.language }),
+        signal: controller.signal,
+      });
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data?.ok) throw new Error(`Telegram alert failed (${response.status})`);
+    } finally {
+      window.clearTimeout(timer);
+    }
   };
 
-  const [emailResult, telegramResult] = await Promise.allSettled([sendEmailJs(), sendTelegram()]);
-  if (emailResult.status === 'rejected') console.error('Email failed:', emailResult.reason);
-  if (telegramResult.status === 'rejected') console.error('Telegram alert failed:', telegramResult.reason);
+  const channels = [sendEmailJs().catch((err) => { console.error('Email failed:', err); throw err; }),
+                    sendTelegram().catch((err) => { console.error('Telegram alert failed:', err); throw err; })];
 
-  if (emailResult.status === 'fulfilled' || telegramResult.status === 'fulfilled') {
+  try {
+    await Promise.any(channels);
+    lastSent.current = { key, at: Date.now() };
     showToast(t('content.messageSentSuccess'), 'success');
     form.current?.reset();
-  } else {
+    // Short pause before another message can be sent
+    setCooldown(true);
+    window.setTimeout(() => setCooldown(false), 15000);
+  } catch {
+    // Both channels failed: keep what was typed so nothing is lost, and let the visitor retry.
     showToast(t('content.messageSentError'), 'error');
+  } finally {
+    busy.current = false;
+    setSending(false);
   }
 };
 
@@ -124,7 +166,7 @@ const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
           <div
             className="backdrop-blur-xl bg-white/10 dark:bg-slate-800/30 rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl transition-all duration-500 text-left rtl:text-right"
           >
-            <form dir={isFa === "fa" ? "rtl" : "ltr"} ref={form} onSubmit={sendEmail} className="space-y-6">
+            <form dir={isFa === "fa" ? "rtl" : "ltr"} ref={form} onSubmit={sendEmail} aria-busy={sending} className="space-y-6">
               {/* Honeypot (spam trap): off-screen and skipped by keyboard/screen readers; bots fill it in. */}
               <input
                 type="text"
@@ -174,9 +216,13 @@ const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full md:w-auto px-8 py-3.5 bg-blue-300 hover:brightness-125 rounded-full text-white font-bold text-base transition duration-200"
+                disabled={sending || cooldown}
+                aria-disabled={sending || cooldown}
+                className="w-full md:w-auto px-8 py-3.5 bg-blue-300 hover:brightness-125 rounded-full text-white font-bold text-base transition duration-200 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100"
               >
-                <span className="relative ltr:top-[0.17em]">{t("content.contactSendMessage")}</span>
+                <span className="relative ltr:top-[0.17em]">
+                  {sending ? t("content.contactSending") : cooldown ? t("content.contactSent") : t("content.contactSendMessage")}
+                </span>
               </button>
             </form>
           </div>

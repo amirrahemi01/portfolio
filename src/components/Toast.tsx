@@ -28,14 +28,14 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
   const Icon = type === 'success' ? CheckCircle : AlertCircle;
 
   return (
+    // Bottom centre, above everything: the theme/language pill is fixed at the top right with
+    // z-index 9999, and the toast used to be drawn underneath it.
+    <div className="pointer-events-none fixed inset-x-4 bottom-4 z-[10000] flex justify-center md:bottom-8">
     <div
+      role={type === 'error' ? 'alert' : 'status'}
       className={`
-        fixed z-50 transition-all duration-300 transform
-        ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}
-        /* Mobile: Full width with margins */
-        top-4 left-4 right-4
-        /* Tablet: Centered with max-width */
-        md:left-auto md:right-6 md:top-6 md:max-w-md md:w-auto
+        pointer-events-auto w-full transition-all duration-300 transform md:max-w-md
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
       `}
     >
       <div className="backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden w-full">
@@ -63,6 +63,7 @@ export const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
