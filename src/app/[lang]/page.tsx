@@ -47,6 +47,8 @@ export default async function HomePage({ params }: Props) {
   const { lang: raw } = await params;
   const lang: Lang = isLang(raw) ? raw : "en";
   const dict = getDictionary(lang);
+  const pageUrl = lang === "fa" ? `${SITE_URL}/fa` : `${SITE_URL}/`;
+
   // One connected graph: the Person (who the site is about) and the WebSite (this site, in two
   // languages). The projects pages point back to the Person with its @id.
   const jsonLd = {
@@ -56,7 +58,7 @@ export default async function HomePage({ params }: Props) {
         "@type": "Person",
         "@id": PERSON_ID,
         name: "Amir Rahemi",
-        alternateName: "امیر راحمی",
+        alternateName: ["امیر راحمی", "Amir Rahemi"],
         jobTitle: "Full-Stack Developer",
         url: `${SITE_URL}/`,
         image: `${SITE_URL}/logo.png`,
@@ -70,6 +72,17 @@ export default async function HomePage({ params }: Props) {
         knowsLanguage: ["en", "fa"],
         knowsAbout: ["JavaScript", "TypeScript", "React", "Next.js", "Astro", "Flutter", "Dart", "Go", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Full-Stack Development", "Mobile Development"],
         description: dict.seo.schemaDescription,
+      },
+      {
+        // The page is a profile of the Person (Google's "profile page" markup).
+        "@type": "ProfilePage",
+        "@id": `${pageUrl}#profile`,
+        url: pageUrl,
+        name: dict.seo.title,
+        inLanguage: lang === "fa" ? "fa-IR" : "en-US",
+        dateCreated: "2026-07-03T00:00:00+03:30",
+        dateModified: "2026-10-25T00:00:00+03:30",
+        mainEntity: { "@id": PERSON_ID },
       },
       {
         "@type": "WebSite",
